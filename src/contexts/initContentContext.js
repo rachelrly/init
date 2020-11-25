@@ -6,9 +6,11 @@ import React, { Component } from 'react'
 
 const InitContentContext = React.createContext({
     data: null,
+    projectData: null,
     // currentAvatar: {},
     // setCurrentAvatar: () => {},
     setData: () => {},
+    setProjectData: () => {},
 })
 
 export default InitContentContext
@@ -16,6 +18,7 @@ export default InitContentContext
 export class InitContentProvider extends Component {
     state = {
       data: null,
+      projectData: null,
     //   currentAvatar: {}
     }  
     
@@ -35,12 +38,19 @@ export class InitContentProvider extends Component {
         this.setState({ data: !this.state.data })
     }
 
+    setProjectData = () => {
+        console.log('setting project data')
+        this.setState({ projectData: !this.state.projectData })
+    }
+
     render() {
         const value = {
             // currentAvatar: this.state.currentAvatar,
             data: this.state.data,
+            projectData: this.state.projectData,
             // setCurrentAvatar: this.setCurrentAvatar,
             setData: this.setData,
+            setProjectData: this.setProjectData,
         }
         return (
             <InitContentContext.Provider value={value}>

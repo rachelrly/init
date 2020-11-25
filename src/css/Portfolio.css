@@ -57,6 +57,13 @@ ul {
     list-style: none;
 }
 
+.returns {
+    border: steelblue;
+    border-width: 500px;
+    height: 88vh;
+    font-size: 500%;
+}
+
 @media all and (min-width: 500px) {
     .gallery {
         margin-left: 2rem;

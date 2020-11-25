@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Gallery from '../../components/Gallery/Gallery.working';
+import Gallery from '../../components/Gallery/Gallery';
 import ProfileTop from '../../components/ProfileTop/ProfileTop';
 import '../../css/Portfolio.css';
 

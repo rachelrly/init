@@ -145,23 +145,21 @@ h1{
 }
 
 @media all and (min-width: 500px){
-
-h1{
-    padding-left: var(--spacer-sm)
+    h1{
+        padding-left: var(--spacer-sm)
+    }
 }
- 
- }
 
- @media all and (min-width: 700px){
+@media all and (min-width: 700px){
 
   
      
-    }
+}
 
 @media all and (min-width: 900px){
 
          
-    }
+}
 
 
  

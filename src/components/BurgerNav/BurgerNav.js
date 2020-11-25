@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useContext } from 'react'
+import React, { Fragment, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import TokenService from '../../services/token-service'
-import UserContext from '../../contexts/userContext'
+import TokenService from '../../services/token-service';
+import UserContext from '../../contexts/userContext';
 
 function BurgerNav() {
     const userContext = useContext(UserContext)
