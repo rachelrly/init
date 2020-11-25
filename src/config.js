@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === 'production') {
     apiPath = 'future server path'
     tokenKey = 'init-client-auth-token'
 } else {
-    apiPath = 'http://localhost:8760/api'
+    apiPath = 'http://localhost:8000/api'
     tokenKey = 'init-client-auth-token'
 }
 
