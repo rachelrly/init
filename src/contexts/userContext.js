@@ -6,11 +6,13 @@ import IdleService from '../services/idle-service'
 const UserContext = React.createContext({
     user: {},
     error: null,
-    setError: () => {},
-    clearError: () => {},
-    setUser: () => {},
-    processLogin: () => {},
-    processLogout: () => {},
+    isLoggedIn: null,
+    setError: () => { },
+    clearError: () => { },
+    setUser: () => { },
+    processLogin: () => { },
+    processLogout: () => { },
+
 })
 
 export default UserContext
@@ -18,10 +20,10 @@ export default UserContext
 export class UserProvider extends Component {
     constructor(props) {
         super(props)
-        
-        const state = { 
-            user: {}, 
-            error: null 
+
+        const state = {
+            user: {},
+            error: null
         }
 
         const jwtPayload = TokenService.parseAuthToken()
@@ -34,19 +36,23 @@ export class UserProvider extends Component {
                 email: jwtPayload.email,
                 about_user: jwtPayload.about_user,
                 user_stack: jwtPayload.user_stack,
-          }
+            }
 
         this.state = state;
         IdleService.setIdleCallback(this.logoutBecauseIdle)
     }
 
     componentDidMount() {
-      if (TokenService.hasAuthToken()) {
-          IdleService.regiserIdleTimerResets()
-          TokenService.queueCallbackBeforeExpiry(() => {
-              this.fetchRefreshToken()
-          })
-      }
+        if (TokenService.hasAuthToken()) {
+            IdleService.regiserIdleTimerResets()
+            TokenService.queueCallbackBeforeExpiry(() => {
+                this.fetchRefreshToken()
+            })
+
+            if (!this.state.isLoggedIn) {
+                this.setIsLoggedIn()
+            }
+        }
     }
 
     componentWillUnmount() {
@@ -67,6 +73,10 @@ export class UserProvider extends Component {
         this.setState({ user })
     }
 
+    setIsLoggedIn = () => {
+        this.setState({ isLoggedIn: !this.state.isLoggedIn })
+    }
+
     processLogin = authToken => {
         TokenService.saveAuthToken(authToken)
         const jwtPayload = TokenService.parseAuthToken()
@@ -82,13 +92,17 @@ export class UserProvider extends Component {
         TokenService.queueCallbackBeforeExpiry(() => {
             this.fetchRefreshToken()
         })
+        this.setIsLoggedIn(true)
     }
 
     processLogout = () => {
         TokenService.clearAuthToken()
         TokenService.clearCallbackBeforeExpiry()
         IdleService.unRegisterIdleResets()
+        console.log('this ran at line 98')
+        this.setIsLoggedIn(false)
         this.setUser({})
+
     }
 
     logoutBecauseIdle = () => {
@@ -115,12 +129,15 @@ export class UserProvider extends Component {
         const value = {
             user: this.state.user,
             error: this.state.error,
+            isLoggedIn: this.state.isLoggedIn,
             setError: this.setError,
             clearError: this.clearError,
             setUser: this.setUser,
             processLogin: this.processLogin,
             processLogout: this.processLogout,
+
         }
+        console.log('isLoggedIn', this.state.isLoggedIn)
         return (
             <UserContext.Provider value={value}>
                 {this.props.children}

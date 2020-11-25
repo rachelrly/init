@@ -37,48 +37,44 @@ function Post() {
             </div>
 
             <div className='post-user-wrapper post-detail-wrapper'>
-                <ProfilePic className='post-profile-pic' />
-                <Link to={`/user/${post.user_id}`} className='post-name-wrapper'>
-                    <p>{post.username}</p>
-                    <p>{post.fullname}</p>
-                </Link>
-            </div>
-            <div className='post-detail-wrapper desc-wrapper'>
+                <div className='user-detail-wrapper'>
+                    <ProfilePic className='post-profile-pic' />
+                    <Link to={`/user/${post.user_id}`} className='post-name-wrapper'>
+                        <p>{post.username}</p>
+                    </Link>
+                </div>
+
                 <p className='desc'>{post.description}</p>
             </div>
-            {post.live_link
-                ? <div className='link-wrapper post-detail-wrapper'>
-                    <p className='link-label'>Live Project</p>
-                    <a _target='blank' href={post.live_link} alt='view live project' className='link'>
-                        <p>{post.live_link}</p>
-                    </a>
-                </div>
-                : null}
-            {post.repository
-                ? <div className='link-wrapper post-detail-wrapper'>
-                    <p className='link-label'>Front-end Repository</p>
-                    <a _target='blank' href={post.repository} alt='view projects repository' className='link'>
-                        <p>Front-end Repository</p>
-                    </a>
-                </div>
-                : null}
-            {post.backEndRepository
-                ? <div className='link-wrapper post-detail-wrapper'>
-                    <p className='link-label'>Back-end Repository</p>
-                    <a _target='blank' href={post.repository} alt='view projects repository' className='link'>
-                        <p>Back-end Repository</p>
-                    </a>
-                </div>
-                : null}
+            <div className='links-rendered-wrapper post-detail-wrapper'>
+                {post.live_link
+                    ? <div className='link-wrapper'>
+                        <a _target='blank' href={post.live_link} alt='view live project' className='link'>
+                            <p>Live Project</p>
+                        </a>
+                    </div>
+                    : null}
+                {post.repository
+                    ? <div className='link-wrapper'>
+                        <a _target='blank' href={post.repository} alt='view projects repository' className='link'>
+                            <p>Front-end Repository</p>
+                        </a>
+                    </div>
+                    : null}
+                {post.backEndRepository
+                    ? <div className='link-wrapper'>
+                        <a _target='blank' href={post.repository} alt='view projects repository' className='link'>
+                            <p>Back-end Repository</p>
+                        </a>
+                    </div>
+                    : null}
+            </div>
             <div className='post-detail-wrapper'>
                 <p>Tech stack: {post.tech_stack}</p>
             </div>
 
-
-
-
-            {comments.length ? comments.map(c => <Comment key={c.id} {...c} />) : null}
             <CommentForm post_id={id} comments={comments} setComments={(c) => { setComments(c) }} />
+            {comments.length ? comments.map(c => <Comment key={c.id} {...c} />) : null}
         </section>
     )
 }

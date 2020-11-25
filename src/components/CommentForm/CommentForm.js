@@ -17,10 +17,7 @@ function CommentForm(props) {
         const response = await InitContentApiService.postComment(props.post_id, text)
         props.setComments(response)
 
-
-
     }
-
 
     return (
         <form className='comment-form' onSubmit={(e) => handleSubmit(e)}>

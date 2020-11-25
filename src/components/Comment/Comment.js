@@ -6,14 +6,18 @@ function Comment(props) {
     const d = new Date(props.date_created)
     return (
         <div className='comment-wrapper'>
-            <div className='comment-data-wrapper'>
-                <Link to={`/user/${props.user_id}`}>
-                    <p className='comment-username'>{props.username}</p>
-                </Link>
+            <div className='avatar-date-comment-wrapper'>
+                <p className='temp-user-avatar'>⬢</p>
                 <p className='comment-date-created'>{format(d, 'MMM dd yyyy')}</p>
             </div>
-            <p className='comment-body'>{props.text}</p>
-        </div>
+            <div className='comment-data-wrapper'>
+                <Link to={`/user/${props.user_id}`}>
+                    <span className='comment-username'>{props.username}</span>
+                </Link>
+                <span className='comment-body'>{props.text}</span>
+            </div>
+
+        </div >
     )
 }
 
