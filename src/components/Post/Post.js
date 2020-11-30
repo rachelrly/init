@@ -74,7 +74,7 @@ function Post() {
             </div>
 
             <CommentForm post_id={id} comments={comments} setComments={(c) => { setComments(c) }} />
-            {comments.length ? comments.map(c => <Comment key={c.id} {...c} />) : null}
+            {comments.length ? comments.map(c => <Comment index={c.id} key={c.id} {...c} />) : null}
         </section>
     )
 }

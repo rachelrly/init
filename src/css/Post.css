@@ -105,7 +105,9 @@ overflow-wrap: break-word;
     width: inherit;
     border: 2px solid var(--colors-accent);
 }
-
+.comment-profile-pic{
+    height: 30%;
+}
 .comment-wrapper{
     width: inherit;
     display: flex;

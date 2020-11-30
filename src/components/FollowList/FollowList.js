@@ -3,6 +3,7 @@ import ProfilePic from '../ProfilePic/ProfilePic'
 import { Link } from 'react-router-dom';
 import FollowService from '../../services/follow-service';
 import '../../css/FollowList.css'
+import { buffTo64 } from '../../components/Utils/Utils'
 
 function FollowList(props) {
     const [toggleFollow, setToggleFollow] = useState(true)
@@ -15,6 +16,9 @@ function FollowList(props) {
 
     }, [])
 
+    console.log(followedByUser)
+
+    console.log('followed by user', followedByUser, 'following user', followingUser)
     const getFollow = async () => {
         try {
             const { followingUser, followedByUser } = await FollowService.getFollowLists()
@@ -51,12 +55,13 @@ function FollowList(props) {
     const usersArr = toggleFollow ? followingUser : followedByUser
 
     const followList = usersArr.map((f, index) => {
+        console.log(f)
         return (
             <div className='follow-item-wrapper' key={index} >
                 <div className='follow-item-inner-wrapper'>
                     <div className='follow-wrapper-left'>
                         <Link to='/portfolio'>
-                            <ProfilePic />
+                            <ProfilePic index={index} image={!f.img_file ? undefined : `data:image/${f.img_type};base64,${buffTo64(f.img_file.data)}`} />
                         </Link>
                         <div className='follow-name-wrapper'>
                             <h4>{f.username}</h4>
