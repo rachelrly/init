@@ -99,7 +99,6 @@ export class UserProvider extends Component {
         TokenService.clearAuthToken()
         TokenService.clearCallbackBeforeExpiry()
         IdleService.unRegisterIdleResets()
-        console.log('this ran at line 98')
         this.setIsLoggedIn(false)
         this.setUser({})
 
@@ -109,6 +108,7 @@ export class UserProvider extends Component {
         TokenService.clearAuthToken()
         TokenService.clearCallbackBeforeExpiry()
         IdleService.unRegisterIdleResets()
+        this.setIsLoggedIn(false)
         this.setUser({ idle: true })
     }
 
@@ -137,7 +137,6 @@ export class UserProvider extends Component {
             processLogout: this.processLogout,
 
         }
-        console.log('isLoggedIn', this.state.isLoggedIn)
         return (
             <UserContext.Provider value={value}>
                 {this.props.children}

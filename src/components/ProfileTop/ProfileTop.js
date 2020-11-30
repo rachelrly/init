@@ -5,14 +5,12 @@ import Vegeta from '../../pictures/VegetaProfile.jpg';
 
 function ProfileTop() {
   const userContext = useContext(UserContext)
-  console.log(userContext.user)
   let { user } = userContext
-  console.log(user.username)
 
   return (
     <section>
       <div className='hex-wrapper'>
-        <ProfilePic image={Vegeta}/>
+        <ProfilePic image={Vegeta} />
         <div className='p-wrapper'>
           <p className='p-filling'>post counter</p>
           <p className='p-filling'>follower counter</p>

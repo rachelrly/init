@@ -20,25 +20,25 @@ export default class Footer extends Component {
                         to='/feed'
                         className='navItem'
                     >
-                        <img src={HiveFeed} alt='Feed link logo' className='navIcon' alt='hive'></img>
+                        <img src={HiveFeed} alt='Feed link logo' className='navIcon'></img>
                     </Link></li>
                     <li><Link
                         to='/connections'
                         className='navItem'
                     >
-                        <img src={Swarm} alt='connections link logo' className='navIcon' alt='swarm'></img>
+                        <img src={Swarm} alt='Connections link logo' className='navIcon'></img>
                     </Link></li>
                     <li><Link
                         to='/buzz'
                         className='navItem'
                     >
-                        <img src={Buzz} alt='Buzz link logo' className='navIcon' alt='buzz'></img>
+                        <img src={Buzz} alt='Buzz link logo' className='navIcon'></img>
                     </Link></li>
                     <li><Link
                         to='/Portfolio'
                         className='navItem'
                     >
-                        <img src={Account} alt='Account link logo' className='navIcon' alt='queenBee'></img>
+                        <img src={Account} alt='Account link logo' className='navIcon'></img>
                     </Link></li>
                 </ul>
             </div>
@@ -54,7 +54,7 @@ export default class Footer extends Component {
                             to='/login'
                             className='navItem'
                         >
-                            <img src={LockedHive} alt='Feed link logo' className='navIcon' alt='logIn'></img>
+                            <img src={LockedHive} className='navIcon' alt='logIn'></img>
                         </Link>
                     </li>
                 </ul>

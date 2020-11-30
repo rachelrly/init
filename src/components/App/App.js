@@ -5,7 +5,7 @@ import '../../css/main.css';
 import Header from '../Header/Header';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import Yo from '../../routes/yo';
+import YoRoute from '../../routes/YoRoute/YoRoute';
 import Buzz from '../../routes/BuzzRoute/BuzzRoute';
 import Connections from '../../routes/ConnectionsRoute/ConnectionsRoute'
 import Feed from '../../routes/FeedRoute/FeedRoute';
@@ -25,7 +25,7 @@ class App extends Component {
                 <PublicOnlyRoute
                     exact
                     path={'/'}
-                    component={Yo}
+                    component={YoRoute}
                 />
                 <PublicOnlyRoute
                     path={'/login'}

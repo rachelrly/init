@@ -1,3 +1,5 @@
+import config from '../../config';
+
 // Want to understand this better? try this video https://www.youtube.com/watch?v=NZKUirTtxcg
 
 //useEffect takes in two arguments, one being a function and the other being variables
@@ -16,7 +18,7 @@ export default function useGallerySearch(observed, pageNumber, limit) {
     const [results, setResults] = useState([]);
     //Supposed we have seen all the results there are to see (numFound)
     //How do we know to stop loading more? This guy right here will do just that
-    const [hasMore, setHasMore] = useState(false);
+    const [hasMore, setHasMore] = useState(null);
 
     //This is neat... whenever the param (observer) changes then the axios call is made
     useEffect(() => {
@@ -36,7 +38,7 @@ export default function useGallerySearch(observed, pageNumber, limit) {
         console.log('what are we working with', observed, pageNumber, limit)
         axios({
             method: 'GET',
-            url: 'http://localhost:8000/api/post/download',
+            url: `${config.API_ENDPOINT}/post/download`,
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
@@ -49,15 +51,16 @@ export default function useGallerySearch(observed, pageNumber, limit) {
             //That create a brand new array of only unique Books
             //*for init this can be used to prevent rendering of duplicate Posts, methinks*
             setResults(prevResults => {
-                return [...new Set([...prevResults, ...res.data.results.map(p => p)])]
+                return [...new Set([...prevResults, ...res.data.results])]
             })
             //We need to determine if there are more books are not
             //As long as we have more than 0 books we know there are more to load
             //When it is 0 we have reached the end of it all
             setHasMore(res.data.results.length > 0)
+            // console.log('HAS MORE', hasMore)
             //No reason to Load anything else, right?
             setLoading(false)
-            console.log('our axios get', res.data)
+            console.log('OUR AXIOS GET', res.data)
             //PROTIP
             //The console log will give you something that look-a like-a this
             //{docs:100, num_found: 67689, numFound:67689, start:0}
@@ -73,6 +76,6 @@ export default function useGallerySearch(observed, pageNumber, limit) {
             setError(true)
         })
         return () => cancel()
-    }, [limit, observed, pageNumber]);
-    return { loading, error, results, hasMore};
+    }, [pageNumber]);
+    return { loading, error, results, hasMore };
 };

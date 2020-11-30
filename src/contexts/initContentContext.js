@@ -9,19 +9,19 @@ const InitContentContext = React.createContext({
     projectData: null,
     // currentAvatar: {},
     // setCurrentAvatar: () => {},
-    setData: () => {},
-    setProjectData: () => {},
+    setData: () => { },
+    setProjectData: () => { },
 })
 
 export default InitContentContext
 
 export class InitContentProvider extends Component {
     state = {
-      data: null,
-      projectData: null,
-    //   currentAvatar: {}
-    }  
-    
+        data: null,
+        projectData: null,
+        //   currentAvatar: {}
+    }
+
     // componentDidMount() {
     //     // this.context.clearError()
     //     InitContentApiService.getAvatar()
@@ -34,7 +34,6 @@ export class InitContentProvider extends Component {
     // }
 
     setData = () => {
-        console.log('setting data')
         this.setState({ data: !this.state.data })
     }
 

@@ -29,7 +29,7 @@ class PostForm extends Component {
         // const currentPost= this.state.currentAvatar
         const { setProjectData } = this.context
 
-
+        console.log('this ran')
         InitContentApiService.postInitProject(ev.target)
             // .then(setCurrentAvatar())
             .then(() => this.props.history.push('/portfolio'))
@@ -38,7 +38,7 @@ class PostForm extends Component {
                 this.setState({ error })
             })
     }
-    
+
 
     render() {
         const { error } = this.state
@@ -52,8 +52,8 @@ class PostForm extends Component {
                 onSubmit={this.handleSubmit}
                 encType='multipart/form-data'
             >
-                <div 
-                    role='alert' 
+                <div
+                    role='alert'
                     className='error-message'
                     aria-live='assertive'
                 >
@@ -61,7 +61,7 @@ class PostForm extends Component {
                 </div>
                 <ProjectUpload />
                 <div className='project-form-input'>
-                    <label 
+                    <label
                         htmlFor='init-project-title-input'
                         aria-label='init-project-title-input'
                         className='project-form-label'
@@ -76,7 +76,7 @@ class PostForm extends Component {
                         autoComplete='off'
                     >
                     </input>
-                    <label 
+                    <label
                         htmlFor='init-project-description-input'
                         aria-label='init-project-description-input'
                         className='project-form-label'
@@ -91,7 +91,7 @@ class PostForm extends Component {
                         autoComplete='off'
                     >
                     </input>
-                    <label 
+                    <label
                         htmlFor='init-project-live-link-input'
                         aria-label='init-project-live-link-input'
                         className='project-form-label'
@@ -106,7 +106,7 @@ class PostForm extends Component {
                         autoComplete='off'
                     >
                     </input>
-                    <label 
+                    <label
                         htmlFor='init-project-repository-input'
                         aria-label='init-project-repository-input'
                         className='project-form-label'
@@ -121,7 +121,7 @@ class PostForm extends Component {
                         autoComplete='off'
                     >
                     </input>
-                    <label 
+                    <label
                         htmlFor='init-project-tech-stack-input'
                         aria-label='init-project-tech-stack-input'
                         className='project-form-label'
@@ -137,10 +137,10 @@ class PostForm extends Component {
                     >
                     </input>
                 </div>
-                <button 
+                <button
                     type='submit'
                     className='project-form-submit-button'
-                    disabled={!projectData}
+                // disabled={!projectData}
                 >
                     Upload
                 </button>

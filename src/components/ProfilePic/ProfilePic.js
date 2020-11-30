@@ -1,5 +1,5 @@
 import React from 'react';
-import defaultImg from '../../HAHA.jpg';
+import defaultImg from '../Footer/Images/avatar-default.png'
 
 function ProfilePic(props) {
 

@@ -96,7 +96,7 @@ header{
 }
 
 .burger-line-open-two{
-display: none;
+    display: none;
 }
 
 .burger-line-open-three{
@@ -123,7 +123,7 @@ display: none;
     background-color: var(--colors-accent-light);
     padding: var(--spacer-sm);
     font-size: var(--font-size-sm);
-  overflow-block: none;
+    overflow-block: none;
 }
 
 .nav-item-one{

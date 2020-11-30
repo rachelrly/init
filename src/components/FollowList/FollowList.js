@@ -21,8 +21,8 @@ function FollowList(props) {
             setFollowedByUser(followedByUser)
             setFollowingUser(followingUser)
         }
-        catch {
-            return err => console.log(err)
+        catch (error) {
+            console.log(error)
         }
     }
 
