@@ -6,8 +6,9 @@ import { buffTo64 } from '../../components/Utils/Utils';
 import FollowService from '../../services/follow-service';
 
 function ActivitiesList(props) {
-    const [toggleFollow, setToggleFollow] = useState(true)
+    // const [toggleFollow, setToggleFollow] = useState(true)
 
+    const [followedByUser, setFollowedByUser] = useState([])
     const [unreadFollowingUser, setUnreadFollowingUser] = useState([])
     const [unreadCommentsForUser, setUnreadCommentsForUser] = useState([])
 
@@ -18,10 +19,10 @@ function ActivitiesList(props) {
 
     const getActivities = async () => {
         try {
-            const { unreadFollowingUser, unreadCommentsForUser } = await ActivitiesService.getUnreadActivity()
+            const { followedByUser, unreadFollowingUser, unreadCommentsForUser } = await ActivitiesService.getUnreadActivity()
+            setFollowedByUser(followedByUser)
             setUnreadFollowingUser(unreadFollowingUser)
             setUnreadCommentsForUser(unreadCommentsForUser)
-            console.log(unreadFollowingUser, unreadCommentsForUser)
         }
         catch (error) {
             console.log(error)
@@ -31,8 +32,7 @@ function ActivitiesList(props) {
     const handleUnfollow = async (id) => {
         try {
             const followers = await FollowService.unfollow(id)
-            // setFollowedByUser(followers)
-            return followers
+            setFollowedByUser(followers)
         }
         catch (error) {
             console.log(error)
@@ -42,8 +42,7 @@ function ActivitiesList(props) {
     const handleFollow = async (id) => {
         try {
             const followers = await FollowService.follow(id)
-            // setFollowedByUser(followers)
-            return followers
+            setFollowedByUser(followers)
         }
         catch (error) {
             console.log(error)
@@ -59,6 +58,8 @@ function ActivitiesList(props) {
     // 4. follow/unfollow button
     // 5. post title
     // 6. post photo
+
+    const isFollowing = id => followedByUser.find(u => u.id === id)
     const mergedActivities = unreadFollowingUser.concat(unreadCommentsForUser)
     const notifications = mergedActivities.sort(function(a, b){
         return a.date_created + b.date_created;
@@ -77,7 +78,7 @@ function ActivitiesList(props) {
         {!a.text ? <span>has started following you.</span> : <span>has commented on {a.post_title}</span>}</p>
                         </div>
                     </div>
-                    {toggleFollow
+                    {!isFollowing(a.id)
                         ? <button className='follow-button' onClick={() => handleFollow(a.id)}>Follow</button>
                         : <button className='follow-button' onClick={() => handleUnfollow(a.id)}>Unfollow</button>}
                 </div>

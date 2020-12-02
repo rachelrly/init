@@ -15,9 +15,6 @@ function FollowList(props) {
         getFollow()
 
     }, [])
-
-    console.log(followedByUser)
-
     
     const getFollow = async () => {
         try {
@@ -57,7 +54,6 @@ function FollowList(props) {
 
     const isFollowing = id => followedByUser.find(u => u.id === id)
     const followList = usersArr.map((f, index) => {
-        console.log(f)
         return (
             <div className='follow-item-wrapper' key={index} >
                 <div className='follow-item-inner-wrapper'>
