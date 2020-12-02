@@ -6,9 +6,31 @@
 
 .p-wrapper {
     display: flex;
-    text-align: left;
     justify-content: flex-start;
     align-items: center;
+}
+
+.gallery-page-wrapper{
+    display: flex;
+    width: inherit;
+    height: 100%;
+    flex-direction: column;
+    padding: var(--spacer-sm);
+}
+
+.profile-info-wrapper{
+    display: flex;
+    width: inherit;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacer-sm);
+}
+
+.profile-top-wrapper{
+    display: flex;
+    width: inherit; 
+    
+    flex-direction: column;
 }
 
 .p-filling {

@@ -60,7 +60,7 @@ class PostForm extends Component {
                     {error && <p>{error.message}</p>}
                 </div>
                 <ProjectUpload />
-                <div className='project-form-input'>
+                <div className='post-input-wrapper'>
                     <label
                         htmlFor='init-project-title-input'
                         aria-label='init-project-title-input'
@@ -136,15 +136,16 @@ class PostForm extends Component {
                         autoComplete='off'
                     >
                     </input>
-                </div>
-                <button
-                    type='submit'
-                    className='project-form-submit-button'
-                // disabled={!projectData}
-                >
-                    Upload
+
+                    <button
+                        type='submit'
+                        className='project-form-submit-button'
+                    // disabled={!projectData}
+                    >
+                        Upload
                 </button>
-            </form>
+                </div>
+            </form >
         )
     }
 }

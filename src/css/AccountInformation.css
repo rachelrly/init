@@ -4,14 +4,12 @@
 
 .account-avatar-wrapper {
     text-align: center;
-    margin: 5vh 0 0 0;
+  
 }
 
 .account-wrapper {
-    min-width: 80vw;;
     background-color: none;
     line-height: 200%;
-    /* text-align: center; */
 }
 
 .account-form {
@@ -33,6 +31,6 @@
     width: 80%;
 }
 
-.update-avatar-link {
+/* .update-avatar-link {
     margin: 3vh 0 4vh 0;
-}
+} */

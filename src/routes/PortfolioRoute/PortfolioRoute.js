@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Gallery from '../../components/Gallery/Gallery';
 import ProfileTop from '../../components/ProfileTop/ProfileTop';
 import '../../css/Portfolio.css';
@@ -6,10 +6,10 @@ import '../../css/Portfolio.css';
 class Portfolio extends Component {
   render() {
     return (
-      <section>
+      <div className='gallery-page-wrapper'>
         <ProfileTop />
         <Gallery />
-      </section>
+      </div>
     );
   };
 };

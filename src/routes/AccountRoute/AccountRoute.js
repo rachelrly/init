@@ -6,14 +6,13 @@ import UserContext from '../../contexts/userContext'
 class AccountRoute extends Component {
     render() {
         return (
-            <section className='account-route'>
-                <h2>Account</h2>
+            <div className='account-route'>
                 <UserContext.Consumer>
                     {user => (
-                        <AccountInformation user={user}/>
+                        <AccountInformation user={user} />
                     )}
                 </UserContext.Consumer>
-            </section>
+            </div>
         )
     }
 };

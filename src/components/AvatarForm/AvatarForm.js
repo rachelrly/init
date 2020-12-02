@@ -21,12 +21,12 @@ class AvatarForm extends Component {
         // this.context.clearError()
         InitContentApiService.getAvatar()
             .then(res => this.setState({ currentAvatar: res }))
-            // .catch(this.setState)
+        // .catch(this.setState)
     }
 
     handleSubmit = (ev) => {
         ev.preventDefault()
-        const currentAvatar= this.state.currentAvatar
+        const currentAvatar = this.state.currentAvatar
         const { setData } = this.context
 
 
@@ -61,8 +61,8 @@ class AvatarForm extends Component {
                 onSubmit={this.handleSubmit}
                 encType='multipart/form-data'
             >
-                <div 
-                    role='alert' 
+                <div
+                    role='alert'
                     className='error-message'
                     aria-live='assertive'
                 >
@@ -70,7 +70,7 @@ class AvatarForm extends Component {
                 </div>
                 <PhotoUpload />
                 <div className='avatar-form-input'>
-                    <label 
+                    {/* <label 
                         htmlFor='avatar-image-name-input'
                         aria-label='avatar-image-name-input'
                         className='avatar-form-label'
@@ -84,9 +84,9 @@ class AvatarForm extends Component {
                         aria-required='false'
                         autoComplete='off'
                     >
-                    </input>
+                    </input> */}
                 </div>
-                <button 
+                <button
                     type='submit'
                     className='avatar-form-submit-button'
                     disabled={!data}

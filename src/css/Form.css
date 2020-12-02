@@ -6,16 +6,19 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 0 var(--spacer-sm);
 }
 
 input, textarea, select {
-    padding: 1vh 0 1vh 0;
-    margin-top: 1vh;
+    padding: 5px;
+    margin-top: var(--spacer-sm);
+    margin-bottom: var(--spacer-sm);
     display: flex;
     flex-direction: column;
-    width: 85vw;
-    margin: 1vh 0 1vh 0;
-    font-size: 2.2vh;
+    width: 95%;
+    max-width: 350px;
+    font-size: var(--fontsize-sm);
 }
 
 label {
@@ -36,12 +39,18 @@ label {
     justify-content: center;  
 }
 
-.preview-photo {
+/* .preview-photo {
     width: 85vw;
-}
+} */
+
+
 
 @media only screen and (min-width: 800px) {
     input, textarea, select, .form-button, .preview-photo {
         width: 70vw;
     }
+    .project-form{
+        flex-direction: row;
+    }
+
 }

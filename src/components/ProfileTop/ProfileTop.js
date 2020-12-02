@@ -7,21 +7,21 @@ function ProfileTop() {
   let { user } = userContext
 
   return (
-    <section>
-      <div className='hex-wrapper'>
+    <div className='profile-top-wrapper'>
+      <div className='profile-info-wrapper'>
         <ProfilePic />
-        <div className='p-wrapper'>
-          <p className='p-filling'>post counter</p>
-          <p className='p-filling'>follower counter</p>
-          <p className='p-filling'>following counter</p>
-        </div>
+
+        <p className='p-filling'>posts</p>
+        <p className='p-filling'>followers</p>
+        <p className='p-filling'>following</p>
+
       </div>
       <div className='profile-wrapper'>
         <p className='p-item-top'>{user.username}</p>
         <p className='p-item-mid'>stack: {user.user_stack}</p>
         <p className='p-item-bot'>about: {user.about_user}</p>
       </div>
-    </section>
+    </div >
   );
 };
 

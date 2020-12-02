@@ -2,27 +2,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: lightgrey;
-    width: 100vw;
+    width: 300px;
+    
 }
 
-.image-info {
-    margin-bottom: 6vh;
+.avatar-upload-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
+
+/* .image-info {
+    margin-bottom: 6vh;
+} */
 
 .upload-selector-button {
-    width: 30vw;
+    width: 150px;
     cursor: pointer;
 }
 
 .upload-default-avatar {
-    width: 70vw;
-    margin-top: 6vh;
+    width: 200px;
+    /* margin-top: 6vh; */
 }
 
-.upload-preview {
+/* .upload-preview {
     margin-top: 5vh;
-}
+} */
 
 .original-input {
     display: none

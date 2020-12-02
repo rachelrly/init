@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import initContentContext from '../../contexts/initContentContext'
 import AvatarDefault from '../Footer/Images/avatar-default.png'
 import UploadLogo from '../Footer/Images/upload-logo.png'
+import ProfilePic from '../ProfilePic/ProfilePic'
 import '../../css/PhotoUpload.css'
 
 class PhotoUpload extends Component {
     static contextType = initContentContext
 
-    state = { 
+    state = {
         error: null,
         file: null,
         data: null,
@@ -23,50 +24,50 @@ class PhotoUpload extends Component {
     changeFile = (ev) => {
         const { setData } = this.context
 
-        if(!ev.target.files.length) {
+        if (!ev.target.files.length) {
             return
         }
 
-        if(this.checkExtension(ev.target.files[0].name)) {
-            this.readFile(ev.target.files[0]).then(file=>{
-                if(file.file.size <= 1048576) {
-                this.setState(oldVals=>({
-                    ...oldVals,
-                    data: file.dataURL,
-                    file: file.file,
-                    error: null
-                }))
-                console.log('file', file)
+        if (this.checkExtension(ev.target.files[0].name)) {
+            this.readFile(ev.target.files[0]).then(file => {
+                if (file.file.size <= 1048576) {
+                    this.setState(oldVals => ({
+                        ...oldVals,
+                        data: file.dataURL,
+                        file: file.file,
+                        error: null
+                    }))
+                    console.log('file', file)
                 } else {
-                this.setState({ error: 'File Size Larger Than 1MB' })
+                    this.setState({ error: 'File Size Larger Than 1MB' })
                 }
                 setData()
-            }).catch(err=>{
+            }).catch(err => {
                 console.log('ERROR:-', err)
                 this.setState({ error: err })
             })
         } else {
-          this.setState({error: 'File Type Not Supported'})
+            this.setState({ error: 'File Type Not Supported' })
         }
     }
 
     renderPreview() {
         return (
             <div className='upload-preview'>
-                <img 
-                    src={this.state.data}  
-                    alt='upload-preview' 
-                    className='circular-landscape' 
+                <img
+                    src={this.state.data}
+                    alt='upload-preview'
+                    className='circular-landscape'
                 />
             </div>
         )
     }
 
     readFile = (file) => {
-        return new Promise( (resolve, reject) => {
+        return new Promise((resolve, reject) => {
             const reader = new FileReader();
             // read the image received via FileReader and later save it to state
-            reader.onload = function(ev) {
+            reader.onload = function (ev) {
                 // add the file name to the data URL
                 let dataURL = ev.target.result;
                 dataURL = dataURL.replace(";base64", `;name=${file.name};base64`);
@@ -82,24 +83,24 @@ class PhotoUpload extends Component {
             <div className='avatar-uploader'>
                 {this.state.data
                     ? this.renderPreview()
-                    : (<img 
+                    : (<img
                         src={AvatarDefault}
                         className='upload-default-avatar'
                         alt='avatar-default-logo'
                     />)
                 }
-                <div 
-                    role='alert' 
+                <div
+                    role='alert'
                     className='error-message'
                     aria-live='assertive'
                 >
                     {error && <p>{error}</p>}
                 </div>
                 <label htmlFor='upload-selector'>
-                    <img 
-                        src ={UploadLogo} 
+                    <img
+                        src={UploadLogo}
                         alt='upload-button'
-                        className='upload-selector-button' 
+                        className='upload-selector-button'
                     />
                 </label>
                 <input
