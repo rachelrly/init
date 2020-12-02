@@ -12,7 +12,7 @@
     --spacer-lg: 1.2rem;
     --spacer-tiny: 2.5px;
 
-    --font-size-sm: 18px;
+    --font-size-sm: 15px;
 
     --font: "Courier Prime", serif;
 }
@@ -23,6 +23,8 @@
     --spacer-med: 1.1rem;
     --spacer-lg: 1.3rem;
     --spacer-tiny: 5px;
+
+    --font-size-sm: 18px;
    } 
 
 }
