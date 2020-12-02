@@ -9,7 +9,7 @@ section{
     justify-content: flex-start;
     max-width: 650px;
     align-items: center;
-    width: inherit;
+    width: 100%;
 }
 
 .post-detail-wrapper{
@@ -91,6 +91,7 @@ overflow-wrap: break-word;
     align-items: center;
     width: 120px;
 }
+
 
 
 .desc-wrapper{

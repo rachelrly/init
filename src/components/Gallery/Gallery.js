@@ -12,8 +12,9 @@ import { Link } from 'react-router-dom'
 import InitContentContext from '../../contexts/initContentContext'
 import InitContentApiService from '../../services/init-content-api-service'
 // import AvatarDefault from '../Footer/Images/avatar-default.png'
-import { buffTo64 } from '../Utils/Utils'
+
 import '../../css/AccountInformation.css'
+import Post from '../Post/Post'
 
 export default function Gallery() {
   const [observed, setObserver] = useState(false);
@@ -63,26 +64,10 @@ export default function Gallery() {
         ? null
         : <div>
           <div className='gallery'>
-            {results.map((project, index) => {
-              if (results.length === index + 1) {
-                return <Link key={project.id} to={`/post/${project.id}`} className='img-container' ref={lastResultElementRef}>
-                  <img
-                    className='gallery-img'
-                    alt={`project ${project.post_title}`}
-                    src={`data:image/${project.post_image_type};base64,${buffTo64(project.post_image_file.data)}`}
-                  />
-                </Link>
-              } else {
-                return <Link key={project.id} to={`/post/${project.id}`} className='img-container'>
-                  <img
-                    className='gallery-img'
-                    alt={`project ${project.post_title}`}
-                    src={`data:image/${project.post_image_type};base64,${buffTo64(project.post_image_file.data)}`}
-                  />
-                </Link>
-
-              }
-            })}
+            {results.map((project, index) => (results.length === index + 1)
+              ? <div key={project.id} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
+              : <div key={project.id} className='project-wrapper'><Post {...project} /> </div>
+            )}
           </div>
           <div>{loading && 'Loading...'}</div>
           <div>{error && 'Error'}</div>
