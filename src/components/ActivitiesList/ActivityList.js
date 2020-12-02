@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ActivitiesService from '../../services/activities-service';
 import { buffTo64 } from '../../components/Utils/Utils';
 import FollowService from '../../services/follow-service';
+import '../../css/FollowList.css';
 
 function ActivitiesList(props) {
     // const [toggleFollow, setToggleFollow] = useState(true)

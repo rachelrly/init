@@ -8,7 +8,6 @@ import Buzz from './Images/notification-logo.png';
 import Account from './Images/default-profile-logo.png';
 import UserContext from '../../contexts/userContext'
 
-
 export default class Footer extends Component {
     static contextType = UserContext;
 
@@ -47,7 +46,7 @@ export default class Footer extends Component {
 
     renderFooterLoggedOut() {
         return (
-            <div>
+            <>
                 <ul className='Footer'>
                     <li>
                         <Link
@@ -58,13 +57,13 @@ export default class Footer extends Component {
                         </Link>
                     </li>
                 </ul>
-            </div>
+            </>
         );
     }
 
     render() {
         const { isLoggedIn } = this.context;
-
+        
         return (
             <div className='FooterWrapper'>
                 {isLoggedIn
@@ -73,5 +72,4 @@ export default class Footer extends Component {
             </div>
         );
     }
-
 }

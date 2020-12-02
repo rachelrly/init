@@ -140,6 +140,18 @@ header{
     top: 160px;
 }
 
+.nav-item-four{
+    top: 200px;
+}
+
+.nav-item-five{
+    top: 240px;
+}
+
+.nav-item-six{
+    top: 280px;
+}
+
 h1{
     flex: 1;
 }
@@ -156,10 +168,22 @@ h1{
      
 }
 
-@media all and (min-width: 900px){
+@media only screen and (max-width: 800px){
+    .hidden-nav {
+        display: none;
 
+    }
+
+    .nav-item-four{
+        top: 120px;
+    }
+
+    .nav-item-six{
+        top: 160px;
+    }
          
 }
+
 
 
  

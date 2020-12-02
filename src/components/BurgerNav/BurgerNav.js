@@ -48,18 +48,33 @@ function BurgerNav() {
 
                             {TokenService.hasAuthToken()
                                 ? <Fragment>
-                                    < span className='navigation-item nav-item-one' onClick={() => setShowNav(true)}>
-                                        <Link to='/portfolio' className='navigation-link'>
-                                            Portfolio
-                            </Link>
-                                    </span>
-                                    <span className='navigation-item nav-item-two' onClick={() => setShowNav(true)}>
+                                    <span className='navigation-item nav-item-one' onClick={() => setShowNav(true)}>
                                         <Link to='/account' className='navigation-link'>
                                             Account
                             </Link>
                                     </span>
+                                    < span className='navigation-item nav-item-two hidden-nav' onClick={() => setShowNav(true)}>
+                                        <Link to='/buzz' className='navigation-link'>
+                                            Buzz
+                            </Link>
+                                    </span>
+                                    < span className='navigation-item nav-item-three hidden-nav' onClick={() => setShowNav(true)}>
+                                        <Link to='/feed' className='navigation-link'>
+                                            Hive
+                            </Link>
+                                    </span>
+                                    < span className='navigation-item nav-item-four' onClick={() => setShowNav(true)}>
+                                        <Link to='/portfolio' className='navigation-link'>
+                                            Portfolio
+                            </Link>
+                                    </span>
+                                    < span className='navigation-item nav-item-five hidden-nav' onClick={() => setShowNav(true)}>
+                                        <Link to='/connections' className='navigation-link'>
+                                            Swarm
+                            </Link>
+                                    </span>
                                     <span
-                                        className='navigation-item  nav-item-three nav-logout-button'
+                                        className='navigation-item  nav-item-six nav-logout-button'
                                         onClick={() => {
                                             userContext.processLogout()
                                             setShowNav(true)

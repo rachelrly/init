@@ -86,4 +86,8 @@ div.FooterWrapper {
         display: block;
         margin-right: 2vw;
     }
+
+    .Footer {
+        display: none;
+    }
 }
