@@ -17,7 +17,6 @@ input, textarea, select {
     display: flex;
     flex-direction: column;
     width: 95%;
-    max-width: 350px;
     font-size: var(--fontsize-sm);
 }
 

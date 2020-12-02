@@ -52,10 +52,14 @@
     
 }
 
+.toggle-button{
+    border-radius: 0;
+}
+
 .active-toggle{
-        background-color: var(--colors-light);
-        color: var(--colors-accent);
-        border: 2px solid var(--colors-accent);
+        background-color: var(--colors-accent);
+        color: var(--colors-white);
+        border: 1.5px solid var(--colors-accent);
 }
 
 

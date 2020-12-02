@@ -54,6 +54,7 @@ function FollowList(props) {
 
     const usersArr = toggleFollow ? followingUser : followedByUser
 
+    const isFollowing = id => followedByUser.find(u => u.id === id)
     const followList = usersArr.map((f, index) => {
         console.log(f)
         return (
@@ -68,7 +69,7 @@ function FollowList(props) {
                             <p>{f.fullname}</p>
                         </div>
                     </div>
-                    {toggleFollow
+                    {!isFollowing(f.id)
                         ? <button className='follow-button' onClick={() => handleFollow(f.id)}>Follow</button>
                         : <button className='follow-button' onClick={() => handleUnfollow(f.id)}>Unfollow</button>}
                 </div>

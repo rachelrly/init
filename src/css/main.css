@@ -54,11 +54,11 @@ a{
     color: var(--colors-accent);
 }
 
-.error-message {
+/* .error-message {
     color: var(--colors-red);
     width: 85vw;
     text-align: center;
-}
+} */
 
 .login-route, .registration-route {
     display: flex;
@@ -72,17 +72,18 @@ button, .button {
     outline: 0;
     height: 40px;
     width: 150px;
-    background-color: var(--colors-accent);
-    color: var(--colors-white);
-    border: 2px solid var(--colors-accent);
+    background-color: var(--colors-light);
+    color: var(--colors-accent);
+    border: 1.5px solid var(--colors-accent);
     border-radius: 3px;
     margin-bottom: var(--spacer-sm);
 }
 
 button:focus {
-    background-color: var(--colors-light);
-    color: var(--colors-accent);
-    border: 2px solid var(--colors-accent);
+    background-color: var(--colors-accent);
+    color: var(--colors-white);
+    border: 1.5px solid var(--colors-accent);
+   
 }
 
 .login {
@@ -97,9 +98,9 @@ button:focus {
 }
 
 @media only screen and (min-width: 800px) {
-    .error-message {
+    /* .error-message {
         width: 70vw;
-    }
+    } */
 
     .circular-landscape {
         width: 300px;

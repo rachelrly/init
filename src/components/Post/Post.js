@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import Comment from '../Comment/Comment';
-import { useParams } from "react-router";
 import InitContentApiService from '../../services/init-content-api-service';
 import '../../css/Post.css';
 import ProfilePic from '../ProfilePic/ProfilePic';
@@ -24,7 +23,7 @@ function Post(props) {
 
     return (
 
-        <div>
+        <Fragment>
             {!toggleOpen
                 ? props.post_image_file
                     ? <div className='img-preview-wrapper'><img className='gallery-img'
@@ -84,7 +83,7 @@ function Post(props) {
                     <CommentForm post_id={props.id} comments={comments} setComments={(c) => { setComments(c) }} />
                     {comments.length ? comments.map(c => <Comment index={c.id} key={c.id} {...c} />) : null}
                 </div>}
-        </div>
+        </Fragment>
     )
 }
 
