@@ -74,7 +74,7 @@ function ActivitiesList(props) {
                         </Link>
                         <div className='follow-name-wrapper'>
                             <p><strong>{a.username} </strong>
-        {!a.text ? <span>{}has started following you.</span> : <span>has commented on {a.post_title}</span>}</p>
+        {!a.text ? <span>has started following you.</span> : <span>has commented on {a.post_title}</span>}</p>
                         </div>
                     </div>
                     {toggleFollow
