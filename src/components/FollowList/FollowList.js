@@ -18,10 +18,11 @@ function FollowList(props) {
 
     console.log(followedByUser)
 
-    console.log('followed by user', followedByUser, 'following user', followingUser)
+    
     const getFollow = async () => {
         try {
             const { followingUser, followedByUser } = await FollowService.getFollowLists()
+            console.log('followed by user', followedByUser, 'following user', followingUser)
             setFollowedByUser(followedByUser)
             setFollowingUser(followingUser)
         }
