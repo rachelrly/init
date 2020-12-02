@@ -38,8 +38,8 @@
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    width: inherit;
-    justify-content: flex-start;
+    width: 100%;
+    justify-content: stretch;
 }
 
 .project-wrapper{
@@ -50,8 +50,10 @@
 }
 
 .img-preview-wrapper{
-    width: inherit;
+    width: 100%;
     height: 200px;
+    max-width: 40vw;
+    min-width: 30vw;
     display: flex;
     align-items: center;
     border: 2px solid var(--colors-accent-light);

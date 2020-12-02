@@ -33,7 +33,7 @@ function Post(props) {
                         src={`data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}`}
                     /></div>
                     : <div className='img-preview-wrapper'><h3>{props.post_title}</h3></div>
-                : <section className='post-wrapper'>
+                : <div className='post-wrapper'>
                     <div className='post-detail-wrapper'>
                         <h2>{props.post_title}</h2>
                     </div>
@@ -83,7 +83,7 @@ function Post(props) {
 
                     <CommentForm post_id={props.id} comments={comments} setComments={(c) => { setComments(c) }} />
                     {comments.length ? comments.map(c => <Comment index={c.id} key={c.id} {...c} />) : null}
-                </section>}
+                </div>}
         </div>
     )
 }

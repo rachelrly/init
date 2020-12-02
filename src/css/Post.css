@@ -9,7 +9,7 @@ section{
     justify-content: flex-start;
     max-width: 650px;
     align-items: center;
-    width: 100%;
+    width: 90vw;
 }
 
 .post-detail-wrapper{
