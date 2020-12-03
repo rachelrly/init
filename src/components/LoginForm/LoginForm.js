@@ -48,13 +48,14 @@ class LoginForm extends Component {
                 className='LoginForm'
                 onSubmit={this.handleSubmit}
             >
+                {error &&
                 <div
                     role='alert'
                     className='error-message'
                     aria-live='assertive'
                 >
-                    {error && <p>{error}</p>}
-                </div>
+                     <p>{error}</p></div>}
+                
                 <div className='form-wrapper'>
                     <fieldset>
                         <legend><h3>userName</h3></legend>
