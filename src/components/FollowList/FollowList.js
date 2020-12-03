@@ -58,7 +58,7 @@ function FollowList(props) {
             <div className='follow-item-wrapper' key={index} >
                 <div className='follow-item-inner-wrapper'>
                     <div className='follow-wrapper-left'>
-                        <Link to='/portfolio'>
+                        <Link to={`/user/${f.id}`}>
                             <ProfilePic index={index} image={!f.img_file ? undefined : `data:image/${f.img_type};base64,${buffTo64(f.img_file.data)}`} />
                         </Link>
                         <div className='follow-name-wrapper'>
