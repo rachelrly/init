@@ -1,18 +1,15 @@
 
 import React, { useState, useRef, useCallback } from 'react';
-import GallerySearch from './GallerySearch';
-
+import FeedSearch from './FeedSearch';
 import '../../css/AccountInformation.css'
 import Post from '../Post/Post'
 
-export default function Gallery() {
+export default function Feed() {
   const [observed, setObserver] = useState(false);
 
   const [pageNumber, setPageNumber] = useState(1);
   const [limit] = useState(2);
-
-  //Here we destructure our useBookSearch
-  const { results, hasMore, loading, error } = GallerySearch(observed, pageNumber, limit);
+  const { results, hasMore, loading, error } = FeedSearch(observed, pageNumber, limit);
 
 
   const observer = useRef()
@@ -31,16 +28,16 @@ export default function Gallery() {
     })
     if (node) observer.current.observe(node);
   }, [loading, hasMore]);
-
+  console.log('RESULTS', results)
   return (
     <>
       {!results.length
         ? null
         : <div>
-          <div className='gallery'>
+          <div className='Feed'>
             {results.map((project, index) => (results.length === index + 1)
-              ? <div key={project.id} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
-              : <div key={project.id} className='project-wrapper'><Post {...project} /> </div>
+              ? <div key={index} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
+              : <div key={index} className='project-wrapper'><Post {...project} /> </div>
             )}
           </div>
           <div>{loading && 'Loading...'}</div>

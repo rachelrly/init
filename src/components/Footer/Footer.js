@@ -18,6 +18,7 @@ export default class Footer extends Component {
                     <li><Link
                         to='/feed'
                         className='navItem'
+
                     >
                         <img src={HiveFeed} alt='Feed link logo' className='navIcon'></img>
                     </Link></li>
