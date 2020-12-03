@@ -65,7 +65,7 @@ export default function useBookSerach(query, pageNumber) {
             setHasMore(res.data.docs.length > 0)
             //No reason to Load anything else, right?
             setLoading(false)
-            console.log('our axios get', res.data)
+            //console.log('our axios get', res.data)
             //PROTIP
             //The console log will give you something that look-a like-a this
             //{docs:100, num_found: 67689, numFound:67689, start:0}
@@ -82,5 +82,5 @@ export default function useBookSerach(query, pageNumber) {
         })
         return () => cancel()
     }, [query, pageNumber]);
-    return { loading, error, books, hasMore};
+    return { loading, error, books, hasMore };
 };

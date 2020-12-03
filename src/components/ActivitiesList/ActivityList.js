@@ -49,7 +49,7 @@ function ActivitiesList(props) {
         }
     }
 
-    
+
     //needed params:
     // 1. user avatar
     // 2. username
@@ -61,12 +61,12 @@ function ActivitiesList(props) {
 
     const isFollowing = id => followedByUser.find(u => u.id === id)
     const mergedActivities = unreadFollowingUser.concat(unreadCommentsForUser)
-    const notifications = mergedActivities.sort(function(a, b){
+    const notifications = mergedActivities.sort(function (a, b) {
         return a.date_created + b.date_created;
     });
-    const notificationsList = notifications.map((a, idx) =>{
+    const notificationsList = notifications.map((a, idx) => {
         return (
-            
+
             <div className='follow-item-wrapper' key={idx} >
                 <div className='follow-item-inner-wrapper'>
                     <div className='follow-wrapper-left'>
@@ -75,7 +75,7 @@ function ActivitiesList(props) {
                         </Link>
                         <div className='follow-name-wrapper'>
                             <p><strong>{a.username} </strong>
-        {!a.text ? <span>has started following you.</span> : <span>has commented on {a.post_title}</span>}</p>
+                                {!a.text ? <span>has started following you.</span> : <span>has commented on {a.post_title}</span>}</p>
                         </div>
                     </div>
                     {!isFollowing(a.id)
@@ -88,12 +88,12 @@ function ActivitiesList(props) {
 
 
     return (
-         <section>
-             <h2>activityNotifications</h2>
-             <div className='notifications-list'>
+        <section>
+            <h2>activityNotifications</h2>
+            <div className='notifications-list'>
                 {notificationsList}
-             </div>
-         </section>
+            </div>
+        </section>
     )
 
 }
