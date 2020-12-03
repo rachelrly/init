@@ -126,10 +126,11 @@ width: 100%;
 
 .header-and-exit{
     display: flex;
-    height: 50px;
+    height: 100px;
     width: inherit;
     align-items: center;
     justify-content: space-between;
+    padding: var(--spacer-lg);
 }
 .header-and-exit >*{
     padding: var(--spacer-sm);
