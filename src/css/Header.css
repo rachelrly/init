@@ -22,7 +22,7 @@ header{
 }
 
 .add-logo{
-    height: 12vh;
+    height: 8vh;
     position: relative;
     right: var(--spacer-sm);
 
@@ -59,12 +59,10 @@ header{
     outline: 0;
 }
 
-
-
 .burger-line{
     display: block;
     position: absolute;
-    height: 4px;
+    height: 3px;
     width: 100%;
     background: var(--colors-accent);
     border-radius: 5px;

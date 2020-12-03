@@ -31,6 +31,89 @@
     width: 80%;
 }
 
+.LoginForm {
+    width: 100%;
+    /* margin-top: 70%; */
+    position: fixed;
+    left: 0;
+    bottom: 16vh;
+}
+
+.LoginForm div {
+    justify-content: center;
+}
+
+.LoginForm div fieldset {
+    width: 180%;
+    background-color: #e8effe;
+    align-items: center;
+    text-align: center;
+    margin-left: -40%;
+    margin-bottom: 2vh;
+    border: 1.5px solid var(--colors-accent);
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.LoginForm div fieldset legend {
+    text-align: right;
+    width: 100%;
+}
+
+.LoginForm div fieldset input {
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: #e8effe;
+}
+
+.registration-form {
+    width: 100%;
+    /* margin-top: 70%; */
+    /* position: fixed;
+    left: 0;
+    bottom: 16vh; */
+}
+
+.registration-form div {
+    justify-content: center;
+    width: 90%;
+}
+
+.registration-form div fieldset {
+    width: 100%;
+    background-color: #e8effe;
+    align-items: center;
+    text-align: right;
+    margin-bottom: 2vh;
+    border: 1.5px solid var(--colors-accent);
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.registration-form div fieldset legend {
+    text-align: right;
+    width: 100%;
+}
+
+.registration-form div fieldset input {
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: #e8effe;
+}
+
+.registration-form div fieldset select {
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: #e8effe;
+}
+
+.registration-form button {
+    /* margin-left: 2%; */
+}
+
 /* .update-avatar-link {
     margin: 3vh 0 4vh 0;
 } */

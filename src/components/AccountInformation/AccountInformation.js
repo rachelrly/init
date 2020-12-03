@@ -81,6 +81,7 @@ class AccountInformation extends Component {
                         <span>{ user.user_stack }</span>
                     </fieldset>
                 </form>
+                <button>submit</button>
                 </div>
         );
     }

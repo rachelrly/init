@@ -78,47 +78,47 @@ class RegistrationForm extends Component {
                     {error && <p>{error}</p>}
                 </div>
                 <div className='form-wrapper'>
-                    <label htmlFor='registration-fullname-input'>
-                        fullName
-                    </label>
-                    <input
-                        ref={this.firstInput}
-                        id='registration-fullname-input'
-                        type='text'
-                        name='fullname'
-                        required
-                        aria-required='true'
-                        autoComplete='name'
+                    <fieldset>
+                        <legend><h3>fullName</h3></legend>
+                        <label htmlFor='registration-fullname-input'></label>
+                        <input
+                            ref={this.firstInput}
+                            id='registration-fullname-input'
+                            type='text'
+                            name='fullname'
+                            required
+                            aria-required='true'
+                            autoComplete='name'
+                        />
+                    </fieldset>
+                </div>
+                <div className='form-wrapper'>
+                    <fieldset>
+                        <legend><h3>userName</h3></legend>
+                        <label htmlFor='registration-username-input'></label>
+                        <input
+                            id='registration-username-input'
+                            name='username'
+                            required
+                            aria-required='true'
+                            autoComplete='off'
+                        />
+                    </fieldset>
+                </div>
+                <div className='form-wrapper'>
+                    <fieldset>
+                        <legend><h3>passWord</h3></legend>
+                        <label htmlFor='registration-password-input'></label>
+                        <input
+                            id='registration-password-input'
+                            name='user_password'
+                            type='password'
+                            required
+                            aria-required='true'
+                            autoComplete='new-password'
                     />
-                </div>
-                <div className='form-wrapper'>
-                    <label htmlFor='registration-username-input'>
-                        userName
-                    </label>
-                    <input
-                        id='registration-username-input'
-                        name='username'
-                        required
-                        aria-required='true'
-                        autoComplete='off'
-                    />
-                </div>
-                <div className='form-wrapper'>
-                    <label htmlFor='registration-password-input'>
-                        passWord
-                    </label>
-                    <input
-                        id='registration-password-input'
-                        name='user_password'
-                        type='password'
-                        required
-                        aria-required='true'
-                        autoComplete='new-password'
-                  />
-                </div>
-                <div className='form-wrapper'>
+                    <legend><h3>validate</h3></legend>
                     <label htmlFor='registration-password-match-input'>
-                        confirm passWord
                     </label>
                     <input
                         id='registration-password-match-input'
@@ -127,51 +127,52 @@ class RegistrationForm extends Component {
                         required
                         aria-required='true'
                         autoComplete='off'
-                    >
-                    </input>
+                    />
+                    </fieldset>
                 </div>
                 <div className='form-wrapper'>
-                    <label htmlFor='registration-email-input'>
-                        eMail
-                    </label>
-                    <input
-                        id='registration-email-input'
-                        name='email'
-                        type='email'
-                        required
-                        aria-required='true'
-                        autoComplete='email'
-                    >
-                    </input>
+                    <fieldset>
+                        <legend><h3>eMail</h3></legend>
+                        <label htmlFor='registration-email-input'></label>
+                        <input
+                            id='registration-email-input'
+                            name='email'
+                            type='email'
+                            required
+                            aria-required='true'
+                            autoComplete='email'
+                        />
+                    </fieldset>
                 </div>
                 <div className='form-wrapper'>
-                    <label htmlFor='registration-about-user-input'>
-                        about
-                    </label>
-                    <input
-                        id='registration-about-user-input'
-                        name='about_user'
-                        required
-                        aria-required='true'
-                        autoComplete='off'
-                    >
-                    </input>
+                    <fieldset>
+                        <legend><h3>about</h3></legend>
+                        <label htmlFor='registration-about-user-input'></label>
+                        <input
+                            id='registration-about-user-input'
+                            name='about_user'
+                            required
+                            aria-required='true'
+                            autoComplete='off'
+                        />
+                    </fieldset>
                 </div>
                 <div className='form-wrapper'>
-                    <label htmlFor='registration-user-stack-input'>
-                        stack
-                    </label>
-                    <select 
-                        id='registration-user-stack-input'
-                        name='user_stack'
-                        defaultValue='Full Stack' 
-                        required
-                        aria-required='true'
-                    >
-                        <option value='Full Stack'>Full Stack</option>                           
-                        <option value='Frontend'>Frontend</option>
-                        <option value='Backend'>Backend</option>
-                    </select>
+                    <fieldset className='field-stack'>
+                        <legend><h3>stackPref</h3></legend>
+                        <label htmlFor='registration-user-stack-input'></label>
+                        <select 
+                            id='registration-user-stack-input'
+                            name='user_stack'
+                            defaultValue='Full Stack' 
+                            required
+                            aria-required='true'
+                        >
+                            <option value='Full Stack'>Full Stack</option>                           
+                            <option value='Frontend'>Frontend</option>
+                            <option value='Backend'>Backend</option>
+                        </select>
+                    </fieldset>
                 </div>
                 <div>
                     <button 
@@ -180,13 +181,13 @@ class RegistrationForm extends Component {
                     >
                         Sign up
                     </button>
-                    <div className='account-login-link'>
+                    
                         <Link 
                             to='/login'
                         >
                             Already have an account?
                         </Link>
-                    </div>
+                    
                 </div>
             </form>
         )

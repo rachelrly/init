@@ -62,7 +62,18 @@
         border: 1.5px solid var(--colors-accent);
 }
 
+.buzz-container {
+    justify-content: center;
+    width: 100%;
+}
 
+.notifications-list {
+    justify-content: center;
+    margin-top: 3vh;
+    margin-left: 10%;
+    width: 95%;
+    background-color: none;
+}
 
 
 .follow-button{
