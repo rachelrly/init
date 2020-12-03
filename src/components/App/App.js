@@ -10,6 +10,7 @@ import Buzz from '../../routes/BuzzRoute/BuzzRoute';
 import Connections from '../../routes/ConnectionsRoute/ConnectionsRoute'
 import Feed from '../../routes/FeedRoute/FeedRoute';
 import Portfolio from '../../routes/PortfolioRoute/PortfolioRoute';
+import PortfolioAdjacent from '../../routes/PortfolioAdjacentRoute/PortfolioAdjacentRoute';
 import AccountRoute from '../../routes/AccountRoute/AccountRoute';
 import AvatarUploadRoute from '../../routes/AvatarUploadRoute/AvatarUploadRoute';
 import NewProject from '../../routes/NewProjectRoute/NewProjectRoute';
@@ -70,7 +71,7 @@ class App extends Component {
 
                 <PrivateRoute
                     path={'/user/:id'}
-                    component={Post}
+                    component={PortfolioAdjacent}
                 />
 
             </Switch>
