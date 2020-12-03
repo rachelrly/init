@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import Comment from '../Comment/Comment'
 import CommentForm from '../CommentForm/CommentForm'
 import ProfilePic from '../ProfilePic/ProfilePic';
 import { Link } from 'react-router-dom';
 import { buffTo64 } from '../Utils/Utils'
+import { MdExpandMore } from 'react-icons/md'
 
 export default function Modal(props) {
+    const [showComments, setShowComments] = useState(false)
+
+    if (!props.comments.length) {
+        if (showComments) {
+            setShowComments(!showComments)
+        }
+    }
     const onKeyDown = e => {
         console.log('key down ran in modal.js')
         if (e.keyCode === 27 || e.keyCode === 13 && !props.toggleOpen) {
@@ -14,7 +22,7 @@ export default function Modal(props) {
         }
     }
     return ReactDOM.createPortal(
-        <div className='Modal post-wrapper' tabIndex='0' >
+        <div className='Modal post-wrapper' >
             <div
                 onClick={e => e.stopPropagation()}
                 className='Modal__inner post-wrapper-flex'
@@ -36,14 +44,14 @@ export default function Modal(props) {
                         <span className='burger-line burger-line-three burger-line-open-three'></span>
                     </div>
                 </div>
-                <div className='project-image-wrapper' onClick={() => props.setToggleOpen(!props.toggleOpen)}>
-                    <div className='project-image-wrapper-flex'>
-                        <img
-                            className='project-image'
-                            alt={`project ${props.post_title}`}
-                            src={`data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}`}
-                        />
-                    </div>
+                <div className='project-image-wrapper project-image-wrapper-flex' onClick={() => props.setToggleOpen(!props.toggleOpen)}>
+
+                    <img
+                        className='project-image'
+                        alt={`project ${props.post_title}`}
+                        src={`data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}`}
+                    />
+
                 </div>
                 <div className='project-content-wrapper'>
                     <div className='post-user-wrapper post-detail-wrapper'>
@@ -88,7 +96,22 @@ export default function Modal(props) {
                         : null}
 
                     <CommentForm post_id={props.id} comments={props.comments} setComments={(c) => { props.setComments(c) }} />
-                    {props.comments.length ? props.comments.map(c => <Comment index={c.id} key={c.id} {...c} />) : null}
+                    {showComments
+                        ? <Fragment>
+                            {props.comments.map(c => <Comment index={c.id} key={c.id} {...c} />)}
+                            <div className='hide-comments-wrapper'>
+                                <p>Hide comments</p>
+                                < MdExpandMore className='react-icon hide-comments' onClick={() => setShowComments(!showComments)} /></div>
+                        </Fragment>
+                        : <span>
+                            {props.comments.length
+                                ?
+                                <div className='show-comments-wrapper'>
+                                    <p>Show comments</p>
+                                    < MdExpandMore onClick={() => setShowComments(!showComments)} className='react-icon see-comments' />
+                                </div>
+                                : <p>There are no comments for this post.</p>}
+                        </span>}
                 </div>
             </div>
         </div>,

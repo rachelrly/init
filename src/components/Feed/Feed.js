@@ -36,8 +36,8 @@ export default function Feed() {
         : <div>
           <div className='Feed'>
             {results.map((project, index) => (results.length === index + 1)
-              ? <div key={project.id} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
-              : <div key={project.id} className='project-wrapper'><Post {...project} /> </div>
+              ? <div key={index} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
+              : <div key={index} className='project-wrapper'><Post {...project} /> </div>
             )}
           </div>
           <div>{loading && 'Loading...'}</div>
