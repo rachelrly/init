@@ -145,6 +145,7 @@ class PhotoUpload extends Component {
                     aria-required='true'
                     autoComplete='off'
                     className='original-input'
+                    required
                 />
                 <span className='image-info'>
                     .jpg .gif .png .jpeg &nbsp; up to 1MB
