@@ -37,35 +37,22 @@ function ProfileTop() {
       console.log(error)
     }
   }
-  // function shallowIterator (target) {
-  //   for (const key in target) {
-  //     if (typeof target[key] === 'object') {
-  //       for (const nestedKey in target[key]) {
-  //         console.log(target[key][nestedKey], "this is the nested key");
-  //       }
-  //     } else {
-  //       console.log(target[key], "this is the target key");
-  //     }
-  //   }
-  // }
-  // console.log(user.countFollowers, "user.countFollowers?")
-  // console.log(shallowIterator(user), "what's is this user info?")
   
   return (
     <div className='profile-top-wrapper'>
       {user ? <><div className='profile-info-wrapper'>
         <ProfilePic />
 
-        <p className='p-filling' key={user}>Post {user.countPost}</p>
-        {/* <p className='p-filling' >Followers {user.countFollowers}</p>
-        <p className='p-filling' >Following {user.countUserFollowing}</p> */}
+        <p className='p-filling' key={user}>Post {user.NoPost}</p>
+        <p className='p-filling' >Followers {user.FBU}</p>
+        <p className='p-filling' >Following {user.UF}</p>
 
       </div>
-      {/* <div className='profile-wrapper'>
+      <div className='profile-wrapper'>
         <p className='p-item-top'>{user.username}</p>
         <p className='p-item-mid'>stack: {user.user_stack}</p>
         <p className='p-item-bot'>about: {user.about_user}</p>
-      </div> */}
+      </div>
       </> : null}
     </div >
   );

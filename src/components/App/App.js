@@ -18,7 +18,6 @@ import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
 import Footer from '../Footer/Footer';
 import Post from '../Post/Post';
-import bkgrnd from '../../pictures/init-bkrnd.png';
 
 class App extends Component {
     renderRoutes() {
@@ -83,10 +82,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <main
-                    className='App-Main'
-                    styles={{ backgroundImage:`url(${bkgrnd})` }}
-                >
+                <main>
                     {this.renderRoutes()}
                 </main>
                 <Footer />
