@@ -27,15 +27,17 @@ function CommentForm(props) {
                 aria-live='assertive'>
                 <p>{error}</p>
             </div>}
-            <label />
-            <textarea
-                className='comment-input'
-                type='text'
-                aria-required='true'
-                autoComplete='current-password'
-                placeholder='Write a comment...'
-                value={text}
-                onChange={(e) => setText(e.target.value)} />
+            <fieldset>
+                <legend><h3>comment</h3></legend>
+                <label />
+                <textarea
+                    className='comment-input'
+                    type='text'
+                    aria-required='true'
+                    placeholder='Write a comment...'
+                    value={text}
+                    onChange={(e) => setText(e.target.value)} />
+            </fieldset>
             <button
                 type='submit'
                 className='form-button'>
