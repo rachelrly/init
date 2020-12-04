@@ -28,23 +28,8 @@ function PostForm(props) {
         >
             <ProjectUpload />
             <div className='post-input-wrapper'>
-                <label
-                    htmlFor='init-project-title-input'
-                    aria-label='init-project-title-input'
-                    className='project-form-label'
-                />
-                <input
-                    id='init-project-title-input'
-                    name='post_title'
-                    type='text'
-                    className='project-form-input'
-                    placeholder='Enter a title for your project'
-                    aria-required='true'
-                    autoComplete='off'
-                />
                 {error && <p>{error.message}</p>}
             </div>
-            <ProjectUpload />
             <div className='post-input-wrapper'>
                 <fieldset>
                     <legend><h3>title</h3></legend>
@@ -137,73 +122,6 @@ function PostForm(props) {
                     className='project-form-submit-button form-button'>
                     upload
                     </button>
-
-                <label
-                    htmlFor='init-project-description-input'
-                    aria-label='init-project-description-input'
-                    className='project-form-label'
-                />
-                <input
-                    id='init-project-description-input'
-                    name='post_description'
-                    type='text'
-                    className='project-form-input'
-                    placeholder='Enter a description for your project'
-                    aria-required='true'
-                    autoComplete='off'
-                >
-                </input>
-                <label
-                    htmlFor='init-project-live-link-input'
-                    aria-label='init-project-live-link-input'
-                    className='project-form-label'
-                />
-                <input
-                    id='init-project-live-link-input'
-                    name='post_live_link'
-                    type='text'
-                    className='project-form-input'
-                    placeholder='Enter a url for your live project'
-                    aria-required='true'
-                    autoComplete='off'
-                >
-                </input>
-                <label
-                    htmlFor='init-project-repository-input'
-                    aria-label='init-project-repository-input'
-                    className='project-form-label'
-                />
-                <input
-                    id='init-project-repository-input'
-                    name='post_repository'
-                    type='text'
-                    className='project-form-input'
-                    placeholder='Enter a url for your live project'
-                    aria-required='true'
-                    autoComplete='off'
-                >
-                </input>
-                <label
-                    htmlFor='init-project-tech-stack-input'
-                    aria-label='init-project-tech-stack-input'
-                    className='project-form-label'
-                />
-                <input
-                    id='init-project-tech-stack-input'
-                    name='tech_stack'
-                    type='text'
-                    className='project-form-input'
-                    placeholder='Enter your project tech stack'
-                    aria-required='true'
-                    autoComplete='off'
-                >
-                </input>
-
-                <button
-                    type='submit'
-                    className='project-form-submit-button'>
-                    Upload
-                </button>
             </div>
         </form >
     )

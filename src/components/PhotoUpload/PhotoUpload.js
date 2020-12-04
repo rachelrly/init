@@ -94,7 +94,7 @@ class PhotoUpload extends Component {
                         className='error-message'
                         aria-live='assertive'
                     >
-                        {error && <p>{error}</p>}
+                        {this.state.error && <p>{this.state.error.message}</p>}
                     </div>
                     <label htmlFor='upload-selector'>
                         <img
