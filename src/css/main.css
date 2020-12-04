@@ -54,11 +54,11 @@ a{
     color: var(--colors-accent);
 }
 
-/* .error-message {
+.error-message {
     color: var(--colors-red);
     width: 85vw;
     text-align: center;
-} */
+}
 
 .login-route, .registration-route {
     display: flex;
@@ -98,9 +98,9 @@ button:focus {
 }
 
 @media only screen and (min-width: 800px) {
-    /* .error-message {
+    .error-message {
         width: 70vw;
-    } */
+    }
 
     .circular-landscape {
         width: 300px;
