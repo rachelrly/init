@@ -116,40 +116,6 @@ class PhotoUpload extends Component {
                         .jpg .gif .png .jpeg up to 1MB<br /><br />image required to upload
                     </span>
                 </fieldset>
-<<<<<<< HEAD
-                {this.state.data
-                    ? this.renderPreview()
-                    : (<img
-                        src={AvatarDefault}
-                        className='upload-default-avatar'
-                        alt='avatar-default-logo'
-                    />)
-                }
-
-                <label htmlFor='upload-selector'>
-                    <img
-                        src={UploadLogo}
-                        alt='upload-button'
-                        className='upload-selector-button'
-                    />
-                </label>
-                <input
-                    ref={this.inputRef}
-                    accept='image/*'
-                    type='file'
-                    id='upload-selector'
-                    onChange={this.changeFile}
-                    name='imageRequest'
-                    aria-required='true'
-                    autoComplete='off'
-                    className='original-input'
-                    required
-                />
-                <span className='image-info'>
-                    .jpg .gif .png .jpeg &nbsp; up to 1MB
-                </span>
-=======
->>>>>>> 810a97945c48abeaaca4af99a274772db5ece997
             </div>
         )
     }
