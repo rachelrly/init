@@ -8,9 +8,14 @@ import '../../css/PhotoUpload.css'
 function PostForm(props) {
     const [error, setError] = useState(null)
     const context = useContext(InitContentContext)
+
     const handleSubmit = (ev) => {
         ev.preventDefault()
         const { setProjectData } = context
+
+        if (ev.target.post_description.length > 200) {
+            setError('Project description must be less than 200 characters.')
+        }
 
         InitContentApiService.postInitProject(ev.target)
             .then(() => props.history.push('/portfolio'))
@@ -26,7 +31,7 @@ function PostForm(props) {
             onSubmit={(e) => handleSubmit(e)}
             encType='multipart/form-data'
         >
-            <ProjectUpload />
+            <ProjectUpload setError={(e) => setError(e)} />
             <div className='post-input-wrapper'>
                 {error && <p>{error.message}</p>}
             </div>

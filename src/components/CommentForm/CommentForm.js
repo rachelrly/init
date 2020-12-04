@@ -13,6 +13,11 @@ function CommentForm(props) {
             return null;
         }
 
+        if (text.length > 200) {
+            setError('Comment must be shorter than 200 characters')
+            return null;
+        }
+
         setText('')
         const response = await InitContentApiService.postComment(props.post_id, text)
         props.setComments(response)
@@ -22,11 +27,10 @@ function CommentForm(props) {
     return (
         <form className='comment-form' onSubmit={(e) => handleSubmit(e)}>
 
-            {error && <div role='alert'
-                className='error-message'
-                aria-live='assertive'>
-                <p>{error}</p>
-            </div>}
+            {error &&
+                <p role='alert'
+                    className='error-message'
+                    aria-live='assertive'>{error}</p>}
             <fieldset>
                 <legend><h3>comment</h3></legend>
                 <label />
