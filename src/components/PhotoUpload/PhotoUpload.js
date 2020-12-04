@@ -43,7 +43,6 @@ class PhotoUpload extends Component {
                 }
                 setData()
             }).catch(err => {
-                console.log('ERROR:-', err)
                 this.setState({ error: err })
             })
         } else {
@@ -78,7 +77,6 @@ class PhotoUpload extends Component {
     }
 
     render() {
-        const { error } = this.state
         return (
             <div className='avatar-uploader'>
                 {this.state.data
@@ -89,13 +87,7 @@ class PhotoUpload extends Component {
                         alt='avatar-default-logo'
                     />)
                 }
-                <div
-                    role='alert'
-                    className='error-message'
-                    aria-live='assertive'
-                >
-                    {error && <p>{error}</p>}
-                </div>
+
                 <label htmlFor='upload-selector'>
                     <img
                         src={UploadLogo}
@@ -110,7 +102,6 @@ class PhotoUpload extends Component {
                     id='upload-selector'
                     onChange={this.changeFile}
                     name='imageRequest'
-                    required
                     aria-required='true'
                     autoComplete='off'
                     className='original-input'

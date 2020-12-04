@@ -20,7 +20,7 @@ class LoginForm extends Component {
 
         const { username, user_password } = ev.target
 
-        this.setState({ error: null })
+        //  this.setState({ error: null })
 
         AuthApiService.postLogin({
             username: username.value,
@@ -33,7 +33,7 @@ class LoginForm extends Component {
                 this.props.onLoginSuccess()
             })
             .catch(res => {
-                this.setState({ error: res.error.message })
+                this.setState({ error: res.error })
             })
     }
 
@@ -43,19 +43,20 @@ class LoginForm extends Component {
 
     render() {
         const { error } = this.state
+        console.log(error)
         return (
             <form
                 className='LoginForm'
                 onSubmit={this.handleSubmit}
             >
-                {error &&
+
                 <div
                     role='alert'
                     className='error-message'
                     aria-live='assertive'
                 >
-                     <p>{error}</p></div>}
-                
+                    {error && <p>{error}</p>}</div>
+
                 <div className='form-wrapper'>
                     <fieldset>
                         <legend><h3>userName</h3></legend>

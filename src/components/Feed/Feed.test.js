@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Gallery from './Gallery';
+import Feed from './Feed';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
 
-    ReactDOM.render(<Gallery />, div);
+    ReactDOM.render(<Feed />, div);
 
     ReactDOM.unmountComponentAtNode(div);
 });
