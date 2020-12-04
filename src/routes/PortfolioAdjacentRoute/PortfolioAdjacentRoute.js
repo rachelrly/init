@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Gallery from '../../components/Gallery/Gallery';
+import GalleryAdjacent from '../../components/GalleryAdjacent/GalleryAdjacent';
 import ProfileTop from '../../components/ProfileTop/ProfileTop';
 import '../../css/Portfolio.css';
 
@@ -8,7 +8,7 @@ class PortfolioAdjacent extends Component {
     return (
       <div className='gallery-page-wrapper'>
         <ProfileTop />
-        <Gallery />
+        <GalleryAdjacent />
       </div>
     );
   };

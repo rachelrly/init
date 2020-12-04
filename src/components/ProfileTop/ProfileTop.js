@@ -4,13 +4,12 @@ import UserContext from '../../contexts/userContext';
 import ProfilePic from '../ProfilePic/ProfilePic';
 import config from '../../config';
 import TokenService from '../../services/token-service';
+import { buffTo64 } from '../../components/Utils/Utils';
 
 function ProfileTop() {
   const userContext = useContext(UserContext)
-  //let { user } = userContext
   const [user, setUser] = useState({})
-  const { id } = useParams()
-  // user = id === undefined ? (return user info) : user
+  let { id } = useParams()
 
   useEffect(() => {
     getuserInfo()
@@ -18,8 +17,9 @@ function ProfileTop() {
   }, [])
   
   const getuserInfo = async () => {
+    const info_id = !id ? userContext.user.id : id
     try {
-          const userInfo = await fetch(`${config.API_ENDPOINT}/user/user/${id}`, {
+          const userInfo = await fetch(`${config.API_ENDPOINT}/user/user/${info_id}`, {
             method: "GET",
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
@@ -30,7 +30,6 @@ function ProfileTop() {
                     ? res.json().then(event => Promise.reject(event))
                     : res.json()
             )
-            console.log(userInfo, "what's is this info?")
             
             setUser(userInfo)
     } catch (error) {
@@ -41,7 +40,7 @@ function ProfileTop() {
   return (
     <div className='profile-top-wrapper'>
       {user ? <><div className='profile-info-wrapper'>
-        <ProfilePic />
+      <ProfilePic image={!user.img_file ? undefined : `data:image/${user.img_type};base64,${buffTo64(user.img_file.data)}`} />
 
         <p className='p-filling' key={user}>Post {user.NoPost}</p>
         <p className='p-filling' >Followers {user.FBU}</p>

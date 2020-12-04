@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import TokenService from '../../services/token-service'
 
-export default function useGallerySearch(observed, pageNumber, limit, user_id) {
+export default function useGalleryAdjacentSearch(observed, pageNumber, limit, user_id) {
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -25,8 +25,7 @@ export default function useGallerySearch(observed, pageNumber, limit, user_id) {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
-            body: {id: user_id},
-            params: { page: pageNumber, limit: limit },
+            params: { page: pageNumber, limit: limit, id: user_id},
             cancelToken: axios.CancelToken(c => cancel = c)
         }).then(res => {
 

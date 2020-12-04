@@ -5,7 +5,7 @@ import GalleryAdjacentSearch from './GalleryAdjacentSearch';
 import '../../css/AccountInformation.css'
 import Post from '../Post/Post'
 
-export default function Gallery() {
+export default function GalleryAdjacent() {
   const [observed, setObserver] = useState(false);
   const { id } = useParams();
   const [pageNumber, setPageNumber] = useState(1);
