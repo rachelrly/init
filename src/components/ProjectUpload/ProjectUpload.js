@@ -81,43 +81,46 @@ class ProjectUpload extends Component {
         const { error } = this.state
         return (
             <div className='avatar-uploader'>
-                {this.state.data
-                    ? this.renderPreview()
-                    : (<img 
-                        src={AvatarDefault}
-                        className='upload-default-avatar'
-                        alt='avatar-default-logo'
-                    />)
-                }
-                <div 
-                    role='alert' 
-                    className='error-message'
-                    aria-live='assertive'
-                >
-                    {error && <p>{error}</p>}
-                </div>
-                <label htmlFor='upload-selector'>
-                    <img 
-                        src ={UploadLogo} 
-                        alt='upload-button'
-                        className='upload-selector-button' 
-                    />
-                </label>
-                <input
-                    ref={this.inputRef}
-                    accept='image/*'
-                    type='file'
-                    id='upload-selector'
-                    onChange={this.changeFile}
-                    name='imageRequest'
-                    required
-                    aria-required='true'
-                    autoComplete='off'
-                    className='original-input'
-                />
-                <span className='image-info'>
-                    .jpg .gif .png .jpeg &nbsp; up to 1MB
-                </span>
+                <fieldset>
+                    <legend><h3>demoGraphic</h3></legend>
+                        {this.state.data
+                            ? this.renderPreview()
+                            : (<img 
+                                src={AvatarDefault}
+                                className='upload-default-avatar'
+                                alt='avatar-default-logo'
+                            />)
+                        }
+                        <div 
+                            role='alert' 
+                            className='error-message'
+                            aria-live='assertive'
+                        >
+                            {error && <p>{error}</p>}
+                        </div>
+                        <label htmlFor='upload-selector'>
+                            <img 
+                                src ={UploadLogo} 
+                                alt='upload-button'
+                                className='upload-selector-button' 
+                            />
+                        </label>
+                        <input
+                            ref={this.inputRef}
+                            accept='image/*'
+                            type='file'
+                            id='upload-selector'
+                            onChange={this.changeFile}
+                            name='imageRequest'
+                            required
+                            aria-required='true'
+                            autoComplete='off'
+                            className='original-input'
+                        />
+                        <span className='image-info'>
+                            .jpg .gif .png .jpeg &nbsp;<br/>image required up to 1MB
+                        </span>
+                    </fieldset>
             </div>
         )
     }

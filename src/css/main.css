@@ -106,4 +106,8 @@ button:focus {
         width: 300px;
         height: 300px;
     }
+
+    body {
+        background-image: none;
+    }
 }

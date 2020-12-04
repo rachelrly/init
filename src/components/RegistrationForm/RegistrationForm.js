@@ -144,7 +144,7 @@ class RegistrationForm extends Component {
                         />
                     </fieldset>
                 </div>
-                <div className='form-wrapper'>
+                {/* <div className='form-wrapper'>
                     <fieldset>
                         <legend><h3>about</h3></legend>
                         <label htmlFor='registration-about-user-input'></label>
@@ -173,19 +173,19 @@ class RegistrationForm extends Component {
                             <option value='Backend'>Backend</option>
                         </select>
                     </fieldset>
-                </div>
+                </div> */}
                 <div>
                     <button 
                         type='submit'
                         className='form-button'
                     >
-                        Sign up
+                        signUp
                     </button>
                     
                         <Link 
                             to='/login'
                         >
-                            Already have an account?
+                            already have an account?
                         </Link>
                     
                 </div>

@@ -21,13 +21,8 @@ class RegistrationRoute extends Component {
                 aria-live='polite'
                 aria-relevant='all'
             >
-                {/* <span className='welcome'><span className='logo-text'>Welcome to</span> fluent</span>
-                <div className='fluent-info'>
-                    <p>
-                        Practice learning a language with the spaced reptition revision technique.
-                    </p>
-                </div> */}
-                <h2 className='sign-up'>Sign up</h2>
+                
+                <h2 className='sign-up'>signUp</h2>
                 <RegistrationForm
                     onRegistrationSuccess={this.handleRegistrationSuccess}
                 />

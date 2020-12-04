@@ -16,9 +16,25 @@
     margin-bottom: 5vh;
 }
 
+.upload-avatar-button {
+    width: 40px;
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: var(--colors-input-background);
+    position: absolute;                                          
+    top: 25%;                                                    
+    right: 33%;  
+}
+
 .account-form fieldset {
     width: 90%;
-    background-color: rgba(238, 198, 249, 0.5);
+    background-color: #e8effe;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 2vh;
+    border: 1.5px solid var(--colors-accent);
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .account-form fieldset legend {
@@ -108,10 +124,6 @@
     width: 100%;
     border: none;
     background-color: #e8effe;
-}
-
-.registration-form button {
-    /* margin-left: 2%; */
 }
 
 /* .update-avatar-link {

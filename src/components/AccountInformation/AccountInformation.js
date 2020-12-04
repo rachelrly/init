@@ -4,6 +4,8 @@ import InitContentContext from '../../contexts/initContentContext'
 import InitContentApiService from '../../services/init-content-api-service'
 import AvatarDefault from '../Footer/Images/avatar-default.png'
 import { buffTo64 } from '../../components/Utils/Utils'
+import { FaUserEdit } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 import '../../css/AccountInformation.css'
 
 class AccountInformation extends Component {
@@ -48,6 +50,7 @@ class AccountInformation extends Component {
         const { user } = this.props.user
 
         return (
+        <IconContext.Provider value={{ color: 'var(--colors-icon-main)', className: "upload-avatar", size: '2em' }}>
             <div className='account-wrapper'>
                 <div className='account-avatar-wrapper'>
                     {this.renderAvatar()}
@@ -55,7 +58,11 @@ class AccountInformation extends Component {
                         <Link 
                             to='/avatarupload'
                         >
-                            Update Avatar
+                            
+                            <button className='upload-avatar-button'>
+                            <FaUserEdit />
+                            </button>
+                            
                         </Link>
                     </div>
                 </div>
@@ -81,8 +88,9 @@ class AccountInformation extends Component {
                         <span>{ user.user_stack }</span>
                     </fieldset>
                 </form>
-                <button>submit</button>
+                {/* <button className='form-button'>submit</button> */}
                 </div>
+            </IconContext.Provider>    
         );
     }
 };

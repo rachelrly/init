@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/userContext'
 import '../../css/AccountInformation.css'
@@ -92,6 +93,11 @@ class LoginForm extends Component {
                     >
                         logIn
                     </button>
+                    <Link 
+                            to='/signup'
+                        >
+                            create an account
+                        </Link>
                 </div>
             </form>
         )

@@ -50,27 +50,27 @@ function BurgerNav() {
                                 ? <Fragment>
                                     <span className='navigation-item nav-item-one' onClick={() => setShowNav(true)}>
                                         <Link to='/account' className='navigation-link'>
-                                            Account
+                                            account
                             </Link>
                                     </span>
                                     < span className='navigation-item nav-item-two hidden-nav' onClick={() => setShowNav(true)}>
                                         <Link to='/buzz' className='navigation-link'>
-                                            Buzz
+                                            buzz
                             </Link>
                                     </span>
                                     < span className='navigation-item nav-item-three hidden-nav' onClick={() => setShowNav(true)}>
                                         <Link to='/feed' className='navigation-link'>
-                                            Hive
+                                            hive
                             </Link>
                                     </span>
                                     < span className='navigation-item nav-item-four' onClick={() => setShowNav(true)}>
                                         <Link to='/portfolio' className='navigation-link'>
-                                            Portfolio
+                                            portfolio
                             </Link>
                                     </span>
                                     < span className='navigation-item nav-item-five hidden-nav' onClick={() => setShowNav(true)}>
                                         <Link to='/connections' className='navigation-link'>
-                                            Swarm
+                                            swarm
                             </Link>
                                     </span>
                                     <span
@@ -80,19 +80,19 @@ function BurgerNav() {
                                             setShowNav(true)
                                         }}>
                                        
-                                            Log out
+                                            logOut
                                       
                                     </span>
                                 </Fragment>
                                 : <Fragment>
                                     < span className='navigation-item nav-item-one' onClick={() => setShowNav(true)}>
                                         <Link to='/login' className='navigation-link'>
-                                            Login
+                                            logIn
                                     </Link>
                                     </span>
                                     <span className='navigation-item nav-item-two' onClick={() => setShowNav(true)}>
                                         <Link to='/register' className='navigation-link'>
-                                            Sign up
+                                            signUp
                                     </Link>
                                     </span>
                                 </Fragment>

@@ -68,7 +68,9 @@ class AvatarForm extends Component {
                 >
                     {error && <p>{error.message}</p>}
                 </div>
-                <PhotoUpload />
+                <div>
+                    <PhotoUpload />
+                </div>
                 <div className='avatar-form-input'>
                     {/* <label 
                         htmlFor='avatar-image-name-input'
