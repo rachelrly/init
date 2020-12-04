@@ -37,7 +37,6 @@ class PhotoUpload extends Component {
                         file: file.file,
                         error: null
                     }))
-                    console.log('file', file)
                 } else {
                     this.setState({ error: 'File Size Larger Than 1MB' })
                 }
@@ -65,9 +64,7 @@ class PhotoUpload extends Component {
     readFile = (file) => {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
-            // read the image received via FileReader and later save it to state
             reader.onload = function (ev) {
-                // add the file name to the data URL
                 let dataURL = ev.target.result;
                 dataURL = dataURL.replace(";base64", `;name=${file.name};base64`);
                 resolve({ file, dataURL });
@@ -116,9 +113,10 @@ class PhotoUpload extends Component {
                         className='original-input'
                     />
                     <span className='image-info'>
-                        .jpg .gif .png .jpeg &nbsp;<br />image required up to 1MB
+                        .jpg .gif .png .jpeg up to 1MB<br /><br />image required to upload
                     </span>
                 </fieldset>
+<<<<<<< HEAD
                 {this.state.data
                     ? this.renderPreview()
                     : (<img
@@ -150,6 +148,8 @@ class PhotoUpload extends Component {
                 <span className='image-info'>
                     .jpg .gif .png .jpeg &nbsp; up to 1MB
                 </span>
+=======
+>>>>>>> 810a97945c48abeaaca4af99a274772db5ece997
             </div>
         )
     }
