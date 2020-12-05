@@ -8,8 +8,6 @@ ul.Footer {
     text-align: center;
     justify-content: space-between;;
     background-color: var(--colors-accent-light);
-    /* padding: 1vw 2vw 1vw 2vw; */
-    /* margin-bottom: 4vh; */
     text-decoration: none;
     list-style-type: none;
 }
