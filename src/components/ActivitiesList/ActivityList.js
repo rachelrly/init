@@ -61,33 +61,32 @@ function ActivitiesList() {
     const notificationsList = notifications.map((a, idx) => {
         return (
 
-            <div className='follow-item-wrapper' key={idx} >
-                <div className='follow-item-inner-wrapper'>
-                    <div className='follow-wrapper-left'>
-                        <Link to='/portfolio'>
-                            <ProfilePic index={idx} image={!a.img_file ? undefined : `data:image/${a.img_type};base64,${buffTo64(a.img_file.data)}`} />
-                        </Link>
-                        <div className='follow-name-wrapper'>
-                            <p><strong>{a.username} </strong>
-                                {!a.text ? <span>has started following you.</span> : <span>has commented on {a.post_title}</span>}</p>
-                        </div>
-                    </div>
-                    {!isFollowing(a.id)
-                        ? <button className='follow-button' onClick={() => handleFollow(a.id)}>Follow</button>
-                        : <button className='follow-button' onClick={() => handleUnfollow(a.id)}>Unfollow</button>}
+            <div className='activity-item-wrapper' key={idx} >
+
+                <Link to='/portfolio'>
+                    <ProfilePic index={idx} image={!a.img_file ? undefined : `data:image/${a.img_type};base64,${buffTo64(a.img_file.data)}`} />
+                </Link>
+                <div className='activity-message-wrapper'>
+                    <p><strong>{a.username} </strong>
+                        {!a.text ? <span>has started following you.</span> : <span>has commented on {a.post_title}</span>}</p>
                 </div>
+
+                {!isFollowing(a.id)
+                    ? <button className='activity-button' onClick={() => handleFollow(a.id)}>Follow</button>
+                    : <button className='activity-button' onClick={() => handleUnfollow(a.id)}>Unfollow</button>}
+
             </div>
         )
     })
 
 
     return (
-        <section>
+        <div className='notifications-wrapper'>
             <h2>activityNotifications</h2>
             <div className='notifications-list'>
                 {notificationsList}
             </div>
-        </section>
+        </div>
     );
 
 };

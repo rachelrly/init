@@ -4,8 +4,9 @@ import '../../css/FollowList.css';
 
 class Buzz extends Component {
     render() {
-        return (<div className='buzz-container'>
-            <ActivityList />
+        return (
+            <div className='buzz-container'>
+                <ActivityList />
             </div>
         );
     };
