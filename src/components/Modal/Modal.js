@@ -33,9 +33,9 @@ export default function Modal(props) {
                 className='Modal__inner post-wrapper-flex'
 
             >
-
+                <Header />
                 <div className='modal-scroll-wrapper'>
-                    <Header />
+
                     <div className='header-and-exit' onKeyDown={(e) => onKeyDown(e)}>
                         <h2 className='post-title'>{props.post_title}</h2>
                         <div

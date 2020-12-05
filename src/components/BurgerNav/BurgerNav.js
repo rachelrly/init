@@ -57,12 +57,12 @@ function BurgerNav() {
                                     </span>
                                     < span className='navigation-item nav-item-two hidden-nav' onClick={() => setShowNav(true)}>
                                         <Link to='/buzz' className='navigation-link'>
-                                            buzz
+                                            notifications
                             </Link>
                                     </span>
                                     < span className='navigation-item nav-item-three hidden-nav' onClick={() => setShowNav(true)}>
                                         <Link to='/feed' className='navigation-link'>
-                                            hive
+                                            feed
                             </Link>
                                     </span>
                                     < span className='navigation-item nav-item-four' onClick={() => setShowNav(true)}>
@@ -72,7 +72,7 @@ function BurgerNav() {
                                     </span>
                                     < span className='navigation-item nav-item-five hidden-nav' onClick={() => setShowNav(true)}>
                                         <Link to='/connections' className='navigation-link'>
-                                            swarm
+                                            connections
                             </Link>
                                     </span>
                                     <span
