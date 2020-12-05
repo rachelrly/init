@@ -10,18 +10,22 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 export default function Modal(props) {
-    const [showComments, setShowComments] = useState(false)
+
+    /*This modal uses a portal, created in index.html
+    The modal shows the expanded view of each post, including a toggle for comments*/
+
+    const [showComments, setShowComments] = useState(false);
 
     if (!props.comments) {
         if (showComments) {
             setShowComments(!showComments)
-        }
-    }
+        };
+    };
     const onKeyDown = e => {
         if (e.keyCode === 27 || e.keyCode === 13 && !props.toggleOpen) {
             props.setToggleOpen(true)
-        }
-    }
+        };
+    };
     return ReactDOM.createPortal(
         <div className='Modal post-wrapper' >
             <div
@@ -124,4 +128,4 @@ export default function Modal(props) {
         ,
         document.getElementById('modal'),
     );
-}
+};

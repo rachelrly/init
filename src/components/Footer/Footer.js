@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css';
-import LockedHive from './Images/login-logo.png';
-import HiveFeed from './Images/feed-logo.png';
-import Swarm from './Images/connect-logo.png';
-import Buzz from './Images/notification-logo.png';
-import Account from './Images/default-profile-logo.png';
-import UserContext from '../../contexts/userContext'
+import '../../css/Footer.css';
+import LockedHive from '../../Images/login-logo.png';
+import HiveFeed from '../../Images/feed-logo.png';
+import Swarm from '../../Images/connect-logo.png';
+import Buzz from '../../Images/notification-logo.png';
+import Account from '../../Images/default-profile-logo.png';
+import UserContext from '../../contexts/userContext';
 
 export default class Footer extends Component {
+
+    /* This component renders two differnt footers, one for logged-in and one for logged-out */
+
     static contextType = UserContext;
 
     renderFooterLoggedIn() {
@@ -43,7 +46,7 @@ export default class Footer extends Component {
                 </ul>
             </div>
         );
-    }
+    };
 
     renderFooterLoggedOut() {
         return (
@@ -60,11 +63,11 @@ export default class Footer extends Component {
                 </ul>
             </>
         );
-    }
+    };
 
     render() {
         const { isLoggedIn } = this.context;
-        
+
         return (
             <div className='FooterWrapper'>
                 {isLoggedIn
@@ -72,5 +75,5 @@ export default class Footer extends Component {
                     : this.renderFooterLoggedOut()}
             </div>
         );
-    }
-}
+    };
+};

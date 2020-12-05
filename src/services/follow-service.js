@@ -14,7 +14,7 @@ const FollowService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
     },
 
     follow(following_id) {
@@ -30,7 +30,7 @@ const FollowService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
     },
 
     unfollow(following_id) {
@@ -46,9 +46,9 @@ const FollowService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
     }
 }
 
 
-export default FollowService
+export default FollowService;

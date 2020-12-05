@@ -1,10 +1,11 @@
 import config from '../../config';
-
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import TokenService from '../../services/token-service'
 
 export default function useGallerySearch(observed, pageNumber, limit, type) {
+
+    /*This custom hook handles the infinite scroll with pagination*/
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -13,12 +14,11 @@ export default function useGallerySearch(observed, pageNumber, limit, type) {
 
 
     useEffect(() => {
-        //Everytime we make a request we have to trigger our loading thingy
         setLoading(true);
-        //We shouldn't have any issues at the start of our Fetch, let's make sure our state understands that
         setError(false);
 
-        let cancel
+        let cancel;
+
         axios({
             method: 'GET',
             url: `${config.API_ENDPOINT}/post/download`,

@@ -1,27 +1,27 @@
-import React, { Component } from 'react'
-import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
-// import './RegistrationRoute.css'
+import React, { Component } from 'react';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+
 
 class RegistrationRoute extends Component {
     static defaultProps = {
         history: {
-            push: () => {},
+            push: () => { },
         },
     }
 
     handleRegistrationSuccess = () => {
-        const { history } = this.props
-        history.push('/login')
+        const { history } = this.props;
+        history.push('/login');
     }
 
     render() {
         return (
-            <section 
+            <section
                 className='registration-route'
                 aria-live='polite'
                 aria-relevant='all'
             >
-                
+
                 <h2 className='sign-up'>signUp</h2>
                 <RegistrationForm
                     onRegistrationSuccess={this.handleRegistrationSuccess}
@@ -31,4 +31,4 @@ class RegistrationRoute extends Component {
     }
 }
 
-export default RegistrationRoute
+export default RegistrationRoute;

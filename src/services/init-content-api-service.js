@@ -1,5 +1,5 @@
-import config from '../config'
-import TokenService from './token-service'
+import config from '../config';
+import TokenService from './token-service';
 
 
 const InitContentApiService = {
@@ -14,7 +14,7 @@ const InitContentApiService = {
                 (!res.ok)
                     ? res.json().then(event => Promise.reject(event))
                     : res.json()
-            )
+            );
     },
 
     postAvatar(file) {
@@ -29,7 +29,7 @@ const InitContentApiService = {
                 (!res.ok)
                     ? res.json().then(event => Promise.reject(event))
                     : res
-            )
+            );
     },
 
     updateAvatar(file, update) {
@@ -44,7 +44,7 @@ const InitContentApiService = {
                 (!res.ok)
                     ? res.json().then(event => Promise.reject(event))
                     : null
-            )
+            );
     },
 
     postInitProject(file) {
@@ -59,7 +59,7 @@ const InitContentApiService = {
                 (!res.ok)
                     ? res.json().then(event => Promise.reject(event))
                     : res
-            )
+            );
     },
 
     getPost(post_id) {
@@ -72,7 +72,7 @@ const InitContentApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
     },
 
     getPostComments(post_id) {
@@ -85,7 +85,7 @@ const InitContentApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
     },
 
     postComment(post_id, text) {
@@ -101,9 +101,9 @@ const InitContentApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
 
     }
 }
 
-export default InitContentApiService
+export default InitContentApiService;

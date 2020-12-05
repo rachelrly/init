@@ -4,8 +4,10 @@ import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/userContext';
 
 function BurgerNav() {
-    const userContext = useContext(UserContext)
-    const [showNav, setShowNav] = useState(true)
+
+    const userContext = useContext(UserContext);
+
+    const [showNav, setShowNav] = useState(true);
 
     return (
         <div className='burger-and-nav' >
@@ -103,8 +105,8 @@ function BurgerNav() {
             }
 
         </div >
-    )
-}
+    );
+};
 
 export default BurgerNav
 

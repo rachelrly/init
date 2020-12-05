@@ -1,9 +1,11 @@
 import config from '../../config';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import TokenService from '../../services/token-service'
+import TokenService from '../../services/token-service';
 
 export default function useGallerySearch(observed, pageNumber, limit, type) {
+
+    /* This component controlls the infinite scroll for the feed of each user */
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -16,7 +18,7 @@ export default function useGallerySearch(observed, pageNumber, limit, type) {
 
         setError(false);
 
-        let cancel
+        let cancel;
         axios({
             method: 'GET',
             url: `${config.API_ENDPOINT}/post/feed`,

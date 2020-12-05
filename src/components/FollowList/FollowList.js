@@ -1,58 +1,56 @@
-import React, { useState, useEffect } from 'react'
-import ProfilePic from '../ProfilePic/ProfilePic'
+import React, { useState, useEffect } from 'react';
+import ProfilePic from '../ProfilePic/ProfilePic';
 import { Link } from 'react-router-dom';
 import FollowService from '../../services/follow-service';
-import '../../css/FollowList.css'
-import { buffTo64 } from '../../components/Utils/Utils'
+import '../../css/FollowList.css';
+import { buffTo64 } from '../../components/Utils/Utils';
 
 function FollowList(props) {
-    const [toggleFollow, setToggleFollow] = useState(true)
+    const [toggleFollow, setToggleFollow] = useState(true);
 
-    const [followedByUser, setFollowedByUser] = useState([])
-    const [followingUser, setFollowingUser] = useState([])
+    const [followedByUser, setFollowedByUser] = useState([]);
+    const [followingUser, setFollowingUser] = useState([]);
 
     useEffect(() => {
-        getFollow()
+        getFollow();
 
     }, [])
-    
+
     const getFollow = async () => {
         try {
-            const { followingUser, followedByUser } = await FollowService.getFollowLists()
-            console.log('followed by user', followedByUser, 'following user', followingUser)
-            setFollowedByUser(followedByUser)
-            setFollowingUser(followingUser)
+            const { followingUser, followedByUser } = await FollowService.getFollowLists();
+            setFollowedByUser(followedByUser);
+            setFollowingUser(followingUser);
         }
         catch (error) {
-            console.log(error)
-        }
-    }
+            console.error(error);
+        };
+    };
 
     const handleUnfollow = async (id) => {
         try {
-            const followers = await FollowService.unfollow(id)
-            setFollowedByUser(followers)
+            const followers = await FollowService.unfollow(id);
+            setFollowedByUser(followers);
         }
         catch (error) {
-            console.log(error)
-        }
-    }
+            console.error(error);
+        };
+    };
 
     const handleFollow = async (id) => {
         try {
-            const followers = await FollowService.follow(id)
-            setFollowedByUser(followers)
+            const followers = await FollowService.follow(id);
+            setFollowedByUser(followers);
         }
         catch (error) {
-            console.log(error)
-        }
+            console.error(error);
+        };
+    };
 
+    const usersArr = toggleFollow ? followingUser : followedByUser;
 
-    }
+    const isFollowing = id => followedByUser.find(u => u.id === id);
 
-    const usersArr = toggleFollow ? followingUser : followedByUser
-
-    const isFollowing = id => followedByUser.find(u => u.id === id)
     const followList = usersArr.map((f, index) => {
         return (
             <div className='follow-item-wrapper' key={index} >
@@ -71,8 +69,8 @@ function FollowList(props) {
                         : <button className='follow-button' onClick={() => handleUnfollow(f.id)}>Unfollow</button>}
                 </div>
             </div>
-        )
-    })
+        );
+    });
 
     return (
         <section>
@@ -84,7 +82,7 @@ function FollowList(props) {
                 {followList}
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default FollowList
+export default FollowList;

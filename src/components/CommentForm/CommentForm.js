@@ -1,26 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import InitContentApiService from '../../services/init-content-api-service';
 
 function CommentForm(props) {
-    const [error, setError] = useState(null)
-    const [text, setText] = useState('')
+    /*This form allows users to post comments and handles that POST to the apu*/
+
+    const [error, setError] = useState(null);
+    const [text, setText] = useState('');
 
     const handleSubmit = async e => {
-        e.preventDefault()
+        e.preventDefault();
 
         if (!text.length) {
-            setError('Comment must not be empty')
+            setError('Comment must not be empty');
             return null;
-        }
+        };
 
         if (text.length > 200) {
-            setError('Comment must be shorter than 200 characters')
+            setError('Comment must be shorter than 200 characters');
             return null;
-        }
+        };
 
-        setText('')
-        const response = await InitContentApiService.postComment(props.post_id, text)
-        props.setComments(response)
+        setText('');
+
+        const response = await InitContentApiService.postComment(props.post_id, text);
+
+        props.setComments(response);
 
     }
 
@@ -49,7 +53,7 @@ function CommentForm(props) {
             </button>
 
         </form >
-    )
-}
+    );
+};
 
-export default CommentForm
+export default CommentForm;

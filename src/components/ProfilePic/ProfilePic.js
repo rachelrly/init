@@ -1,8 +1,10 @@
 import React from 'react';
-import defaultImg from '../Footer/Images/avatar-default.png'
+import defaultImg from '../../Images/avatar-default.png';
 
 function ProfilePic(props) {
-    const imageId = 'img-' + props.index
+    /*wraps profile image in a hexagon*/
+
+    const imageId = 'img-' + props.index;
 
     return (
         <svg viewBox='0 0 100 100' version='1.1' xmlns='http://www.w3.org/2000/svg' className={props.className ? `profile-pic ${props.className}` : 'profile-pic'}>

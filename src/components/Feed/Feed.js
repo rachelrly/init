@@ -12,7 +12,7 @@ export default function Feed() {
   const { results, hasMore, loading, error } = FeedSearch(observed, pageNumber, limit);
 
 
-  const observer = useRef()
+  const observer = useRef();
 
   const lastResultElementRef = useCallback(node => {
     if (loading) return;
@@ -28,7 +28,7 @@ export default function Feed() {
     })
     if (node) observer.current.observe(node);
   }, [loading, hasMore]);
-  console.log('RESULTS', results)
+
   return (
     <>
       {!results.length
@@ -45,6 +45,6 @@ export default function Feed() {
         </div>
       }
     </>
-  )
+  );
 
 };

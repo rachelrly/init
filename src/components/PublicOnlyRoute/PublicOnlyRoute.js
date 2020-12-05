@@ -1,9 +1,10 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import UserContext from '../../contexts/userContext'
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import UserContext from '../../contexts/userContext';
 
 export default function PublicOnlyRoute({ component, ...props }) {
-    const Component = component
+    /*This component controlls redirection for not logged in users*/
+    const Component = component;
     return (
         <Route
             {...props}
@@ -17,5 +18,5 @@ export default function PublicOnlyRoute({ component, ...props }) {
                 </UserContext.Consumer>
             )}
         />
-    )
-}
+    );
+};

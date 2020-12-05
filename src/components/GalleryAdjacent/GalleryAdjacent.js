@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import React, { useState, useRef, useCallback } from 'react';
 import GalleryAdjacentSearch from './GalleryAdjacentSearch';
-
 import '../../css/AccountInformation.css'
 import Post from '../Post/Post'
 
 export default function GalleryAdjacent() {
+  /* This component displays the paginated infinite scroll content for each user's portfolio page*/
   const [observed, setObserver] = useState(false);
   const { id } = useParams();
   const [pageNumber, setPageNumber] = useState(1);
@@ -14,8 +14,8 @@ export default function GalleryAdjacent() {
   //Here we destructure our useBookSearch
   const { results, hasMore, loading, error } = GalleryAdjacentSearch(observed, pageNumber, limit, id);
 
-
-  const observer = useRef()
+  //this ref controlls when we ask for more content in the infinite scroll
+  const observer = useRef();
 
   const lastResultElementRef = useCallback(node => {
     if (loading) return;
@@ -48,6 +48,6 @@ export default function GalleryAdjacent() {
         </div>
       }
     </>
-  )
+  );
 
 };

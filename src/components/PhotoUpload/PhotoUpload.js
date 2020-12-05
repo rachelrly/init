@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-import initContentContext from '../../contexts/initContentContext'
-import AvatarDefault from '../Footer/Images/avatar-default.png'
-import UploadLogo from '../Footer/Images/upload-logo.png'
-import ProfilePic from '../ProfilePic/ProfilePic'
-import '../../css/PhotoUpload.css'
+import React, { Component } from 'react';
+import initContentContext from '../../contexts/initContentContext';
+import AvatarDefault from '../../Images/avatar-default.png';
+import UploadLogo from '../../Images/upload-logo.png';
+import '../../css/PhotoUpload.css';
 
 class PhotoUpload extends Component {
-    static contextType = initContentContext
+
+    /*This component handles the photo upload feature
+    It is imported into form elements*/
+
+    static contextType = initContentContext;
 
     state = {
         error: null,
@@ -14,19 +17,19 @@ class PhotoUpload extends Component {
         data: null,
     }
 
-    inputRef = React.createRef()
+    inputRef = React.createRef();
 
     checkExtension = (fileName) => {
         const pattern = '(' + ['.jpg', '.gif', '.png', '.jpeg'].join('|').replace(/\./g, '\\.') + ')$';
         return new RegExp(pattern, 'i').test(fileName);
-    }
+    };
 
     changeFile = (ev) => {
-        const { setData } = this.context
+        const { setData } = this.context;
 
         if (!ev.target.files.length) {
-            return
-        }
+            return;
+        };
 
         if (this.checkExtension(ev.target.files[0].name)) {
             this.readFile(ev.target.files[0]).then(file => {
@@ -36,16 +39,16 @@ class PhotoUpload extends Component {
                         data: file.dataURL,
                         file: file.file,
                         error: null
-                    }))
+                    }));
                 } else {
-                    this.setState({ error: 'File Size Larger Than 1MB' })
+                    this.setState({ error: 'File Size Larger Than 1MB' });
                 }
-                setData()
+                setData();
             }).catch(err => {
-                this.setState({ error: err })
+                this.setState({ error: err });
             })
         } else {
-            this.setState({ error: 'File Type Not Supported' })
+            this.setState({ error: 'File Type Not Supported' });
         }
     }
 
@@ -58,8 +61,8 @@ class PhotoUpload extends Component {
                     className='circular-landscape'
                 />
             </div>
-        )
-    }
+        );
+    };
 
     readFile = (file) => {
         return new Promise((resolve, reject) => {
@@ -117,8 +120,8 @@ class PhotoUpload extends Component {
                     </span>
                 </fieldset>
             </div>
-        )
-    }
+        );
+    };
 }
 
-export default PhotoUpload
+export default PhotoUpload;

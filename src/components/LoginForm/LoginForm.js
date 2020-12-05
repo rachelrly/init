@@ -8,20 +8,18 @@ import '../../css/AccountInformation.css'
 class LoginForm extends Component {
     static defaultProps = {
         onLoginSuccess: () => { }
-    }
+    };
 
-    static contextType = UserContext
+    static contextType = UserContext;
 
-    state = { error: null }
+    state = { error: null };
 
-    firstInput = React.createRef()
+    firstInput = React.createRef();
 
     handleSubmit = ev => {
         ev.preventDefault()
 
-        const { username, user_password } = ev.target
-
-        //  this.setState({ error: null })
+        const { username, user_password } = ev.target;
 
         AuthApiService.postLogin({
             username: username.value,
@@ -35,12 +33,12 @@ class LoginForm extends Component {
             })
             .catch(res => {
                 this.setState({ error: res.error })
-            })
-    }
+            });
+    };
 
     componentDidMount() {
-        this.firstInput.current.focus()
-    }
+        this.firstInput.current.focus();
+    };
 
     render() {
         const { error } = this.state
@@ -94,15 +92,15 @@ class LoginForm extends Component {
                     >
                         logIn
                     </button>
-                    <Link 
-                            to='/signup'
-                        >
-                            create an account
+                    <Link
+                        to='/register'
+                    >
+                        create an account
                         </Link>
                 </div>
             </form>
-        )
-    }
-}
+        );
+    };
+};
 
-export default LoginForm
+export default LoginForm;

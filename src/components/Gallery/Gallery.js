@@ -6,6 +6,8 @@ import '../../css/AccountInformation.css'
 import Post from '../Post/Post'
 
 export default function Gallery() {
+  /*This component displays the paginated content for each user's profile*/
+
   const [observed, setObserver] = useState(false);
 
   const [pageNumber, setPageNumber] = useState(1);
@@ -14,8 +16,7 @@ export default function Gallery() {
   //Here we destructure our useBookSearch
   const { results, hasMore, loading, error } = GallerySearch(observed, pageNumber, limit);
 
-
-  const observer = useRef()
+  const observer = useRef();
 
   const lastResultElementRef = useCallback(node => {
     if (loading) return;
@@ -26,10 +27,14 @@ export default function Gallery() {
       if (entries[0].isIntersecting && hasMore) {
 
         setPageNumber(prevPageNumber => prevPageNumber + 1);
+
         setObserver(!observed);
       }
+
     })
+
     if (node) observer.current.observe(node);
+
   }, [loading, hasMore]);
 
   return (
@@ -48,6 +53,6 @@ export default function Gallery() {
         </div>
       }
     </>
-  )
+  );
 
 };
