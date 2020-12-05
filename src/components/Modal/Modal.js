@@ -64,7 +64,7 @@ export default function Modal(props) {
                     <div className='project-content-wrapper'>
                         <div className='post-user-wrapper post-detail-wrapper'>
                             <div className='user-detail-wrapper'>
-                                <ProfilePic className='post-profile-pic' />
+                                <ProfilePic className='post-profile-pic' index={props.index} image={!props.img_file ? undefined : `data:image/${props.img_type};base64,${buffTo64(props.img_file.data)}`} />
                                 <Link to={`/user/${props.user_id}`} className='post-name-wrapper'>
                                     <p>{props.username}</p>
                                 </Link>
