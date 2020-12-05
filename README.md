@@ -20,3 +20,31 @@ password: `ssRAGE2!`
 - CSS3
 - Jest
 - deployed with Vercel
+
+## Features
+
+### Infinite scroll through your feed
+
+![](Screenshots/scroll.png)
+
+### Infinite scroll through profiles
+
+![](Screenshots/profile.png)
+
+### View expanded version of posts
+
+![](Screenshots/modal.png)
+
+#### Write and see comments in expanded view
+
+![](Screenshots/comments.png)
+
+### Follow and unfollow users
+
+![](Screenshots/following3.png)
+
+![](Screenshots/following1.png)
+
+### Get notifications when other users follow you or comment on your posts
+
+![](Screenshots/activity.png)

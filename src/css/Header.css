@@ -15,7 +15,6 @@ header{
     align-items: center;
     width: 100%;
     padding-left: var(--spacer-sm);
-    background-color: var(--colors-white);
     margin: 0;
     box-sizing: border-box;
     font-family: var(--font);

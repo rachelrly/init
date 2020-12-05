@@ -67,10 +67,6 @@ a{
     text-align: center;
 }
 
-.App, .modal{
-    background-color: var(--colors-white);
-}
-
 button, .button {
     cursor: pointer;
     outline: 0;
@@ -92,6 +88,10 @@ button:focus {
 
 .login {
     margin-top: var(--spacer-sm);
+}
+
+body{
+    background-color: var(--colors-white);
 }
 
 @media all and (min-width: 500px){
