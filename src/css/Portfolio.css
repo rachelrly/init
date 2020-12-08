@@ -95,6 +95,11 @@ ul {
     list-style: none;
 }
 
+.profile-info-wrapper span{
+    font-size: calc(var(--font-size-sm)* 1.4);
+    color: var(--colors-accent);
+    padding: var(--spacer-sm);
+}
 
 @media all and (min-width: 500px) {
 

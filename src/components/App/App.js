@@ -6,15 +6,15 @@ import '../../css/form.css';
 import Header from '../Header/Header';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import YoRoute from '../../routes/YoRoute/YoRoute';
+import Yo from '../Yo/Yo';
 import Buzz from '../../routes/BuzzRoute/BuzzRoute';
-import Connections from '../../routes/ConnectionsRoute/ConnectionsRoute'
-import Feed from '../../routes/FeedRoute/FeedRoute';
+import FollowList from '../FollowList/FollowList';
+import Feed from '../Feed/Feed';
 import Portfolio from '../../routes/PortfolioRoute/PortfolioRoute';
 import PortfolioAdjacent from '../../routes/PortfolioAdjacentRoute/PortfolioAdjacentRoute';
 import AccountRoute from '../../routes/AccountRoute/AccountRoute';
-import AvatarUploadRoute from '../../routes/AvatarUploadRoute/AvatarUploadRoute';
-import NewProject from '../../routes/NewProjectRoute/NewProjectRoute';
+import AvatarForm from '../AvatarForm/AvatarForm';
+import PostForm from '../PostForm/PostForm';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
 import Post from '../Post/Post';
@@ -26,7 +26,7 @@ class App extends Component {
                 <PublicOnlyRoute
                     exact
                     path={'/'}
-                    component={YoRoute}
+                    component={Yo}
                 />
                 <PublicOnlyRoute
                     path={'/login'}
@@ -42,7 +42,7 @@ class App extends Component {
                 />
                 <PrivateRoute
                     path={'/avatarupload'}
-                    component={AvatarUploadRoute}
+                    component={AvatarForm}
                 />
                 <PrivateRoute
                     path={'/buzz'}
@@ -50,7 +50,7 @@ class App extends Component {
                 />
                 <PrivateRoute
                     path={'/connections'}
-                    component={Connections}
+                    component={FollowList}
                 />
                 <PrivateRoute
                     exact path={'/feed'}
@@ -58,17 +58,12 @@ class App extends Component {
                 />
                 <PrivateRoute
                     path={'/newProject'}
-                    component={NewProject}
+                    component={PostForm}
                 />
                 <PrivateRoute
                     path={'/portfolio'}
                     component={Portfolio}
                 />
-                <PrivateRoute
-                    path={'/post/:id'}
-                    component={Post}
-                />
-
                 <PrivateRoute
                     path={'/user/:id'}
                     component={PortfolioAdjacent}

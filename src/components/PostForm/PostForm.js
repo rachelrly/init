@@ -27,7 +27,7 @@ function PostForm(props) {
 
     return (
         <form
-            className='project-form'
+            className='project-form new-project-wrapper'
             onSubmit={(e) => handleSubmit(e)}
             encType='multipart/form-data'
         >

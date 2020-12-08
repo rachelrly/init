@@ -56,7 +56,7 @@ class AvatarForm extends Component {
 
         return (
             <form
-                className='avatar-form'
+                className='avatar-form avatar-upload-wrapper'
                 onSubmit={this.handleSubmit}
                 encType='multipart/form-data'
             >

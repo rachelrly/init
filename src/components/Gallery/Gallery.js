@@ -1,7 +1,8 @@
 
 import React, { useState, useRef, useCallback } from 'react';
 import GallerySearch from './GallerySearch';
-import Post from '../Post/Post'
+import Post from '../Post/Post';
+import ProfileTop from '../ProfileTop/ProfileTop';
 
 export default function Gallery() {
   /*This component displays the paginated content for each user's profile*/
@@ -37,6 +38,7 @@ export default function Gallery() {
 
   return (
     <>
+
       {!results.length
         ? null
         : <div>

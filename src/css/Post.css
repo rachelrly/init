@@ -191,6 +191,10 @@ p{
     padding: var(--spacer-sm);
 }
 
+.hide-comments{
+    transform: rotate(180deg)
+}
+
 .desc-wrapper{
     align-self: center;
 }
