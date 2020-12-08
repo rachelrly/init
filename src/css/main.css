@@ -4,6 +4,11 @@
     margin: 0;
 }
 
+.App{
+    height: 100%;
+    min-height: 90vh;
+}
+
 main {
     width: 100%;
     color: var(--colors-black);
@@ -45,7 +50,7 @@ button{
 } */
 
 h1{
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: var(--colors-accent);
 }
 

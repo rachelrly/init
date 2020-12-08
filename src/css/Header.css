@@ -155,6 +155,7 @@ header{
 
 h1{
     flex: 1;
+    letter-spacing: var(--spacer-tiny);
 }
 
 @media all and (min-width: 500px){

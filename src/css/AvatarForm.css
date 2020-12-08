@@ -18,12 +18,6 @@
     margin-top: var(--spacer-sm);
 }
 
-.post-input-wrapper{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 form {
     margin-bottom: 0;
@@ -32,3 +26,5 @@ form {
 .no-outline:focus {
     outline: none;
 }
+
+

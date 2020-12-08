@@ -82,9 +82,7 @@ class ProjectUpload extends Component {
     render() {
         const { error } = this.state
         return (
-            <div className='avatar-uploader'>
-
-
+            <div className='project-upload-wrapper'>
                 {this.state.data
                     ? this.renderPreview()
                     : (<img
@@ -119,9 +117,7 @@ class ProjectUpload extends Component {
                     autoComplete='off'
                     className='original-input'
                 />
-                <span className='image-info'>
-                    .jpg .gif .png .jpeg &nbsp;<br />image required up to 1MB
-                        </span>
+
 
             </div>
         );

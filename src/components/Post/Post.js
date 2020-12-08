@@ -2,10 +2,8 @@ import React, { useState, useEffect, Fragment } from 'react';
 import Comment from '../Comment/Comment';
 import InitContentApiService from '../../services/init-content-api-service';
 import '../../css/Post.css';
-
-import CommentForm from '../CommentForm/CommentForm';
 import Modal from '../Modal/Modal';
-import { buffTo64 } from '../Utils/Utils'
+import { buffTo64 } from '../Utils/Utils';
 
 function Post(props) {
     const [comments, setComments] = useState([])
@@ -20,6 +18,7 @@ function Post(props) {
         getComments()
 
     }, [])
+
     const onKeyDown = e => {
         console.log('key down ran in post.js')
         if (e.keyCode === 27 && !props.toggleOpen) {
@@ -27,11 +26,9 @@ function Post(props) {
         }
     }
 
-
     return (
 
         <Fragment>
-
             { props.post_image_file
                 ? <div className='img-preview-wrapper'>
                     <img className='gallery-img'

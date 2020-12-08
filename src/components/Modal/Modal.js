@@ -72,27 +72,26 @@ export default function Modal(props) {
 
                             <p className='desc'>{props.post_description}</p>
                         </div>
-                        <div className='project-link-wrapper'>
-                            {props.post_live_link || props.post_repository
-                                ? <div className='links-rendered-wrapper post-detail-wrapper'>
-                                    {props.post_live_link
-                                        ? <div className='link-wrapper'>
-                                            <a _target='blank' href={props.post_live_link} alt='view live project' className='link'>
-                                                <p>Live Project</p>
-                                            </a>
-                                        </div>
-                                        : null}
-                                    {props.post_repository
-                                        ? <div className='link-wrapper'>
-                                            <a _target='blank' href={props.post_repository} alt='view projects repository' className='link'>
-                                                <p>Repository</p>
-                                            </a>
-                                        </div>
-                                        : null}
+                        {props.post_live_link || props.post_repository
+                            ? <div className='post-links-wrapper post-detail-wrapper'>
+                                {props.post_live_link
+                                    ? <div className='link-wrapper'>
+                                        <a _target='blank' href={props.post_live_link} alt='view live project' className='link'>
+                                            <p>Live Project</p>
+                                        </a>
+                                    </div>
+                                    : null}
+                                {props.post_repository
+                                    ? <div className='link-wrapper'>
+                                        <a _target='blank' href={props.post_repository} alt='view projects repository' className='link'>
+                                            <p>Repository</p>
+                                        </a>
+                                    </div>
+                                    : null}
 
-                                </div>
-                                : null}
-                        </div>
+                            </div>
+                            : null}
+
                         <CommentForm post_id={props.id} comments={props.comments} setComments={(c) => { props.setComments(c) }} />
                         {showComments
                             ? <Fragment>
@@ -102,7 +101,7 @@ export default function Modal(props) {
                                     < MdExpandMore className='react-icon hide-comments' onClick={() => setShowComments(!showComments)} /></div>
                             </Fragment>
                             : <span>
-                                {props.comments
+                                {props.comments.length
                                     ?
                                     <div className='show-comments-wrapper'>
                                         <p>Show comments</p>

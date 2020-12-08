@@ -32,8 +32,11 @@ function PostForm(props) {
             encType='multipart/form-data'
         >
             <ProjectUpload setError={(e) => setError(e)} />
-            <div className='post-input-wrapper'>
-                {error && <p>{error.message}</p>}
+
+            {error && <p>{error.message}</p>}
+            <div className='image-info'>
+                <span>.png .jpg .jpeg .gif up to 1MB</span>
+                <span>image required</span>
             </div>
             <div className='post-input-wrapper'>
                 <div>
@@ -48,7 +51,6 @@ function PostForm(props) {
                         name='post_title'
                         type='text'
                         className='project-form-input'
-                        placeholder='projectTitle'
                         aria-required='true'
                         autoComplete='off'
                     />
@@ -64,7 +66,6 @@ function PostForm(props) {
                         name='post_description'
                         type='text'
                         className='project-form-input'
-                        placeholder='projectSpecs'
                         aria-required='true'
                         autoComplete='off'
                     />
@@ -74,13 +75,12 @@ function PostForm(props) {
                         htmlFor='init-project-live-link-input'
                         aria-label='init-project-live-link-input'
                         className='project-form-label'
-                    />
+                    >repository</label>
                     <input
                         id='init-project-live-link-input'
                         name='post_live_link'
                         type='text'
                         className='project-form-input'
-                        placeholder='projectClient'
                         aria-required='true'
                         autoComplete='off'
                     />
@@ -95,7 +95,6 @@ function PostForm(props) {
                         name='post_repository'
                         type='text'
                         className='project-form-input'
-                        placeholder='projectServer'
                         aria-required='true'
                         autoComplete='off'
                     />
