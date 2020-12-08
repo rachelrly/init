@@ -27,4 +27,16 @@ form {
     outline: none;
 }
 
+.account-avatar-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-wrapper{
+    width: inherit;
+    display: flex;
+}
+
+
 

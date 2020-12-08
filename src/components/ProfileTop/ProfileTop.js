@@ -40,17 +40,18 @@ function ProfileTop() {
   }
 
   return (
-    <div className='profile-top-wrapper'>
+    <div className='profile-top-wrapper profile-info-wrapper'>
       {user ?
-        <><div className='profile-info-wrapper'>
-
-          <ProfilePic image={!user.img_file ? undefined : `data:image/${user.img_type};base64,${buffTo64(user.img_file.data)}`} />
-          <h2 className='p-item-top'>{user.username}</h2>
-          <p className='p-filling' key={user}><span>{user.NoPost}</span>Posts</p>
-          <p className='p-filling' ><span>{user.FBU}</span>Followers</p>
-          <p className='p-filling' ><span>{user.UF}</span>Following</p>
-
-        </div>
+        <>
+          <div className='profile-container profile-info-user'>
+            <ProfilePic image={!user.img_file ? undefined : `data:image/${user.img_type};base64,${buffTo64(user.img_file.data)}`} />
+            <h2 className='p-item-top'>{user.username}</h2>
+          </div>
+          <div className='profile-container profile-info-count'>
+            <p className='p-filling' key={user}><span>{user.NoPost}</span>Posts</p>
+            <p className='p-filling' ><span>{user.FBU}</span>Followers</p>
+            <p className='p-filling' ><span>{user.UF}</span>Following</p>
+          </div>
         </> : null}
     </div >
   );

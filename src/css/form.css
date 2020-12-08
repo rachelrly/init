@@ -14,6 +14,7 @@ input{
 }
 
 form{
+    height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,7 +37,7 @@ input, textarea{
     outline: 0;
 }
 label{
-    min-width: 120px;
+    min-width: 100px;
 }
 input:focus, textarea:focus{
     border: 2px solid var(--colors-accent);
@@ -63,4 +64,27 @@ input:focus, textarea:focus{
     width: inherit;
     flex-direction: column;
     padding-bottom: 0;
+}
+
+.project-upload-wrapper{
+    flex-direction: column;
+    padding: 0 0 var(--spacer-sm) 0;
+    height: 100%;
+}
+
+.upload-button-wrapper{
+    width: 75px;
+    min-width: 75px;
+    height: 75px;
+}
+
+.update-avatar-link{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-icon{
+    height:100%;
 }

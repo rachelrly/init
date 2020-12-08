@@ -24,17 +24,8 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--spacer-sm);
-}
-
-.profile-top-wrapper{
-    display: flex;
-    width: 100%; 
     flex-direction: column;
 }
-
-/* .p-filling {
-    size: 40%;
-} */
 
 .p-item-top {
     padding: 1px;
@@ -101,12 +92,22 @@ ul {
     padding: var(--spacer-sm);
 }
 
+.profile-container{
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media all and (min-width: 500px) {
 
     .gallery-page-wrapper{
         width: 80%;
     }
     
+    .profile-info-wrapper{
+        flex-direction: row;
+    }
 }
 
 @media all and (min-width: 1000px) {

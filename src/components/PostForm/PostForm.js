@@ -34,10 +34,7 @@ function PostForm(props) {
             <ProjectUpload setError={(e) => setError(e)} />
 
             {error && <p>{error.message}</p>}
-            <div className='image-info'>
-                <span>.png .jpg .jpeg .gif up to 1MB</span>
-                <span>image required</span>
-            </div>
+
             <div className='post-input-wrapper'>
                 <div>
 

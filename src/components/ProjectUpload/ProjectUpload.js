@@ -91,14 +91,11 @@ class ProjectUpload extends Component {
                         alt='avatar-default-logo'
                     />)
                 }
-                <div
-                    role='alert'
+                {error && <p role='alert'
                     className='error-message'
-                    aria-live='assertive'
-                >
-                    {error && <p>{error}</p>}
-                </div>
-                <label htmlFor='upload-selector'>
+                    aria-live='assertive'>{error}</p>}
+
+                <label htmlFor='upload-selector' className='upload-button-wrapper'>
                     <img
                         src={UploadLogo}
                         alt='upload-button'
@@ -117,7 +114,10 @@ class ProjectUpload extends Component {
                     autoComplete='off'
                     className='original-input'
                 />
-
+                <div className='image-info'>
+                    <span>.png .jpg .jpeg .gif up to 1MB</span>
+                    <span>image required</span>
+                </div>
 
             </div>
         );

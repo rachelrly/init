@@ -65,9 +65,9 @@ class AvatarForm extends Component {
                         className='error-message'
                         aria-live='assertive'>{error.message}</p>}
 
-                <div>
-                    <PhotoUpload />
-                </div>
+
+                <PhotoUpload />
+
                 <button
                     type='submit'
                     className='avatar-form-submit-button'
