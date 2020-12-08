@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import InitContentContext from '../../contexts/initContentContext';
 import InitContentApiService from '../../services/init-content-api-service';
 import PhotoUpload from '../PhotoUpload/PhotoUpload';
-import '../../css/AvatarForm.css';
 
 
 class AvatarForm extends Component {
@@ -61,13 +60,11 @@ class AvatarForm extends Component {
                 onSubmit={this.handleSubmit}
                 encType='multipart/form-data'
             >
-                <div
-                    role='alert'
-                    className='error-message'
-                    aria-live='assertive'
-                >
-                    {error && <p>{error.message}</p>}
-                </div>
+                {error &&
+                    <p role='alert'
+                        className='error-message'
+                        aria-live='assertive'>{error.message}</p>}
+
                 <div>
                     <PhotoUpload />
                 </div>

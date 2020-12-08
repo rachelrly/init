@@ -79,7 +79,7 @@ class PhotoUpload extends Component {
     render() {
         return (
             <div className='avatar-uploader'>
-                <fieldset>
+                <div>
                     <legend><h3>userAvatar</h3></legend>
                     {this.state.data
                         ? this.renderPreview()
@@ -118,7 +118,7 @@ class PhotoUpload extends Component {
                     <span className='image-info'>
                         .jpg .gif .png .jpeg up to 1MB<br /><br />image required to upload
                     </span>
-                </fieldset>
+                </div>
             </div>
         );
     };

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
 
 :root{
     --colors-accent-light: #EEC6F9;
@@ -16,7 +16,7 @@
 
     --font-size-sm: 15px;
 
-    --font: "Courier Prime", serif;
+    --font: "Mukta", sans-serif;
 }
 
 @media all and (min-width: 500px){

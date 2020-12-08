@@ -1,8 +1,6 @@
 
 import React, { useState, useRef, useCallback } from 'react';
 import GallerySearch from './GallerySearch';
-
-import '../../css/AccountInformation.css'
 import Post from '../Post/Post'
 
 export default function Gallery() {

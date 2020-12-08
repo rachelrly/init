@@ -6,8 +6,8 @@ import ProfilePic from '../ProfilePic/ProfilePic';
 import { Link } from 'react-router-dom';
 import { buffTo64 } from '../Utils/Utils'
 import { MdExpandMore } from 'react-icons/md'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import Header from '../Header/Header';
+import '../../css/form.css';
 
 export default function Modal(props) {
 
@@ -72,37 +72,27 @@ export default function Modal(props) {
 
                             <p className='desc'>{props.post_description}</p>
                         </div>
-                        {props.post_live_link || props.post_repository
-                            ? <div className='links-rendered-wrapper post-detail-wrapper'>
-                                {props.post_live_link
-                                    ? <div className='link-wrapper'>
-                                        <a _target='blank' href={props.post_live_link} alt='view live project' className='link'>
-                                            <p>Live Project</p>
-                                        </a>
-                                    </div>
-                                    : null}
-                                {props.post_repository
-                                    ? <div className='link-wrapper'>
-                                        <a _target='blank' href={props.post_repository} alt='view projects repository' className='link'>
-                                            <p>Front-end Repository</p>
-                                        </a>
-                                    </div>
-                                    : null}
-                                {props.post_backEndRepository
-                                    ? <div className='link-wrapper'>
-                                        <a _target='blank' href={props.post_repository} alt='view projects repository' className='link'>
-                                            <p>Back-end Repository</p>
-                                        </a>
-                                    </div>
-                                    : null}
-                            </div>
-                            : null}
-                        {props.tech_stack
-                            ? <div className='post-detail-wrapper'>
-                                <p>Tech stack: {props.tech_stack}</p>
-                            </div>
-                            : null}
+                        <div className='project-link-wrapper'>
+                            {props.post_live_link || props.post_repository
+                                ? <div className='links-rendered-wrapper post-detail-wrapper'>
+                                    {props.post_live_link
+                                        ? <div className='link-wrapper'>
+                                            <a _target='blank' href={props.post_live_link} alt='view live project' className='link'>
+                                                <p>Live Project</p>
+                                            </a>
+                                        </div>
+                                        : null}
+                                    {props.post_repository
+                                        ? <div className='link-wrapper'>
+                                            <a _target='blank' href={props.post_repository} alt='view projects repository' className='link'>
+                                                <p>Repository</p>
+                                            </a>
+                                        </div>
+                                        : null}
 
+                                </div>
+                                : null}
+                        </div>
                         <CommentForm post_id={props.id} comments={props.comments} setComments={(c) => { props.setComments(c) }} />
                         {showComments
                             ? <Fragment>

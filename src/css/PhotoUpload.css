@@ -1,17 +1,3 @@
-.avatar-uploader fieldset {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 325px;
-    border: 1.5px solid var(--colors-accent);
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.avatar-uploader fieldset legend {
-    text-align: right;
-    width: 90%;
-}
 
 .avatar-upload-wrapper{
     display: flex;
@@ -21,10 +7,6 @@
     width: 100%;
 }
 
-/* .image-info {
-    margin-bottom: 6vh;
-} */
-
 .upload-selector-button {
     width: 75px;
     cursor: pointer;
@@ -32,36 +14,8 @@
 
 .upload-default-avatar {
     width: 150px;
-    /* margin-top: 6vh; */
 }
-
-/* .upload-preview {
-    margin-top: 5vh;
-} */
 
 .original-input {
     display: none
-}
-
-.post-input-wrapper fieldset {
-    width: 100%;
-    background-color: #e8effe;
-    align-items: center;
-    text-align: right;
-    margin-bottom: 2vh;
-    border: 1.5px solid var(--colors-accent);
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.post-input-wrapper fieldset legend {
-    text-align: right;
-    width: 90%;
-}
-
-.post-input-wrapper fieldset input {
-    text-align: center;
-    width: 100%;
-    border: none;
-    background-color: #e8effe;
 }

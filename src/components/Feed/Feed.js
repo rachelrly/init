@@ -1,7 +1,6 @@
 
 import React, { useState, useRef, useCallback } from 'react';
 import FeedSearch from './FeedSearch';
-import '../../css/AccountInformation.css'
 import Post from '../Post/Post'
 
 export default function Feed() {

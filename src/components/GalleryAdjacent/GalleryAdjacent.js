@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import React, { useState, useRef, useCallback } from 'react';
 import GalleryAdjacentSearch from './GalleryAdjacentSearch';
-import '../../css/AccountInformation.css'
 import Post from '../Post/Post'
 
 export default function GalleryAdjacent() {

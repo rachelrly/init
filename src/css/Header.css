@@ -105,7 +105,7 @@ header{
 
 .navigation{
     position: absolute;
-    top: 5vh;
+    top: 0;
     right: 0;
     width: 200px;
     z-index: 5;
@@ -121,6 +121,10 @@ header{
     padding: var(--spacer-sm);
     font-size: var(--font-size-sm);
     overflow-block: none;
+}
+
+.navigation span{
+    width: inherit;
 }
 
 .nav-item-one{
@@ -159,27 +163,6 @@ h1{
     }
 }
 
-@media all and (min-width: 700px){
-
-  
-     
-}
-
-@media only screen and (max-width: 800px){
-    .hidden-nav {
-        display: none;
-
-    }
-
-    .nav-item-four{
-        top: 120px;
-    }
-
-    .nav-item-six{
-        top: 160px;
-    }
-         
-}
 
 
 

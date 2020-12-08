@@ -2,13 +2,20 @@ import React, { Fragment, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import UserContext from '../../contexts/userContext';
+import HiveFeed from '../../Images/feed-logo.png';
+import Swarm from '../../Images/connect-logo.png';
+import Buzz from '../../Images/notification-logo.png';
+import Account from '../../Images/default-profile-logo.png';
 
 function BurgerNav() {
 
     const userContext = useContext(UserContext);
 
     const [showNav, setShowNav] = useState(true);
-
+    
+    // <img src={HiveFeed} alt='Feed link logo' className='navIcon'/>
+    // <img src={Buzz} alt='Buzz link logo' className='navIcon'/>
+    
     return (
         <div className='burger-and-nav' >
             {
@@ -50,39 +57,34 @@ function BurgerNav() {
 
                             {TokenService.hasAuthToken()
                                 ? <Fragment>
-                                    <span className='navigation-item nav-item-one' onClick={() => setShowNav(true)}>
+                                    < div className='navigation-item nav-item-one' onClick={() => setShowNav(true)}>
+                                        <Link to='/feed' className='navigation-link'>
+                                            feed
+                            </Link><img src={Swarm} alt='Connections link logo' className='navIcon'/>
+                                    </div>
+                                    < span className='navigation-item nav-item-two' onClick={() => setShowNav(true)}>
+                                        <Link to='/portfolio' className='navigation-link'>
+                                            profile
+                            </Link>
+                                    </span>
+                                    < span className='navigation-item nav-item-three' onClick={() => setShowNav(true)}>
+                                        <Link to='/connections' className='navigation-link'>
+                                            follows
+                            </Link>
+                                    </span>
+                                    <span className='navigation-item nav-item-four' onClick={() => setShowNav(true)}>
                                         <Link to='/account' className='navigation-link'>
                                             account
                             </Link>
                                     </span>
-                                    < span className='navigation-item nav-item-two hidden-nav' onClick={() => setShowNav(true)}>
-                                        <Link to='/buzz' className='navigation-link'>
-                                            notifications
-                            </Link>
-                                    </span>
-                                    < span className='navigation-item nav-item-three hidden-nav' onClick={() => setShowNav(true)}>
-                                        <Link to='/feed' className='navigation-link'>
-                                            feed
-                            </Link>
-                                    </span>
-                                    < span className='navigation-item nav-item-four' onClick={() => setShowNav(true)}>
-                                        <Link to='/portfolio' className='navigation-link'>
-                                            portfolio
-                            </Link>
-                                    </span>
-                                    < span className='navigation-item nav-item-five hidden-nav' onClick={() => setShowNav(true)}>
-                                        <Link to='/connections' className='navigation-link'>
-                                            connections
-                            </Link>
-                                    </span>
                                     <span
-                                        className='navigation-item  nav-item-six nav-logout-button'
+                                        className='navigation-item  nav-item-five nav-logout-button'
                                         onClick={() => {
                                             userContext.processLogout()
                                             setShowNav(true)
                                         }}>
                                        
-                                            logOut
+                                            log out
                                       
                                     </span>
                                 </Fragment>

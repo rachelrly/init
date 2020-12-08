@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/userContext'
-import '../../css/AccountInformation.css'
 
 
 class LoginForm extends Component {
@@ -48,56 +47,47 @@ class LoginForm extends Component {
                 className='LoginForm'
                 onSubmit={this.handleSubmit}
             >
+                {error &&
+                    <p role='alert'
+                        className='error-message'
+                        aria-live='assertive'>{error}</p>}
 
-                <div
-                    role='alert'
-                    className='error-message'
-                    aria-live='assertive'
-                >
-                    {error && <p>{error}</p>}</div>
-
-                <div className='form-wrapper'>
-                    <fieldset>
-                        <legend><h3>userName</h3></legend>
-                        <label htmlFor='login-username-input'></label>
-                        <input
-                            ref={this.firstInput}
-                            id='login-username-input'
-                            name='username'
-                            type='text'
-                            required
-                            aria-required='true'
-                            autoComplete='username'
-                        />
-                    </fieldset>
-                </div>
-                <div className='form-wrapper'>
-                    <fieldset>
-                        <legend><h3>passWord</h3></legend>
-                        <label htmlFor='login-password-input'></label>
-                        <input
-                            id='login-password-input'
-                            name='user_password'
-                            type='password'
-                            required
-                            aria-required='true'
-                            autoComplete='current-password'
-                        />
-                    </fieldset>
-                </div>
                 <div>
-                    <button
-                        type='submit'
-                        className='form-button'
-                    >
-                        logIn
-                    </button>
-                    <Link
-                        to='/register'
-                    >
-                        create an account
-                        </Link>
+                    <label htmlFor='login-username-input'>username</label>
+                    <input
+                        ref={this.firstInput}
+                        id='login-username-input'
+                        name='username'
+                        type='text'
+                        required
+                        aria-required='true'
+                        autoComplete='username'
+                    />
                 </div>
+
+                <div>
+                    <label htmlFor='login-password-input'>password</label>
+                    <input
+                        id='login-password-input'
+                        name='user_password'
+                        type='password'
+                        required
+                        aria-required='true'
+                        autoComplete='current-password'
+                    />
+                </div>
+
+                <button
+                    type='submit'
+                    className='form-button'
+                >
+                    logIn
+                    </button>
+                <Link
+                    to='/register'
+                >
+                    create an account
+                        </Link>
             </form>
         );
     };

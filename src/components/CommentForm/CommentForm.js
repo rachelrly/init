@@ -35,17 +35,13 @@ function CommentForm(props) {
                 <p role='alert'
                     className='error-message'
                     aria-live='assertive'>{error}</p>}
-            <fieldset>
-                <legend><h3>comment</h3></legend>
-                <label />
-                <textarea
-                    className='comment-input'
-                    type='text'
-                    aria-required='true'
-                    placeholder='Write a comment...'
-                    value={text}
-                    onChange={(e) => setText(e.target.value)} />
-            </fieldset>
+            <textarea
+                className='comment-input'
+                type='text'
+                aria-required='true'
+                placeholder='Write a comment...'
+                value={text}
+                onChange={(e) => setText(e.target.value)} />
             <button
                 type='submit'
                 className='form-button'>

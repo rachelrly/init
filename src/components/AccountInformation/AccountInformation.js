@@ -6,7 +6,6 @@ import AvatarDefault from '../../Images/avatar-default.png';
 import { buffTo64 } from '../../components/Utils/Utils';
 import { FaUserEdit } from 'react-icons/fa';
 import { IconContext } from "react-icons";
-import '../../css/AccountInformation.css';
 
 class AccountInformation extends Component {
     /*This component renders the account information for the currently logged-in user
@@ -68,28 +67,23 @@ class AccountInformation extends Component {
                         </div>
                     </div>
                     <form className='account-form'>
-                        <fieldset>
-                            <legend><h3>fullName</h3></legend>
+                        <div>
+                            <span>user name</span>
                             <span>{user.fullname}</span>
-                        </fieldset>
-                        <fieldset>
-                            <legend><h3>userName</h3></legend>
+                        </div>
+                        <div>
+                            <span>username</span>
                             <span>{user.username}</span>
-                        </fieldset>
-                        <fieldset>
-                            <legend><h3>eMail</h3></legend>
+                        </div>
+                        <div>
+                            <span>email</span>
                             <span>{user.email}</span>
-                        </fieldset>
-                        <fieldset>
-                            <legend><h3>about</h3></legend>
+                        </div>
+                        <div>
+                            <span>about</span>
                             <span>{user.about_user}</span>
-                        </fieldset>
-                        <fieldset>
-                            <legend><h3>stack</h3></legend>
-                            <span>{user.user_stack}</span>
-                        </fieldset>
+                        </div>
                     </form>
-                    {/* <button className='form-button'>submit</button> */}
                 </div>
             </IconContext.Provider>
         );

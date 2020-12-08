@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
 import UserContext from '../../contexts/userContext';
-import '../../css/Form.css';
 
 class RegistrationForm extends Component {
 
@@ -73,95 +72,86 @@ class RegistrationForm extends Component {
                 className='registration-form'
                 onSubmit={this.handleSubmit}
             >
-                <div
-                    role='alert'
+                {error && <p role='alert'
                     className='error-message'
-                    aria-live='assertive'
-                >
-                    {error && <p>{error}</p>}
+                    aria-live='assertive'>{error}</p>}
+                <div>
+
+                    <label htmlFor='registration-fullname-input'>full name</label>
+                    <input
+                        ref={this.firstInput}
+                        id='registration-fullname-input'
+                        type='text'
+                        name='fullname'
+                        required
+                        aria-required='true'
+                        autoComplete='name'
+                    />
                 </div>
-                <div className='form-wrapper'>
-                    <fieldset>
-                        <legend><h3>fullName</h3></legend>
-                        <label htmlFor='registration-fullname-input'></label>
-                        <input
-                            ref={this.firstInput}
-                            id='registration-fullname-input'
-                            type='text'
-                            name='fullname'
-                            required
-                            aria-required='true'
-                            autoComplete='name'
-                        />
-                    </fieldset>
-                </div>
-                <div className='form-wrapper'>
-                    <fieldset>
-                        <legend><h3>userName</h3></legend>
-                        <label htmlFor='registration-username-input'></label>
-                        <input
-                            id='registration-username-input'
-                            name='username'
-                            required
-                            aria-required='true'
-                            autoComplete='off'
-                        />
-                    </fieldset>
-                </div>
-                <div className='form-wrapper'>
-                    <fieldset>
-                        <legend><h3>passWord</h3></legend>
-                        <label htmlFor='registration-password-input'></label>
-                        <input
-                            id='registration-password-input'
-                            name='user_password'
-                            type='password'
-                            required
-                            aria-required='true'
-                            autoComplete='new-password'
-                        />
-                        <legend><h3>validate</h3></legend>
-                        <label htmlFor='registration-password-match-input'>
-                        </label>
-                        <input
-                            id='registration-password-match-input'
-                            name='user_password_match'
-                            type='password'
-                            required
-                            aria-required='true'
-                            autoComplete='off'
-                        />
-                    </fieldset>
-                </div>
-                <div className='form-wrapper'>
-                    <fieldset>
-                        <legend><h3>eMail</h3></legend>
-                        <label htmlFor='registration-email-input'></label>
-                        <input
-                            id='registration-email-input'
-                            name='email'
-                            type='email'
-                            required
-                            aria-required='true'
-                            autoComplete='email'
-                        />
-                    </fieldset>
+
+                <div>
+
+                    <label htmlFor='registration-username-input'>username</label>
+                    <input
+                        id='registration-username-input'
+                        name='username'
+                        required
+                        aria-required='true'
+                        autoComplete='off'
+                    />
                 </div>
                 <div>
-                    <button
-                        type='submit'
-                        className='form-button'
-                    >
-                        signUp
+
+                    <label htmlFor='registration-password-input'>password</label>
+                    <input
+                        id='registration-password-input'
+                        name='user_password'
+                        type='password'
+                        required
+                        aria-required='true'
+                        autoComplete='new-password'
+                    />
+                </div>
+                <div>
+                    <label htmlFor='registration-password-match-input'>match password
+                        </label>
+
+
+                    <input
+                        id='registration-password-match-input'
+                        name='user_password_match'
+                        type='password'
+                        required
+                        aria-required='true'
+                        autoComplete='off'
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor='registration-email-input'>email</label>
+                    <input
+                        id='registration-email-input'
+                        name='email'
+                        type='email'
+                        required
+                        aria-required='true'
+                        autoComplete='email'
+                    />
+                </div>
+                <button
+                    type='submit'
+                    className='form-button'
+                >
+                    signup
                     </button>
 
-                    <Link
-                        to='/login'
-                    >
-                        already have an account?
+                <Link
+                    to='/login'
+                >
+                    already have an account?
                         </Link>
 
-                </div>
+
             </form>
         );
     };

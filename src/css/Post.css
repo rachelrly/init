@@ -54,21 +54,6 @@
     
 }
 
-.comment-form fieldset {
-    width: 90%;
-    background-color: #e8effe;
-    align-items: center;
-    text-align: left;
-    margin-bottom: 2vh;
-    border: 1.5px solid var(--colors-accent);
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.comment-form fieldset legend {
-    text-align: right;
-    width: 90%;
-}
 
 .comment-form textarea {
     text-align: left;
@@ -180,19 +165,21 @@
     max-width: 600px;
 }
 
-/* .project-content-wrapper{
-    position: relative;
-    top: 40vw;
-} */
-/* .post-title{
-    margin-top: 55%;
-} */
 .project-image{
     max-width: calc(100% - calc(2 * var(--spacer-sm)));
     height: 100%;
     max-height: calc(40vh - calc(2 * var(--spacer-sm)));
     min-height: 100px;
   
+}
+
+.post-title{
+    color: var(--colors-accent);
+    font-family: var(--font);
+}
+
+p{
+    font-family: var(--font);
 }
 
 .hide-comments-wrapper,

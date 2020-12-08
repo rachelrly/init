@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../../css/variables.css';
 import '../../css/main.css';
+import '../../css/form.css';
 import Header from '../Header/Header';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
@@ -16,7 +17,6 @@ import AvatarUploadRoute from '../../routes/AvatarUploadRoute/AvatarUploadRoute'
 import NewProject from '../../routes/NewProjectRoute/NewProjectRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
-import Footer from '../Footer/Footer';
 import Post from '../Post/Post';
 
 class App extends Component {
@@ -85,7 +85,6 @@ class App extends Component {
                 <main>
                     {this.renderRoutes()}
                 </main>
-                <Footer />
             </div>
         );
     };
