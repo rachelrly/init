@@ -47,6 +47,7 @@ function PostForm(props) {
                         id='init-project-title-input'
                         name='post_title'
                         type='text'
+                        required
                         className='project-form-input'
                         aria-required='true'
                         autoComplete='off'

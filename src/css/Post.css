@@ -184,7 +184,8 @@ p{
 }
 
 .hide-comments-wrapper,
-.show-comments-wrapper{
+.show-comments-wrapper,
+.no-comments-wrapper{
     display: flex;
     width: inherit;
     justify-content: space-evenly;

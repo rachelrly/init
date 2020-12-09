@@ -101,9 +101,9 @@ ul {
 
 @media all and (min-width: 500px) {
 
-    .gallery-page-wrapper{
+    /* .gallery-page-wrapper{
         width: 80%;
-    }
+    } */
     
     .profile-info-wrapper{
         flex-direction: row;

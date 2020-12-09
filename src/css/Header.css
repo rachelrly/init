@@ -147,6 +147,7 @@ header{
 
 .nav-item-five{
     top: 240px;
+    margin-bottom: var(--spacer-tiny);
 }
 
 .nav-item-six{

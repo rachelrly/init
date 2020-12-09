@@ -96,19 +96,19 @@ export default function Modal(props) {
                         {showComments
                             ? <Fragment>
                                 {props.comments.map(c => <Comment index={c.id} key={c.id} {...c} />)}
-                                <div className='hide-comments-wrapper'>
+                                <div className='hide-comments-wrapper comment-wrapper-parent'>
                                     <p>Hide comments</p>
                                     < MdExpandMore className='react-icon hide-comments' onClick={() => setShowComments(!showComments)} /></div>
                             </Fragment>
-                            : <span>
+                            : <Fragment>
                                 {props.comments.length
                                     ?
                                     <div className='show-comments-wrapper'>
                                         <p>Show comments</p>
                                         < MdExpandMore onClick={() => setShowComments(!showComments)} className='react-icon see-comments' />
                                     </div>
-                                    : <p>There are no comments for this post.</p>}
-                            </span>}
+                                    : <p className='no-comments-wrapper'>There are no comments for this post.</p>}
+                            </Fragment>}
                     </div>
                 </div>
             </div>
