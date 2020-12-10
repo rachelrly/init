@@ -27,10 +27,9 @@ class RegistrationForm extends Component {
             username,
             user_password,
             user_password_match,
-            email,
-            about_user,
-            user_stack
+            email
         } = ev.target;
+        console.log(ev.target)
 
         if (user_password.value !== user_password_match.value) {
             this.setState({ error: 'Passwords must match' });
@@ -42,8 +41,8 @@ class RegistrationForm extends Component {
                 username: username.value,
                 user_password: user_password.value,
                 email: email.value,
-                about_user: about_user.value,
-                user_stack: user_stack.value
+                about_user: 'about user',
+                user_stack: 'Full Stack'
             })
                 .then(req => console.log(req))
                 .then(user => {
@@ -52,7 +51,6 @@ class RegistrationForm extends Component {
                     user_password.value = ''
                     user_password_match.value = ''
                     email.value = ''
-                    about_user.value = ''
                     this.props.onRegistrationSuccess()
                 })
                 .catch(res => {
@@ -70,7 +68,7 @@ class RegistrationForm extends Component {
         return (
             <form
                 className='registration-form'
-                onSubmit={this.handleSubmit}
+                onSubmit={(e) => this.handleSubmit(e)}
             >
                 {error && <p role='alert'
                     className='error-message'

@@ -53,7 +53,7 @@ class App extends Component {
                     component={FollowList}
                 />
                 <PrivateRoute
-                    exact path={'/feed'}
+                    path={'/feed'}
                     component={Feed}
                 />
                 <PrivateRoute
