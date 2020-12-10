@@ -4,7 +4,7 @@
 
 This is a repository for the `Init client`.
 
-View the live version [here](https://init-blush.vercel.app/)
+View the live version [here](https://init-rachel.vercel.app/)
 
 View the repository for the server [here](https://github.com/trevorjalt/init-api).
 
