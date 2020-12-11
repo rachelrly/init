@@ -39,11 +39,13 @@ class AccountInformation extends Component {
             );
         } else {
             return (
-                <img
-                    className='circular-landscape'
-                    alt='current-user-avatar'
-                    src={`data:image/${currentAvatar[0].img_type};base64,${buffTo64(currentAvatar[0].img_file.data)}`}
-                />
+                <div className='circular-landscape'>
+                    <img
+
+                        alt='current-user-avatar'
+                        src={`data:image/${currentAvatar[0].img_type};base64,${buffTo64(currentAvatar[0].img_file.data)}`}
+                    />
+                </div>
             );
         };
     };

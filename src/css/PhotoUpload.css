@@ -15,10 +15,27 @@
     cursor: pointer;
 }
 
-.upload-default-avatar {
-    width: 150px;
-}
 
 .original-input {
     display: none
+}
+
+.post-image-wrapper{
+    width: inherit;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-height: 300px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.post-image-preview{
+    height: 100%;
+    max-height: 300px;
+    padding: 0;
+    width: auto;
+    overflow: hidden;
 }

@@ -54,11 +54,13 @@ class ProjectUpload extends Component {
 
     renderPreview() {
         return (
-            <img
-                src={this.state.data}
-                alt='upload-preview'
-                className='upload-default-avatar'
-            />
+            <div className='post-image-wrapper'>
+                <img
+                    src={this.state.data}
+                    alt='upload-preview'
+                    className='upload-default-avatar post-image-preview'
+                />
+            </div>
         )
     }
 

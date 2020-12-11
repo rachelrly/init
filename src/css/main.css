@@ -28,11 +28,24 @@ button{
     max-height: 70vh;
 }
 
+.upload-default-avatar{
+    width: 150px;
+    height: 150px;
+}
+
+.upload-avatar-button{
+    margin-top: var(--spacer-sm);
+}
+
+
 .circular-landscape {
     width: 150px;
     height: 150px;
     overflow: hidden;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 3px solid;
     border-color: var(--colors-accent);
 } 
@@ -109,7 +122,8 @@ main {
 }
 
 @media all and (min-width: 500px){
-    .circular-landscape {
+    .circular-landscape,
+    .upload-default-avatar {
         width: 250px;
         height: 250px;
     }
