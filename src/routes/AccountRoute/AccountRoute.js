@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AccountInformation from '../../components/AccountInformation/AccountInformation'
+import AccountInformation from '../../components/currentUserOnly/AccountInformation/AccountInformation'
 import UserContext from '../../contexts/userContext'
 
 

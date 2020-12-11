@@ -1,19 +1,16 @@
-import { useParams } from 'react-router-dom';
-import React, { useState, useRef, useCallback } from 'react';
-import GalleryAdjacentSearch from './GalleryAdjacentSearch';
-import Post from '../eachUser/post/Post/Post'
 
-export default function GalleryAdjacent() {
-  /* This component displays the paginated infinite scroll content for each user's portfolio page*/
+import React, { useState, useRef, useCallback } from 'react';
+import FeedSearch from './FeedSearch';
+import Post from '../../eachUser/post/Post/Post'
+
+export default function Feed() {
   const [observed, setObserver] = useState(false);
-  const { id } = useParams();
+
   const [pageNumber, setPageNumber] = useState(1);
   const [limit] = useState(2);
+  const { results, hasMore, loading, error } = FeedSearch(observed, pageNumber, limit);
 
-  //Here we destructure our useBookSearch
-  const { results, hasMore, loading, error } = GalleryAdjacentSearch(observed, pageNumber, limit, id);
 
-  //this ref controlls when we ask for more content in the infinite scroll
   const observer = useRef();
 
   const lastResultElementRef = useCallback(node => {
@@ -36,10 +33,10 @@ export default function GalleryAdjacent() {
       {!results.length
         ? null
         : <div>
-          <div className='gallery'>
+          <div className='Feed'>
             {results.map((project, index) => (results.length === index + 1)
-              ? <div key={project.id} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
-              : <div key={project.id} className='project-wrapper'><Post {...project} /> </div>
+              ? <div key={index} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
+              : <div key={index} className='project-wrapper'><Post {...project} /> </div>
             )}
           </div>
           <div>{loading && 'Loading...'}</div>

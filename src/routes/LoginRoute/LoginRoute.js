@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginForm from '../../components/LoginForm/LoginForm'
+import LoginForm from '../../components/publicRoute/LoginForm/LoginForm'
 
 class LoginRoute extends Component {
     static defaultProps = {
@@ -17,9 +17,7 @@ class LoginRoute extends Component {
 
     render() {
         return (
-            <LoginForm
-                onLoginSuccess={this.handleLoginSuccess}
-            />
+            <LoginForm onLoginSuccess={this.handleLoginSuccess} />
 
         )
     }

@@ -4,19 +4,18 @@ import '../../css/variables.css';
 import '../../css/main.css';
 import '../../css/form.css';
 import Header from '../Header/Header';
-import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
-import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import Yo from '../Yo/Yo';
-import FollowList from '../FollowList/FollowList';
-import Feed from '../Feed/Feed';
+import PublicOnlyRoute from '../publicRoute/PublicOnlyRoute/PublicOnlyRoute';
+import PrivateRoute from '../eachUser/PrivateRoute/PrivateRoute';
+import Yo from '../publicRoute/Yo/Yo';
+import FollowList from '../eachUser/profilePage/FollowList/FollowList';
+import Feed from '../currentUserOnly/Feed/Feed';
 import Portfolio from '../../routes/PortfolioRoute/PortfolioRoute';
-import PortfolioAdjacent from '../../routes/PortfolioAdjacentRoute/PortfolioAdjacentRoute';
 import AccountRoute from '../../routes/AccountRoute/AccountRoute';
-import AvatarForm from '../AvatarForm/AvatarForm';
-import PostForm from '../PostForm/PostForm';
+import AvatarForm from '../currentUserOnly/uploadForms/AvatarForm/AvatarForm';
+import PostForm from '../currentUserOnly/uploadForms/PostForm/PostForm';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
-import AllUserList from '../AllUserList/AllUserList';
+import AllUserList from '../currentUserOnly/AllUserList/AllUserList';
 
 class App extends Component {
     renderRoutes() {
@@ -69,7 +68,7 @@ class App extends Component {
                 //for all users
                 <PrivateRoute
                     path={'/user/:id'}
-                    component={PortfolioAdjacent}
+                    component={Portfolio}
                 />
                 <PrivateRoute
                     path={'/user/:id/connections'}
