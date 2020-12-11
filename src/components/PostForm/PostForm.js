@@ -29,8 +29,8 @@ function PostForm(props) {
         <form
             className='project-form new-project-wrapper'
             onSubmit={(e) => handleSubmit(e)}
-            encType='multipart/form-data'
-        >
+            encType='multipart/form-data'>
+
             <ProjectUpload setError={(e) => setError(e)} />
 
             {error && <p>{error.message}</p>}
@@ -41,8 +41,7 @@ function PostForm(props) {
                     <label
                         htmlFor='init-project-title-input'
                         aria-label='init-project-title-input'
-                        className='project-form-label'
-                    >title</label>
+                        className='project-form-label'>title</label>
                     <input
                         id='init-project-title-input'
                         name='post_title'

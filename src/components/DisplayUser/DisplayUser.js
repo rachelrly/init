@@ -7,18 +7,6 @@ import { buffTo64 } from '../../components/Utils/Utils';
 
 function DisplayUser(props) {
 
-
-  const getFollow = async () => {
-    try {
-      const { followingUser, followedByUser } = await FollowService.getFollowLists();
-      setFollowedByUser(followedByUser);
-      setFollowingUser(followingUser);
-    }
-    catch (error) {
-      console.error(error);
-    };
-  };
-
   const handleUnfollow = async (id) => {
     try {
       const followers = await FollowService.unfollow(id);
@@ -39,9 +27,7 @@ function DisplayUser(props) {
     };
   };
 
-  const usersArr = toggleFollow ? followingUser : followedByUser;
-
-  const isFollowing = id => followedByUser.find(u => u.id === id);
+  const isFollowing = id => props.followedByUser.find(u => u.id === id);
 
   return (
     <div className='follow-item-wrapper' >
@@ -50,21 +36,19 @@ function DisplayUser(props) {
           <Link to={`/user/${props.id}`}>
             <ProfilePic index={props.index} image={!props.img_file ? undefined : `data:image/${props.img_type};base64,${buffTo64(props.img_file.data)}`} />
           </Link>
-
           <div className='follow-name-wrapper'>
             <Link to={`/user/${props.id}`}>
               <h4>{props.username}</h4>
               <p>{props.fullname}</p>
             </Link>
           </div>
-
         </div>
-        {!isFollowing(f.id)
-          ? <button className='follow-button' onClick={() => handleFollow(f.id)}>Follow</button>
-          : <button className='follow-button' onClick={() => handleUnfollow(f.id)}>Unfollow</button>}
+        {!isFollowing(props.id)
+          ? <button className='follow-button' onClick={() => handleFollow(props.id)}>Follow</button>
+          : <button className='follow-button' onClick={() => handleUnfollow(props.id)}>Unfollow</button>}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DisplayUser
+export default DisplayUser;

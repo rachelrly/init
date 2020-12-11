@@ -16,6 +16,19 @@ const FollowService = {
                     : res.json()
             );
     },
+    getFollowListWithUserId(id) {
+        return fetch(`${config.API_ENDPOINT}/follow`, {
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify({ id })
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            );
+    },
 
     follow(following_id) {
         return fetch(`${config.API_ENDPOINT}/follow`, {

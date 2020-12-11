@@ -35,6 +35,12 @@ class App extends Component {
                     path={'/register'}
                     component={RegistrationRoute}
                 />
+
+                //user specific routes
+                <PrivateRoute
+                    path={'/feed'}
+                    component={Feed}
+                />
                 <PrivateRoute
                     path={'/account'}
                     component={AccountRoute}
@@ -48,10 +54,6 @@ class App extends Component {
                     component={FollowList}
                 />
                 <PrivateRoute
-                    path={'/feed'}
-                    component={Feed}
-                />
-                <PrivateRoute
                     path={'/newProject'}
                     component={PostForm}
                 />
@@ -63,11 +65,16 @@ class App extends Component {
                     path={'/users'}
                     component={AllUserList}
                 />
+
+                //for all users
                 <PrivateRoute
                     path={'/user/:id'}
                     component={PortfolioAdjacent}
                 />
-
+                <PrivateRoute
+                    path={'/user/:id/connections'}
+                    component={FollowList}
+                />
             </Switch>
         );
     };
