@@ -10,6 +10,7 @@ const UserContext = React.createContext({
     setError: () => { },
     clearError: () => { },
     setUser: () => { },
+    setUserFollowing: () => { },
     processLogin: () => { },
     processLogout: () => { },
 
@@ -75,6 +76,12 @@ export class UserProvider extends Component {
         this.setState({ user });
     };
 
+    setUserFollowing = following => {
+        this.setState({
+            user: { ...this.state.user, following }
+        })
+    }
+
     setIsLoggedIn = () => {
         this.setState({ isLoggedIn: !this.state.isLoggedIn });
     };
@@ -137,6 +144,7 @@ export class UserProvider extends Component {
             setError: this.setError,
             clearError: this.clearError,
             setUser: this.setUser,
+            setUserFollowing: this.setUserFollowing,
             processLogin: this.processLogin,
             processLogout: this.processLogout,
 

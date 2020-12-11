@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ProfilePic from '../../ProfilePic/ProfilePic';
 import { Link } from 'react-router-dom';
 import FollowService from '../../../../services/follow-service';
-import '../../css/FollowList.css';
+import { useIsFollowing } from '../../../../hooks/useIsFollowing';
+import '../../../../css/FollowList.css';
 import { buffTo64 } from '../../../Utils/Utils';
+import UserContext from '../../../../contexts/userContext';
 
 function DisplayUser(props) {
-
+  const { setUserFollowing } = useContext(UserContext)
   const handleUnfollow = async (id) => {
     try {
       const followers = await FollowService.unfollow(id);
-      setFollowedByUser(followers);
+      setUserFollowing(followers);
     }
     catch (error) {
       console.error(error);
@@ -20,14 +22,12 @@ function DisplayUser(props) {
   const handleFollow = async (id) => {
     try {
       const followers = await FollowService.follow(id);
-      setFollowedByUser(followers);
+      setUserFollowing(followers);
     }
     catch (error) {
       console.error(error);
     };
   };
-
-  const isFollowing = id => props.followedByUser.find(u => u.id === id);
 
   return (
     <div className='follow-item-wrapper' >
@@ -43,7 +43,7 @@ function DisplayUser(props) {
             </Link>
           </div>
         </div>
-        {!isFollowing(props.id)
+        {!useIsFollowing(props.id)
           ? <button className='follow-button' onClick={() => handleFollow(props.id)}>Follow</button>
           : <button className='follow-button' onClick={() => handleUnfollow(props.id)}>Unfollow</button>}
       </div>
