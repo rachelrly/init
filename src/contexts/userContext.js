@@ -36,6 +36,8 @@ export class UserProvider extends Component {
                 email: jwtPayload.email,
                 about_user: jwtPayload.about_user,
                 user_stack: jwtPayload.user_stack,
+                following: jwtPayload.user_follows,
+                followers: jwtPayload.follows_user
             };
 
         this.state = state;
@@ -87,6 +89,8 @@ export class UserProvider extends Component {
             email: jwtPayload.email,
             about_user: jwtPayload.about_user,
             user_stack: jwtPayload.user_stack,
+            following: jwtPayload.user_follows,
+            followers: jwtPayload.follows_user
         });
         IdleService.regiserIdleTimerResets();
         TokenService.queueCallbackBeforeExpiry(() => {
@@ -137,6 +141,8 @@ export class UserProvider extends Component {
             processLogout: this.processLogout,
 
         };
+
+        console.log('User from context', value.user)
         return (
             <UserContext.Provider value={value}>
                 {this.props.children}

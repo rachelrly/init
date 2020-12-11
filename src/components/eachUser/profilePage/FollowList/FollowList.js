@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ProfilePic from '../../ProfilePic/ProfilePic';
 import { Link } from 'react-router-dom';
 import FollowService from '../../../../services/follow-service';
 import '../../../../css/FollowList.css';
 import { buffTo64 } from '../../../Utils/Utils';
+import UserContext from '../../../../contexts/userContext';
 
 function FollowList(props) {
     const [toggleFollow, setToggleFollow] = useState(true);
@@ -11,16 +12,18 @@ function FollowList(props) {
     const [followedByUser, setFollowedByUser] = useState([]);
     const [followingUser, setFollowingUser] = useState([]);
 
+    const { user } = useContext(UserContext);
+    console.log('USER', user)
     useEffect(() => {
         getFollow();
 
-    }, [])
+    }, []);
 
     const getFollow = async () => {
         try {
-            const { followingUser, followedByUser } = await FollowService.getFollowLists();
-            setFollowedByUser(followedByUser);
-            setFollowingUser(followingUser);
+            const { following, followers } = user;
+            setFollowedByUser(following);
+            setFollowingUser(followers);
         }
         catch (error) {
             console.error(error);
