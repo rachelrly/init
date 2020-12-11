@@ -59,10 +59,14 @@ function FollowList(props) {
                         <Link to={`/user/${f.id}`}>
                             <ProfilePic index={index} image={!f.img_file ? undefined : `data:image/${f.img_type};base64,${buffTo64(f.img_file.data)}`} />
                         </Link>
+
                         <div className='follow-name-wrapper'>
-                            <h4>{f.username}</h4>
+                            <Link to={`/user/${f.id}`}>
+                                <h4>{f.username}</h4>
+                            </Link>
                             <p>{f.fullname}</p>
                         </div>
+
                     </div>
                     {!isFollowing(f.id)
                         ? <button className='follow-button' onClick={() => handleFollow(f.id)}>Follow</button>

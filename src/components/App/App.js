@@ -7,7 +7,6 @@ import Header from '../Header/Header';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import Yo from '../Yo/Yo';
-import Buzz from '../../routes/BuzzRoute/BuzzRoute';
 import FollowList from '../FollowList/FollowList';
 import Feed from '../Feed/Feed';
 import Portfolio from '../../routes/PortfolioRoute/PortfolioRoute';
@@ -17,7 +16,7 @@ import AvatarForm from '../AvatarForm/AvatarForm';
 import PostForm from '../PostForm/PostForm';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
-import Post from '../Post/Post';
+import AllUserList from '../AllUserList/AllUserList';
 
 class App extends Component {
     renderRoutes() {
@@ -45,10 +44,6 @@ class App extends Component {
                     component={AvatarForm}
                 />
                 <PrivateRoute
-                    path={'/buzz'}
-                    component={Buzz}
-                />
-                <PrivateRoute
                     path={'/connections'}
                     component={FollowList}
                 />
@@ -63,6 +58,10 @@ class App extends Component {
                 <PrivateRoute
                     path={'/portfolio'}
                     component={Portfolio}
+                />
+                <PrivateRoute
+                    path={'/users'}
+                    component={AllUserList}
                 />
                 <PrivateRoute
                     path={'/user/:id'}

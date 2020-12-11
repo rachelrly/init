@@ -76,7 +76,6 @@ class LoginForm extends Component {
                         autoComplete='current-password'
                     />
                 </div>
-
                 <button
                     type='submit'
                     className='form-button'
@@ -88,6 +87,7 @@ class LoginForm extends Component {
                 >
                     create an account
                         </Link>
+
             </form>
         );
     };

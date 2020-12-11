@@ -103,6 +103,19 @@ const InitContentApiService = {
                     : res.json()
             );
 
+    },
+
+    getAllUsers() {
+        return fetch(`${config.API_ENDPOINT}/user`, {
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            );
     }
 }
 
