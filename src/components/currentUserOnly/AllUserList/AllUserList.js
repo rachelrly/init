@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import InitContentApiService from '../../../services/init-content-api-service';
 import FollowService from '../../../services/follow-service';
-import DisplayUser from '../../eachUser/profilePage/DisplayUser/DisplayUser';
+import DisplayUser from '../../eachUser/profile/DisplayUser/DisplayUser';
 
 function AllUserList() {
   const [allUsers, setAllUsers] = useState([]);

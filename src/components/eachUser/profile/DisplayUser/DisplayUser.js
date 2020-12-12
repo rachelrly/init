@@ -8,7 +8,9 @@ import { buffTo64 } from '../../../Utils/Utils';
 import UserContext from '../../../../contexts/userContext';
 
 function DisplayUser(props) {
-  const { setUserFollowing } = useContext(UserContext)
+
+  const { setUserFollowing } = useContext(UserContext);
+
   const handleUnfollow = async (id) => {
     try {
       const followers = await FollowService.unfollow(id);

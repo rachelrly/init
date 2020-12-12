@@ -59,30 +59,24 @@ function BurgerNav() {
                                             feed
                             </Link>
                                     </div>
-                                    
                                     < span className='navigation-item nav-item-two' onClick={() => setShowNav(true)}>
-                                        <Link to='/connections' className='navigation-link'>
-                                            connections
-                            </Link>
-                                    </span>
-                                    < span className='navigation-item nav-item-three' onClick={() => setShowNav(true)}>
                                         <Link to='/portfolio' className='navigation-link'>
                                             profile
                             </Link>
                                     </span>
-                                    <span className='navigation-item nav-item-four' onClick={() => setShowNav(true)}>
+                                    <span className='navigation-item nav-item-three' onClick={() => setShowNav(true)}>
                                         <Link to='/users' className='navigation-link'>
                                             users
                             </Link>
                                     </span>
-                                    <span className='navigation-item nav-item-five' onClick={() => setShowNav(true)}>
+                                    <span className='navigation-item nav-item-four' onClick={() => setShowNav(true)}>
                                         <Link to='/account' className='navigation-link'>
                                             account
                             </Link>
                                     </span>
                                     
                                     <span
-                                        className='navigation-item  nav-item-six nav-logout-button'
+                                        className='navigation-item  nav-item-five nav-logout-button'
                                         onClick={() => {
                                             userContext.processLogout()
                                             setShowNav(true)

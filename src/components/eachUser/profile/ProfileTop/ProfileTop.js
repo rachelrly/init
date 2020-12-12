@@ -5,9 +5,7 @@ import UserContext from '../../../../contexts/userContext';
 
 function ProfileTop(props) {
   /*This component renders the top of each user's portfolio page*/
-  const { user } = useContext(UserContext)
-  //get user in parent component and 
-  //set up route for following all users and 
+  //const { user } = useContext(UserContext)
   return (
     <div className='profile-top-wrapper profile-info-wrapper'>
 
@@ -16,9 +14,9 @@ function ProfileTop(props) {
         <h2 className='p-item-top'>{props.username}</h2>
       </div>
       <div className='profile-container profile-info-count'>
-        <p className='p-filling' onClick={() => props.setShowGallery(true)}><span>{props.NoPost}</span>Posts</p>
-        <p className='p-filling' onClick={() => props.setShowGallery(false)} ><span>{props.UF}</span>Followers</p>
-        <p className='p-filling' onClick={() => props.setShowGallery(false)}><span>{props.FBU}</span>Following</p>
+        <button onClick={() => props.setContent('gallery')}>{props.NoPost} Posts</button>
+        <button onClick={() => props.setContent('followers')} >{props.followersCount} Followers</button>
+        <button onClick={() => props.setContent('following')}>{props.followingCount} Following</button>
       </div>
 
     </div >

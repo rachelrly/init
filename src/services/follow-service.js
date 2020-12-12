@@ -17,11 +17,13 @@ const FollowService = {
             );
     },
     getFollowListWithUserId(id) {
-        return fetch(`${config.API_ENDPOINT}/follow`, {
+        //set up own dynamic endpoint
+        return fetch(`${config.API_ENDPOINT}/follow/${id}`, {
+            method: 'GET',
             headers: {
+                'content-type': 'application/json',
                 'Authorization': `bearer ${TokenService.getAuthToken()}`,
-            },
-            body: JSON.stringify({ id })
+            }
         })
             .then(res =>
                 (!res.ok)

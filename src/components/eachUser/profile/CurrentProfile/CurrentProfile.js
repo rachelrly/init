@@ -5,14 +5,14 @@ import UserContext from '../../../../contexts/userContext';
 import config from '../../../../config';
 import TokenService from '../../../../services/token-service';
 import '../../../../css/Portfolio.css';
-import FollowList from '../../profilePage/FollowList/FollowList';
+import FollowList from '../../profile/FollowList/FollowList';
 
 
 export default function Profile(props) {
 
   const userContext = useContext(UserContext);
   const [user, setUser] = useState({});
-  const [showGallery, setShowGallery] = useState(true)
+  const [content, setContent] = useState('gallery')
 
   const getuserInfo = async () => {
 
@@ -43,14 +43,15 @@ export default function Profile(props) {
     return () => setUser({})
   }, []);
 
+
   return (
     <Fragment>
       {user
         ? <Fragment>
-          <ProfileTop {...user} setShowGallery={(g) => setShowGallery(g)} />
-          {showGallery
+          <ProfileTop {...user} setContent={(g) => setContent(g)} followingCount={userContext.user.following.length} followersCount={userContext.user.followers.length} />
+          {content === 'gallery'
             ? <Gallery type='current' user={user} />
-            : <FollowList />
+            : <FollowList type={content} followers={userContext.user.followers} following={userContext.user.following} />
           }
         </Fragment>
         : null

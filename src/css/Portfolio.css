@@ -79,16 +79,22 @@
     /* margin: 2.5px; */
 }
 
-
+.profile-container button{
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+}
 ul {
     list-style: none;
 }
 
-.profile-info-wrapper span{
+/* .profile-info-wrapper span{
     font-size: calc(var(--font-size-sm)* 1.4);
     color: var(--colors-accent);
     padding: var(--spacer-sm);
-}
+} */
 
 .profile-container{
     width: inherit;

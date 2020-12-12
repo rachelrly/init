@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import PublicOnlyRoute from '../publicRoute/PublicOnlyRoute/PublicOnlyRoute';
 import PrivateRoute from '../eachUser/PrivateRoute/PrivateRoute';
 import Yo from '../publicRoute/Yo/Yo';
-import FollowList from '../eachUser/profilePage/FollowList/FollowList';
+//import FollowList from '../eachUser/profilePage/FollowList/FollowList';
 import Feed from '../currentUserOnly/Feed/Feed';
 import OtherProfile from '../eachUser/profile/OtherProfile/OtherProfile';
 import CurrentProfile from '../eachUser/profile/CurrentProfile/CurrentProfile';
@@ -49,10 +49,10 @@ class App extends Component {
                     path={'/avatarupload'}
                     component={AvatarForm}
                 />
-                <PrivateRoute
+                {/* <PrivateRoute
                     path={'/connections'}
                     component={FollowList}
-                />
+                /> */}
                 <PrivateRoute
                     path={'/newProject'}
                     component={PostForm}
@@ -71,10 +71,10 @@ class App extends Component {
                     path={'/user/:id'}
                     component={OtherProfile}
                 />
-                <PrivateRoute
+                {/* <PrivateRoute
                     path={'/user/:id/connections'}
                     component={FollowList}
-                />
+                /> */}
             </Switch>
         );
     };
