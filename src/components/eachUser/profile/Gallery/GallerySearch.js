@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import TokenService from '../../../../services/token-service'
 
-export default function useGallerySearch(observed, pageNumber, limit, type) {
+export default function useGallerySearch(observed, pageNumber, limit, user_id = null) {
 
     /*This custom hook handles the infinite scroll with pagination*/
 
@@ -25,7 +25,7 @@ export default function useGallerySearch(observed, pageNumber, limit, type) {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
-            params: { page: pageNumber, limit: limit },
+            params: { page: pageNumber, limit: limit, id: user_id },
             cancelToken: axios.CancelToken(c => cancel = c)
         }).then(res => {
 
@@ -44,9 +44,5 @@ export default function useGallerySearch(observed, pageNumber, limit, type) {
         return () => cancel()
     }, [pageNumber]);
 
-    return () => {
-        setResults([])
-        hasMore(null)
-    }
-    // return { loading, error, results, hasMore };
+    return { loading, error, results, hasMore };
 };

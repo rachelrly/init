@@ -14,6 +14,7 @@ export default function Gallery(props) {
   //Here we destructure our useBookSearch
   const { results, hasMore, loading, error } = props.type === 'current' ? GallerySearch(observed, pageNumber, limit) : GallerySearch(observed, pageNumber, limit, props.id);
 
+
   const observer = useRef();
 
   const lastResultElementRef = useCallback(node => {

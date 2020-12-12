@@ -9,7 +9,8 @@ import PrivateRoute from '../eachUser/PrivateRoute/PrivateRoute';
 import Yo from '../publicRoute/Yo/Yo';
 import FollowList from '../eachUser/profilePage/FollowList/FollowList';
 import Feed from '../currentUserOnly/Feed/Feed';
-import Profile from '../eachUser/profile/Profile/Profile';
+import OtherProfile from '../eachUser/profile/OtherProfile/OtherProfile';
+import CurrentProfile from '../eachUser/profile/CurrentProfile/CurrentProfile';
 import AccountRoute from '../../routes/AccountRoute/AccountRoute';
 import AvatarForm from '../currentUserOnly/uploadForms/AvatarForm/AvatarForm';
 import PostForm from '../currentUserOnly/uploadForms/PostForm/PostForm';
@@ -58,7 +59,7 @@ class App extends Component {
                 />
                 <PrivateRoute
                     path={'/portfolio'}
-                    component={Profile}
+                    component={CurrentProfile}
                 />
                 <PrivateRoute
                     path={'/users'}
@@ -68,7 +69,7 @@ class App extends Component {
                 //for all users
                 <PrivateRoute
                     path={'/user/:id'}
-                    component={Profile}
+                    component={OtherProfile}
                 />
                 <PrivateRoute
                     path={'/user/:id/connections'}

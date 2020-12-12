@@ -9,7 +9,7 @@ import '../../../../css/Portfolio.css';
 
 
 export default function Profile(props) {
-  const { id } = useParams();
+
   const userContext = useContext(UserContext);
   const [user, setUser] = useState({});
 
@@ -17,9 +17,8 @@ export default function Profile(props) {
 
   const getuserInfo = async () => {
 
-    let info_id = !id ? userContext.user.id : id;
     try {
-      const userInfo = await fetch(`${config.API_ENDPOINT}/user/user/${info_id}`, {
+      const userInfo = await fetch(`${config.API_ENDPOINT}/user/user/${userContext.user.id}`, {
         method: "GET",
         headers: {
           'authorization': `bearer ${TokenService.getAuthToken()}`
@@ -40,9 +39,7 @@ export default function Profile(props) {
 
   useEffect(() => {
 
-    console.log('COMPONENT MOUNTED')
-
-    getuserInfo(id);
+    getuserInfo(userContext.user.id);
 
     return () => setUser({})
   }, []);
@@ -52,7 +49,7 @@ export default function Profile(props) {
       {user
         ? <Fragment>
           <ProfileTop {...user} />
-          <Gallery id={user.id} type={!id ? 'current' : 'other'} />
+          <Gallery type='current' />
         </Fragment>
         : null
       }
