@@ -35,6 +35,7 @@ export default function Profile(props) {
   useEffect(() => {
 
     getuserInfo(id);
+    //get follow list and pass down
 
     return () => setUser({})
   }, []);

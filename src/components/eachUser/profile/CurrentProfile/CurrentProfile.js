@@ -1,17 +1,18 @@
-import React, { useState, useContext, useEffect, Fragment } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useState, useContext, useEffect, Fragment } from 'react';
 import Gallery from '../Gallery/Gallery';
 import ProfileTop from '../ProfileTop/ProfileTop'
 import UserContext from '../../../../contexts/userContext';
 import config from '../../../../config';
 import TokenService from '../../../../services/token-service';
 import '../../../../css/Portfolio.css';
+import FollowList from '../../profilePage/FollowList/FollowList';
 
 
 export default function Profile(props) {
 
   const userContext = useContext(UserContext);
   const [user, setUser] = useState({});
+  const [showGallery, setShowGallery] = useState(true)
 
   const getuserInfo = async () => {
 
@@ -43,14 +44,17 @@ export default function Profile(props) {
   }, []);
 
   return (
-    <div>
+    <Fragment>
       {user
         ? <Fragment>
-          <ProfileTop {...user} />
-          <Gallery type='current' user={user} />
+          <ProfileTop {...user} setShowGallery={(g) => setShowGallery(g)} />
+          {showGallery
+            ? <Gallery type='current' user={user} />
+            : <FollowList />
+          }
         </Fragment>
         : null
       }
-    </div>
+    </Fragment>
   )
 };

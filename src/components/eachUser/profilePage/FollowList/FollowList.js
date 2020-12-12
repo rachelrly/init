@@ -18,7 +18,7 @@ function FollowList(props) {
     });
 
     return (
-        <section>
+        <div className='follow-wrapper'>
             <div className='toggle-button-wrapper'>
                 <button className={toggleFollow ? 'active-toggle toggle-button' : 'toggle-button'} onClick={() => setToggleFollow(true)}>Followers</button>
                 <button className={!toggleFollow ? 'active-toggle toggle-button' : 'toggle-button'} onClick={() => setToggleFollow(false)}>Following</button>
@@ -26,7 +26,7 @@ function FollowList(props) {
             <div className='follow-list'>
                 {followList}
             </div>
-        </section>
+        </div>
     );
 };
 
