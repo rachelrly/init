@@ -11,7 +11,6 @@ import '../../../../css/Portfolio.css';
 export default function Profile(props) {
   const { id } = useParams();
   const [user, setUser] = useState({});
-  console.log('Number of posts', user.NoPost)
   const getuserInfo = async () => {
     try {
       const userInfo = await fetch(`${config.API_ENDPOINT}/user/user/${id}`, {
@@ -46,7 +45,7 @@ export default function Profile(props) {
       {user
         ? <Fragment>
           <ProfileTop {...user} />
-          {user.NoPost == 0 ? null : <Gallery id={user.id} type='other' />}
+          {user.NoPost == 0 ? null : <Gallery id={user.id} type='other' user={user} />}
         </Fragment>
         : null
       }

@@ -36,6 +36,16 @@ export default function Gallery(props) {
 
   }, [loading, hasMore]);
 
+  useEffect(() => {
+
+
+    return () => {
+      setObserver(false)
+      setPageNumber(1)
+
+    }
+  }, []);
+
   return (
     <>
 
@@ -45,7 +55,7 @@ export default function Gallery(props) {
           <div className='gallery'>
             {results.map((project, index) => (results.length === index + 1)
               ? <div key={project.id} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
-              : <div key={project.id} className='project-wrapper'><Post {...project} /> </div>
+              : <div key={project.id} className='project-wrapper'><Post {...project} {...props.user} /> </div>
             )}
           </div>
           <div>{loading && 'Loading...'}</div>

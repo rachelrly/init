@@ -13,8 +13,6 @@ export default function Profile(props) {
   const userContext = useContext(UserContext);
   const [user, setUser] = useState({});
 
-  console.log('CURRENT USER', user)
-
   const getuserInfo = async () => {
 
     try {
@@ -49,7 +47,7 @@ export default function Profile(props) {
       {user
         ? <Fragment>
           <ProfileTop {...user} />
-          <Gallery type='current' />
+          <Gallery type='current' user={user} />
         </Fragment>
         : null
       }
