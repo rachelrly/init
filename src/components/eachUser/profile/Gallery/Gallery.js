@@ -1,19 +1,18 @@
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import GallerySearch from './GallerySearch';
 import Post from '../../post/Post/Post';
-import ProfileTop from '../ProfileTop/ProfileTop';
 
-export default function Gallery() {
+export default function Gallery(props) {
   /*This component displays the paginated content for each user's profile*/
-
+  console.log('GALLERY MOUNTED', props.type)
   const [observed, setObserver] = useState(false);
 
   const [pageNumber, setPageNumber] = useState(1);
   const [limit] = useState(2);
 
   //Here we destructure our useBookSearch
-  const { results, hasMore, loading, error } = GallerySearch(observed, pageNumber, limit);
+  const { results, hasMore, loading, error } = props.type === 'current' ? GallerySearch(observed, pageNumber, limit) : GallerySearch(observed, pageNumber, limit, props.id);
 
   const observer = useRef();
 
@@ -39,7 +38,7 @@ export default function Gallery() {
   return (
     <>
 
-      {!results.length
+      {!results
         ? null
         : <div>
           <div className='gallery'>

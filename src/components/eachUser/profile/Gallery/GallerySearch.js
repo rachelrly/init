@@ -43,5 +43,10 @@ export default function useGallerySearch(observed, pageNumber, limit, type) {
         })
         return () => cancel()
     }, [pageNumber]);
-    return { loading, error, results, hasMore };
+
+    return () => {
+        setResults([])
+        hasMore(null)
+    }
+    // return { loading, error, results, hasMore };
 };

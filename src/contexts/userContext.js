@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthApiService from '../services/auth-api-service';
 import TokenService from '../services/token-service';
 import IdleService from '../services/idle-service';
+import FollowService from '../services/follow-service';
 
 const UserContext = React.createContext({
     user: {},
@@ -37,8 +38,6 @@ export class UserProvider extends Component {
                 email: jwtPayload.email,
                 about_user: jwtPayload.about_user,
                 user_stack: jwtPayload.user_stack,
-                following: jwtPayload.user_follows,
-                followers: jwtPayload.follows_user
             };
 
         this.state = state;
@@ -46,7 +45,21 @@ export class UserProvider extends Component {
     };
 
     componentDidMount() {
+
+        const getFollows = async () => {
+            const { followingUser, followedByUser } = await FollowService.getFollowLists();
+
+            const user = {
+                ...this.state.user,
+                following: followedByUser,
+                followers: followingUser
+            }
+
+            this.setUser(user);
+        }
+
         if (TokenService.hasAuthToken()) {
+
             IdleService.regiserIdleTimerResets()
             TokenService.queueCallbackBeforeExpiry(() => {
                 this.fetchRefreshToken()
@@ -55,6 +68,10 @@ export class UserProvider extends Component {
             if (!this.state.isLoggedIn) {
                 this.setIsLoggedIn();
             };
+
+            if (!this.state.user.following) {
+                getFollows();
+            }
         };
     }
 
@@ -86,9 +103,12 @@ export class UserProvider extends Component {
         this.setState({ isLoggedIn: !this.state.isLoggedIn });
     };
 
-    processLogin = authToken => {
+    processLogin = async authToken => {
         TokenService.saveAuthToken(authToken);
         const jwtPayload = TokenService.parseAuthToken();
+
+        const { followingUser, followedByUser } = await FollowService.getFollowLists();
+
         this.setUser({
             id: jwtPayload.user_id,
             fullname: jwtPayload.fullname,
@@ -96,8 +116,9 @@ export class UserProvider extends Component {
             email: jwtPayload.email,
             about_user: jwtPayload.about_user,
             user_stack: jwtPayload.user_stack,
-            following: jwtPayload.user_follows,
-            followers: jwtPayload.follows_user
+            following: followedByUser,
+            followers: followingUser
+
         });
         IdleService.regiserIdleTimerResets();
         TokenService.queueCallbackBeforeExpiry(() => {
@@ -123,7 +144,7 @@ export class UserProvider extends Component {
         this.setUser({ idle: true });
     }
 
-    fetchRefreshToken = () => {
+    fetchRefreshToken = async () => {
         AuthApiService.refreshToken()
             .then(res => {
                 TokenService.saveAuthToken(res.authToken)
@@ -134,6 +155,14 @@ export class UserProvider extends Component {
             .catch(err => {
                 this.setError(err)
             });
+
+        const { followingUser, followedByUser } = await FollowService.getFollowLists();
+        const user = {
+            ...this.state.user,
+            following: followedByUser,
+            followers: followingUser
+        }
+        this.setUser(user);
     };
 
     render() {

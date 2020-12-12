@@ -38,7 +38,4 @@ form {
     display: flex;
 }
 
-.upload-avatar-button{
-    padding: var(--spacer-sm);
-}
 
