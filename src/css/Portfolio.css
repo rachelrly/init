@@ -59,10 +59,13 @@
    max-width: 750px;
 }
 
-.view-wrapper{
-    width: 33vw;
-    height: 33vw;
-    margin: 2.5vw;
+.view-wrapper,
+.project-wrapper{
+    width: 30vw;
+    max-width: 300px;
+    max-height: 300px;
+    height: 30vw;
+    margin: 2vw;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -75,18 +78,9 @@
 } */
 
 .gallery-img {
-    width: 100%;
-   
-    /* margin: 2.5px; */
+    height: 100%;
 }
-.project-wrapper{
-    max-width: 350px;
-    max-height: 350px;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    margin-bottom: var(--spacer-lg);
-}
+
 .profile-container button{
     width: 120px;
     display: flex;
@@ -129,13 +123,3 @@ ul {
 
 
 }
-/* 
-@media all and (min-width: 1000px) {
-   
-
-    .img-container {
-        flex-basis: 32%;
-        height: 45vh;
-        margin: 5px;
-    }
-} */

@@ -14,6 +14,7 @@ const UserContext = React.createContext({
     clearError: () => { },
     setUser: () => { },
     setUserFollowing: () => { },
+    setUserFollows: () => { },
     processLogin: () => { },
     processLogout: () => { },
 
@@ -28,7 +29,7 @@ export class UserProvider extends Component {
         const state = {
             user: {},
             error: null,
-            loading: true
+            loading: false
         }
 
         const jwtPayload = TokenService.parseAuthToken();
@@ -100,7 +101,13 @@ export class UserProvider extends Component {
         this.setState({
             user: { ...this.state.user, following }
         })
-    }
+    };
+
+    setUserFollows = follows => {
+        this.setState({
+            user: { ...this.state.user, ...follows }
+        })
+    };
 
     setIsLoggedIn = () => {
         this.setState({ isLoggedIn: !this.state.isLoggedIn });
@@ -190,6 +197,7 @@ export class UserProvider extends Component {
             clearError: this.clearError,
             setUser: this.setUser,
             setUserFollowing: this.setUserFollowing,
+            setUserFollows: this.setUserFollows,
             processLogin: this.processLogin,
             processLogout: this.processLogout,
 

@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useContext } from 'react';
 import InitContentApiService from '../../../services/init-content-api-service';
-import FollowService from '../../../services/follow-service';
 import DisplayUser from '../../eachUser/profile/DisplayUser/DisplayUser';
+import UserContext from '../../../contexts/userContext';
+import Loading from '../../Loading/Loading';
+import { useCheckandGetFollows } from '../../../hooks/useIsFollowing';
 
 function AllUserList() {
   const [allUsers, setAllUsers] = useState([]);
+  const { isLoading, setLoading } = useContext(UserContext);
+
+  // useCheckandGetFollows();
 
   useEffect(() => {
+
     getUsers();
 
   }, [])
@@ -14,6 +20,7 @@ function AllUserList() {
   const getUsers = async () => {
     const users = await InitContentApiService.getAllUsers();
     setAllUsers(users);
+    setLoading(false);
   }
 
   const userList = allUsers.map((f, index) => {
@@ -24,9 +31,15 @@ function AllUserList() {
 
   return (
 
-    <div className='follow-list all-user-wrapper'>
-      {userList}
-    </div>
+    <Fragment>
+      {isLoading
+        ? <Loading />
+        : <div className='follow-list all-user-wrapper'>
+          {userList}
+        </div>
+      }
+    </Fragment>
+
 
   )
 }

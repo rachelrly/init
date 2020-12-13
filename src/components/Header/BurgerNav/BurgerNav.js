@@ -12,8 +12,7 @@ function BurgerNav() {
     
     return (
         <div className='burger-and-nav' >
-            {
-                showNav
+            {showNav
                     ? <div
                         onClick={() => setShowNav(!showNav)}
                         onKeyDown={e => e.key === 'Enter' ? setShowNav(!showNav) : null}
@@ -51,25 +50,25 @@ function BurgerNav() {
 
                             {TokenService.hasAuthToken()
                                 ? <Fragment>
-                                    < div className='navigation-item nav-item-one' onClick={() => setShowNav(true)}>
-                                        <Link to='/feed' className='navigation-link'>
-                                            feed
-                            </Link>
+                                    < div className='navigation-item nav-item-one' onClick={() => {
+                                        setShowNav(true)
+                                        userContext.setLoading(true)
+                                        }}>
+                                        <Link to='/feed' className='navigation-link'>feed</Link>
                                     </div>
-                                    < span className='navigation-item nav-item-two' onClick={() => setShowNav(true)}>
-                                        <Link to='/portfolio' className='navigation-link'>
-                                            profile
-                            </Link>
+                                    < span className='navigation-item nav-item-two' onClick={() => {
+                                        setShowNav(true)
+                                        userContext.setLoading(true)}}>
+                                        <Link to='/portfolio' className='navigation-link'>profile</Link>
                                     </span>
-                                    <span className='navigation-item nav-item-three' onClick={() => setShowNav(true)}>
-                                        <Link to='/users' className='navigation-link'>
-                                            users
-                            </Link>
+                                    <span className='navigation-item nav-item-three' onClick={() => {
+                                        setShowNav(true)
+                                        userContext.setLoading(true)}}>
+
+                                        <Link to='/users' className='navigation-link'>user</Link>
                                     </span>
                                     <span className='navigation-item nav-item-four' onClick={() => setShowNav(true)}>
-                                        <Link to='/account' className='navigation-link'>
-                                            account
-                            </Link>
+                                        <Link to='/account' className='navigation-link'>account</Link>
                                     </span>
                                     
                                     <span
