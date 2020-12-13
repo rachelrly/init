@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../../css/variables.css';
 import '../../css/main.css';
@@ -17,9 +17,18 @@ import PostForm from '../currentUserOnly/uploadForms/PostForm/PostForm';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
 import AllUserList from '../currentUserOnly/AllUserList/AllUserList';
+import UserContext from '../../contexts/userContext';
 
-class App extends Component {
-    renderRoutes() {
+
+function App() {
+    //get context
+    //if context is true in loading
+    //loading is true
+    //contditionally render 
+
+    const { isLoading } = useContext(UserContext);
+
+    const renderRoutes = () => {
         return (
             <Switch>
                 <PublicOnlyRoute
@@ -71,24 +80,20 @@ class App extends Component {
                     path={'/user/:id'}
                     component={OtherProfile}
                 />
-                {/* <PrivateRoute
-                    path={'/user/:id/connections'}
-                    component={FollowList}
-                /> */}
             </Switch>
         );
     };
 
-    render() {
-        return (
-            <div className="App">
-                <Header />
-                <main>
-                    {this.renderRoutes()}
-                </main>
-            </div>
-        );
-    };
+
+    return (
+        <div className="App">
+            <Header />
+            <main>
+                {renderRoutes()}
+            </main>
+        </div>
+    );
+
 };
 
 export default App;

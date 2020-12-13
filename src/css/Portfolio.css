@@ -20,7 +20,8 @@
 
 .profile-info-wrapper{
     display: flex;
-    width: 100%;
+    width: inherit;
+    max-width: 750px;
     justify-content: space-between;
     align-items: center;
     padding: var(--spacer-sm);
@@ -49,7 +50,7 @@
 
 
 .gallery, .Feed {
-    width: 100%;
+    width: inherit;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +59,7 @@
    max-width: 750px;
 }
 
-.img-preview-wrapper{
+.view-wrapper{
     width: 33vw;
     height: 33vw;
     margin: 2.5vw;
@@ -78,7 +79,14 @@
    
     /* margin: 2.5px; */
 }
-
+.project-wrapper{
+    max-width: 350px;
+    max-height: 350px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: var(--spacer-lg);
+}
 .profile-container button{
     width: 120px;
     display: flex;
@@ -90,41 +98,44 @@ ul {
     list-style: none;
 }
 
-/* .profile-info-wrapper span{
-    font-size: calc(var(--font-size-sm)* 1.4);
-    color: var(--colors-accent);
-    padding: var(--spacer-sm);
-} */
-
 .profile-container{
     width: inherit;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
+.profile-info-count{
+    margin-top: var(--spacer-sm);
+    justify-content: center;
+}
+.profile-info-user{
+    justify-content: space-between;
+    padding: var(--spacer-sm);
+}
 @media all and (min-width: 500px) {
 
-    /* .gallery-page-wrapper{
-        width: 80%;
-    } */
-    
     .profile-info-wrapper{
         flex-direction: row;
     }
-}
+    .profile-info-user{
+        flex-direction: column;
+        align-items: flex-start;
+        padding-right: var(--spacer-sm);
+        justify-content: center;
+    }
+    .profile-info-count{
+        margin-top: 0;
+    }
 
+
+}
+/* 
 @media all and (min-width: 1000px) {
-    /* .gallery {
-        margin-left: 2.5rem;
-    } */
+   
 
     .img-container {
         flex-basis: 32%;
         height: 45vh;
         margin: 5px;
     }
-    .gallery-page-wrapper{
-        width: 65%;
-    }
-}
+} */

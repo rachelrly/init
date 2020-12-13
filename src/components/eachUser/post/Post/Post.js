@@ -19,10 +19,8 @@ function Post(props) {
 
     }, [])
 
-    console.log(props)
 
     const onKeyDown = e => {
-        console.log('key down ran in post.js')
         if (e.keyCode === 27 && !props.toggleOpen) {
             props.setToggleOpen(true)
         }
@@ -32,13 +30,13 @@ function Post(props) {
 
         <Fragment>
             { props.post_image_file
-                ? <div className='img-preview-wrapper'>
-                    <img className='gallery-img'
-                        onClick={() => setToggleOpen(!toggleOpen)}
-                        alt={`project ${props.post_title}`}
-                        src={props.post_image_file ? `data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}` : undefined}
-                    />
-                </div>
+                ?
+                <img className='gallery-img'
+                    onClick={() => setToggleOpen(!toggleOpen)}
+                    alt={`project ${props.post_title}`}
+                    src={props.post_image_file ? `data:image/${props.post_image_type};base64,${buffTo64(props.post_image_file.data)}` : undefined}
+                />
+
                 : <div className='img-preview-wrapper'>
                     <h3>{props.post_title}</h3>
                 </div>}

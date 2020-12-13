@@ -1,11 +1,13 @@
 
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect, Fragment, useContext } from 'react';
 import GallerySearch from './GallerySearch';
 import Post from '../../post/Post/Post';
+import UserContext from '../../../../contexts/userContext';
+import Loading from '../../../Loading/Loading';
 
 export default function Gallery(props) {
   /*This component displays the paginated content for each user's profile*/
-  console.log('GALLERY MOUNTED', props.type)
+
   const [observed, setObserver] = useState(false);
 
   const [pageNumber, setPageNumber] = useState(1);
@@ -16,6 +18,14 @@ export default function Gallery(props) {
 
 
   const observer = useRef();
+
+  const { isLoading, setLoading } = useContext(UserContext);
+
+  if (isLoading && results.length) {
+    console.log('this ran')
+    setLoading(false)
+  }
+
 
   const lastResultElementRef = useCallback(node => {
     if (loading) return;
@@ -47,22 +57,22 @@ export default function Gallery(props) {
   }, []);
 
   return (
-    <>
+    <Fragment>
 
-      {!results
-        ? null
-        : <div>
+      {isLoading
+        ? <Loading />
+        : <Fragment>
           <div className='gallery'>
             {results.map((project, index) => (results.length === index + 1)
               ? <div key={project.id} className='project-wrapper' ref={lastResultElementRef} ><Post {...project} /></div>
               : <div key={project.id} className='project-wrapper'><Post {...project} {...props.user} /> </div>
             )}
+
           </div>
-          <div>{loading && 'Loading...'}</div>
-          <div>{error && 'Error'}</div>
-        </div>
+          <p>{loading && 'Loading...'}</p>
+        </Fragment>
       }
-    </>
+    </Fragment>
   );
 
 };

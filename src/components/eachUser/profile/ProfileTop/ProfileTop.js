@@ -14,9 +14,9 @@ function ProfileTop(props) {
         <h2 className='p-item-top'>{props.username}</h2>
       </div>
       <div className='profile-container profile-info-count'>
-        <button onClick={() => props.setContent('gallery')}>{props.NoPost} Posts</button>
-        <button onClick={() => props.setContent('followers')} >{props.followersCount} Followers</button>
-        <button onClick={() => props.setContent('following')}>{props.followingCount} Following</button>
+        <button className={props.type === 'gallery' ? 'toggle-active' : null} onClick={() => props.setContent('gallery')}>{props.NoPost} Posts</button>
+        <button className={props.type === 'followers' ? 'toggle-active' : null} onClick={() => props.setContent('followers')} >{props.followersCount} Followers</button>
+        <button className={props.type === 'following' ? 'toggle-active' : null} onClick={() => props.setContent('following')}>{props.followingCount} Following</button>
       </div>
 
     </div >

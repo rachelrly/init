@@ -1,15 +1,21 @@
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useContext, Fragment } from 'react';
 import FeedSearch from './FeedSearch';
-import Post from '../../eachUser/post/Post/Post'
+import Post from '../../eachUser/post/Post/Post';
+import UserContext from '../../../contexts/userContext';
+import Loading from '../../Loading/Loading';
 
 export default function Feed() {
   const [observed, setObserver] = useState(false);
-
   const [pageNumber, setPageNumber] = useState(1);
   const [limit] = useState(2);
   const { results, hasMore, loading, error } = FeedSearch(observed, pageNumber, limit);
 
+  const { isLoading, setLoading } = useContext(UserContext);
+
+  if (isLoading && results.length) {
+    setLoading(false)
+  }
 
   const observer = useRef();
 
@@ -29,9 +35,9 @@ export default function Feed() {
   }, [loading, hasMore]);
 
   return (
-    <>
-      {!results.length
-        ? null
+    <Fragment>
+      {isLoading
+        ? <Loading />
         : <div>
           <div className='Feed'>
             {results.map((project, index) => (results.length === index + 1)
@@ -43,7 +49,7 @@ export default function Feed() {
           <div>{error && 'Error'}</div>
         </div>
       }
-    </>
+    </Fragment>
   );
 
 };

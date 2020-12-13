@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import InitContentContext from '../../../contexts/initContentContext';
 import InitContentApiService from '../../../services/init-content-api-service';
-import AvatarDefault from '../../../Images/avatar-default.png';
 import { buffTo64 } from '../../Utils/Utils';
-import { FaUserEdit } from 'react-icons/fa';
 import { IconContext } from "react-icons";
+import '../../../css/Account.css';
+import ProfilePic from '../../eachUser/ProfilePic/ProfilePic'
 
 class AccountInformation extends Component {
 
@@ -31,21 +31,13 @@ class AccountInformation extends Component {
 
         if (!currentAvatar.length) {
             return (
-                <img
-                    className='circular-landscape'
-                    src={AvatarDefault}
-                    alt='avatar-default-logo'
-                />
+                <ProfilePic />
             );
         } else {
             return (
-                <div className='circular-landscape'>
-                    <img
+                <ProfilePic image={`data:image/${currentAvatar[0].img_type};base64,${buffTo64(currentAvatar[0].img_file.data)}`}
+                />
 
-                        alt='current-user-avatar'
-                        src={`data:image/${currentAvatar[0].img_type};base64,${buffTo64(currentAvatar[0].img_file.data)}`}
-                    />
-                </div>
             );
         };
     };
@@ -55,20 +47,15 @@ class AccountInformation extends Component {
 
         return (
             <IconContext.Provider value={{ color: 'var(--colors-icon-main)', className: "upload-avatar", size: '2em' }}>
-                <div className='account-avatar-wrapper'>
-                    {this.renderAvatar()}
-                    <div className='update-avatar-link'>
-                        <Link
-                            to='/avatarupload'
-                        >
-
-                            <button className='upload-avatar-button'>
-                                <FaUserEdit className='upload-icon' />
-                            </button>
-
+                <div className='account-wrapper'>
+                    <div className='account-avatar-wrapper'>
+                        {this.renderAvatar()}
+                        <Link to='/avatarupload'>
+                            <button className='upload-avatar-button'>Change avatar</button>
                         </Link>
                     </div>
                 </div>
+
                 <div className='account-info-wrapper'>
                     <div>
                         <span className='label'>full name</span>

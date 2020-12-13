@@ -10,9 +10,6 @@ function BurgerNav() {
 
     const [showNav, setShowNav] = useState(true);
     
-    // <img src={HiveFeed} alt='Feed link logo' className='navIcon'/>
-    // <img src={Buzz} alt='Buzz link logo' className='navIcon'/>
-    
     return (
         <div className='burger-and-nav' >
             {

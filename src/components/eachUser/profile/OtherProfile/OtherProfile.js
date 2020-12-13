@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect, Fragment } from 'react'
+import React, { useState, useContext, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import Gallery from '../Gallery/Gallery';
-import ProfileTop from '../ProfileTop/ProfileTop'
-import UserContext from '../../../../contexts/userContext';
+import ProfileTop from '../ProfileTop/ProfileTop';
 import config from '../../../../config';
 import TokenService from '../../../../services/token-service';
 import '../../../../css/Portfolio.css';
@@ -53,19 +52,18 @@ export default function Profile(props) {
       setFollowers([])
     }
   }, [id]);
-  console.log(user)
 
   return (
-    <div>
+    <Fragment>
       {following.length || user.UFB
         ? <Fragment>
-          <ProfileTop {...user} setContent={c => setContent(c)} followersCount={user.UF} followingCount={user.FBU} />
+          <ProfileTop {...user} type={content} setContent={c => setContent(c)} followersCount={user.UF} followingCount={user.FBU} />
           {content === 'gallery'
             ? <Fragment>{user.NoPost == 0 ? <p>This user has no posts.</p> : <Gallery id={user.id} type='other' user={user} />}</Fragment>
             : <FollowList type={content} following={following} followers={followers} />}
         </Fragment>
         : null
       }
-    </div>
+    </Fragment>
   )
 };

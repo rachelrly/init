@@ -1,0 +1,6 @@
+.account-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  max-width: 750px;
+}

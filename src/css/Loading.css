@@ -1,0 +1,32 @@
+@keyframes loader{
+  0%{
+    transform: scale(0.5);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(0.5);
+  }
+}
+
+
+.loading-wrapper{
+  width: inherit;
+  height: 100%;
+  min-height: 70vh;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.loading{
+  height: 70vh;
+  animation-name: loader;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  position: relative;
+
+}

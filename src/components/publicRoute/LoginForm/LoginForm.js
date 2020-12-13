@@ -1,21 +1,15 @@
-import React, { Component } from 'react'
+import React, { useContext, Fragment, useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import AuthApiService from '../../../services/auth-api-service'
-import UserContext from '../../../contexts/userContext'
+import UserContext from '../../../contexts/userContext';
+import Loading from '../../Loading/Loading';
 
 
-class LoginForm extends Component {
-    static defaultProps = {
-        onLoginSuccess: () => { }
-    };
+function LoginForm(props) {
+    const userContext = useContext(UserContext);
+    const [error, setError] = useState(null);
 
-    static contextType = UserContext;
-
-    state = { error: null };
-
-    firstInput = React.createRef();
-
-    handleSubmit = ev => {
+    const handleSubmit = ev => {
         ev.preventDefault()
 
         const { username, user_password } = ev.target;
@@ -27,70 +21,70 @@ class LoginForm extends Component {
             .then(res => {
                 username.value = ''
                 user_password.value = ''
-                this.context.processLogin(res.authToken)
-                this.props.onLoginSuccess()
+                userContext.processLogin(res.authToken)
+                props.onLoginSuccess()
             })
             .catch(res => {
-                this.setState({ error: res.error.message })
+                setError(res.error)
             });
     };
 
-    componentDidMount() {
-        this.firstInput.current.focus();
-    };
-
-    render() {
-        const { error } = this.state
-        console.log(error)
-        return (
-            <form
-                className='LoginForm'
-                onSubmit={this.handleSubmit}
-            >
-                {error &&
-                    <p role='alert'
-                        className='error-message'
-                        aria-live='assertive'>{error}</p>}
-
-                <div>
-                    <label htmlFor='login-username-input'>username</label>
-                    <input
-                        ref={this.firstInput}
-                        id='login-username-input'
-                        name='username'
-                        type='text'
-                        required
-                        aria-required='true'
-                        autoComplete='username'
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor='login-password-input'>password</label>
-                    <input
-                        id='login-password-input'
-                        name='user_password'
-                        type='password'
-                        required
-                        aria-required='true'
-                        autoComplete='current-password'
-                    />
-                </div>
-                <button
-                    type='submit'
-                    className='form-button'
+    return (
+        <Fragment>
+            {userContext.isLoading
+                ? <Loading />
+                : <form
+                    className='LoginForm'
+                    onSubmit={(e) => handleSubmit(e)}
                 >
-                    logIn
+                    {error &&
+                        <p role='alert'
+                            className='error-message'
+                            aria-live='assertive'>{error}</p>}
+
+                    <div>
+                        <label htmlFor='login-username-input'>username</label>
+                        <input
+                            id='login-username-input'
+                            name='username'
+                            type='text'
+                            required
+                            aria-required='true'
+                            autoComplete='username'
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor='login-password-input'>password</label>
+                        <input
+                            id='login-password-input'
+                            name='user_password'
+                            type='password'
+                            required
+                            aria-required='true'
+                            autoComplete='current-password'
+                        />
+                    </div>
+                    <button
+                        type='submit'
+                        className='form-button'
+                    >
+                        logIn
                     </button>
-                <Link
-                    to='/register'
-                >
-                    create an account
+                    <Link
+                        to='/register'
+                    >
+                        create an account
                         </Link>
 
-            </form>
-        );
-    };
+                </form>}
+        </Fragment>
+    );
+
+};
+
+LoginForm.defaultProps = {
+    onLoginSuccess: () => { }
 };
 
 export default LoginForm;

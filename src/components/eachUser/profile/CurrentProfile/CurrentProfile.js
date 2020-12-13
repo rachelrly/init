@@ -6,6 +6,7 @@ import config from '../../../../config';
 import TokenService from '../../../../services/token-service';
 import '../../../../css/Portfolio.css';
 import FollowList from '../../profile/FollowList/FollowList';
+import Loading from '../../../Loading/Loading';
 
 
 export default function Profile(props) {
@@ -46,15 +47,10 @@ export default function Profile(props) {
 
   return (
     <Fragment>
-      {user
-        ? <Fragment>
-          <ProfileTop {...user} setContent={(g) => setContent(g)} followingCount={userContext.user.following.length} followersCount={userContext.user.followers.length} />
-          {content === 'gallery'
-            ? <Gallery type='current' user={user} />
-            : <FollowList type={content} followers={userContext.user.followers} following={userContext.user.following} />
-          }
-        </Fragment>
-        : null
+      <ProfileTop {...user} setContent={(g) => setContent(g)} followingCount={userContext.user.following ? userContext.user.following.length : user.FBU} followersCount={userContext.user.followers ? userContext.user.followers.length : user.UF} />
+      {content === 'gallery'
+        ? <Gallery type='current' user={user} />
+        : <FollowList type={content} followers={userContext.user.followers} following={userContext.user.following} />
       }
     </Fragment>
   )

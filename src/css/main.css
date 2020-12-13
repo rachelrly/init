@@ -62,7 +62,7 @@ a{
 
 .error-message {
     color: var(--colors-red);
-    width: 85vw;
+    width: inherit;
     text-align: center;
 }
 
@@ -130,9 +130,7 @@ main {
 }
 
 @media only screen and (min-width: 800px) {
-    .error-message {
-        width: 70vw;
-    }
+    
 
     body {
         background-image: none;

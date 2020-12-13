@@ -117,6 +117,8 @@ header{
     text-align: left;
     height: 50px;
     color: var(--colors-accent);
+    display: flex;
+    align-items: center;
     width: inherit;
     background-color: var(--colors-accent-light);
     padding: var(--spacer-sm);
