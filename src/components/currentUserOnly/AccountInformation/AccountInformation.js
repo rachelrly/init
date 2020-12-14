@@ -26,54 +26,31 @@ class AccountInformation extends Component {
             .catch(err => console.error(err))
     }
 
-    renderAvatar() {
-        const { currentAvatar } = this.state
-
-        if (!currentAvatar.length) {
-            return (
-                <ProfilePic />
-            );
-        } else {
-            return (
-                <ProfilePic image={`data:image/${currentAvatar[0].img_type};base64,${buffTo64(currentAvatar[0].img_file.data)}`}
-                />
-
-            );
-        };
-    };
 
     render() {
         const { user } = this.props.user;
+        const { currentAvatar } = this.state
 
         return (
             <IconContext.Provider value={{ color: 'var(--colors-icon-main)', className: "upload-avatar", size: '2em' }}>
                 <div className='account-wrapper'>
                     <div className='account-avatar-wrapper'>
-                        {this.renderAvatar()}
+                        <ProfilePic image={currentAvatar[0] ? `data:image/${currentAvatar[0].img_type};base64,${buffTo64(currentAvatar[0].img_file.data)}` : undefined}
+                        />
                         <Link to='/avatarupload'>
                             <button className='upload-avatar-button'>Change avatar</button>
                         </Link>
                     </div>
+
+                    <p>fullname: {user.fullname}</p>
+
+                    <p>email: {user.email}</p>
+
+                    <p>about: {user.about_user}</p>
+
                 </div>
 
-                <div className='account-info-wrapper'>
-                    <div>
-                        <span className='label'>full name</span>
-                        <span>{user.fullname}</span>
-                    </div>
-                    <div>
-                        <span className='label'>username</span>
-                        <span>{user.username}</span>
-                    </div>
-                    <div>
-                        <span className='label'>email</span>
-                        <span>{user.email}</span>
-                    </div>
-                    <div>
-                        <span className='label'>about</span>
-                        <span>{user.about_user}</span>
-                    </div>
-                </div>
+
             </IconContext.Provider>
         );
     };

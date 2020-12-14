@@ -3,4 +3,12 @@
   flex-direction: column;
   width: inherit;
   max-width: 750px;
+  padding: var(--spacer-sm);
+}
+
+.account-avatar-wrapper{
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
